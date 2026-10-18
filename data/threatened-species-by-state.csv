@@ -1,0 +1,205 @@
+﻿Kingdom,Threatened Status,State,Number of Species
+Plantae,Critically Endangered,ACT,5
+Plantae,Critically Endangered,NSW,106
+Plantae,Critically Endangered,NT,3
+Plantae,Critically Endangered,QLD,35
+Plantae,Critically Endangered,SA,16
+Plantae,Critically Endangered,TAS,36
+Plantae,Critically Endangered,VIC,24
+Plantae,Critically Endangered,WA,85
+Plantae,Critically Endangered,ACI,0
+Plantae,Critically Endangered,CKI,0
+Plantae,Critically Endangered,CI,2
+Plantae,Critically Endangered,CSI,0
+Plantae,Critically Endangered,JBT,1
+Plantae,Critically Endangered,NFI,15
+Plantae,Critically Endangered,HMI,0
+Plantae,Critically Endangered,AAT,0
+Plantae,Critically Endangered,CMA,0
+Plantae,Vulnerable,ACT,6
+Plantae,Vulnerable,NSW,181
+Plantae,Vulnerable,NT,23
+Plantae,Vulnerable,QLD,194
+Plantae,Vulnerable,SA,66
+Plantae,Vulnerable,TAS,31
+Plantae,Vulnerable,VIC,88
+Plantae,Vulnerable,WA,105
+Plantae,Vulnerable,ACI,0
+Plantae,Vulnerable,CKI,0
+Plantae,Vulnerable,CI,0
+Plantae,Vulnerable,CSI,0
+Plantae,Vulnerable,JBT,5
+Plantae,Vulnerable,NFI,15
+Plantae,Vulnerable,HMI,0
+Plantae,Vulnerable,AAT,0
+Plantae,Vulnerable,CMA,0
+Plantae,Endangered,ACT,7
+Plantae,Endangered,NSW,182
+Plantae,Endangered,NT,13
+Plantae,Endangered,QLD,109
+Plantae,Endangered,SA,53
+Plantae,Endangered,TAS,38
+Plantae,Endangered,VIC,63
+Plantae,Endangered,WA,223
+Plantae,Endangered,ACI,0
+Plantae,Endangered,CKI,0
+Plantae,Endangered,CI,1
+Plantae,Endangered,CSI,0
+Plantae,Endangered,JBT,1
+Plantae,Endangered,NFI,16
+Plantae,Endangered,HMI,0
+Plantae,Endangered,AAT,0
+Plantae,Endangered,CMA,0
+Plantae,Extinct,ACT,0
+Plantae,Extinct,NSW,9
+Plantae,Extinct,NT,0
+Plantae,Extinct,QLD,13
+Plantae,Extinct,SA,1
+Plantae,Extinct,TAS,4
+Plantae,Extinct,VIC,3
+Plantae,Extinct,WA,9
+Plantae,Extinct,ACI,0
+Plantae,Extinct,CKI,0
+Plantae,Extinct,CI,0
+Plantae,Extinct,CSI,0
+Plantae,Extinct,JBT,0
+Plantae,Extinct,NFI,1
+Plantae,Extinct,HMI,0
+Plantae,Extinct,AAT,0
+Plantae,Extinct,CMA,0
+Plantae,Conservation Dependent,ACT,0
+Plantae,Conservation Dependent,NSW,0
+Plantae,Conservation Dependent,NT,0
+Plantae,Conservation Dependent,QLD,0
+Plantae,Conservation Dependent,SA,0
+Plantae,Conservation Dependent,TAS,0
+Plantae,Conservation Dependent,VIC,0
+Plantae,Conservation Dependent,WA,0
+Plantae,Conservation Dependent,ACI,0
+Plantae,Conservation Dependent,CKI,0
+Plantae,Conservation Dependent,CI,0
+Plantae,Conservation Dependent,CSI,0
+Plantae,Conservation Dependent,JBT,0
+Plantae,Conservation Dependent,NFI,0
+Plantae,Conservation Dependent,HMI,0
+Plantae,Conservation Dependent,AAT,0
+Plantae,Conservation Dependent,CMA,0
+Plantae,Extinct in the wild,ACT,0
+Plantae,Extinct in the wild,NSW,0
+Plantae,Extinct in the wild,NT,0
+Plantae,Extinct in the wild,QLD,0
+Plantae,Extinct in the wild,SA,0
+Plantae,Extinct in the wild,TAS,0
+Plantae,Extinct in the wild,VIC,0
+Plantae,Extinct in the wild,WA,0
+Plantae,Extinct in the wild,ACI,0
+Plantae,Extinct in the wild,CKI,0
+Plantae,Extinct in the wild,CI,0
+Plantae,Extinct in the wild,CSI,0
+Plantae,Extinct in the wild,JBT,0
+Plantae,Extinct in the wild,NFI,0
+Plantae,Extinct in the wild,HMI,0
+Plantae,Extinct in the wild,AAT,0
+Plantae,Extinct in the wild,CMA,0
+Animalia,Critically Endangered,ACT,6
+Animalia,Critically Endangered,NSW,51
+Animalia,Critically Endangered,NT,11
+Animalia,Critically Endangered,QLD,52
+Animalia,Critically Endangered,SA,15
+Animalia,Critically Endangered,TAS,12
+Animalia,Critically Endangered,VIC,26
+Animalia,Critically Endangered,WA,24
+Animalia,Critically Endangered,ACI,4
+Animalia,Critically Endangered,CKI,1
+Animalia,Critically Endangered,CI,5
+Animalia,Critically Endangered,CSI,2
+Animalia,Critically Endangered,JBT,6
+Animalia,Critically Endangered,NFI,8
+Animalia,Critically Endangered,HMI,0
+Animalia,Critically Endangered,AAT,0
+Animalia,Critically Endangered,CMA,11
+Animalia,Vulnerable,ACT,27
+Animalia,Vulnerable,NSW,103
+Animalia,Vulnerable,NT,55
+Animalia,Vulnerable,QLD,94
+Animalia,Vulnerable,SA,81
+Animalia,Vulnerable,TAS,59
+Animalia,Vulnerable,VIC,74
+Animalia,Vulnerable,WA,92
+Animalia,Vulnerable,ACI,11
+Animalia,Vulnerable,CKI,8
+Animalia,Vulnerable,CI,11
+Animalia,Vulnerable,CSI,12
+Animalia,Vulnerable,JBT,36
+Animalia,Vulnerable,NFI,23
+Animalia,Vulnerable,HMI,16
+Animalia,Vulnerable,AAT,13
+Animalia,Vulnerable,CMA,47
+Animalia,Endangered,ACT,19
+Animalia,Endangered,NSW,103
+Animalia,Endangered,NT,37
+Animalia,Endangered,QLD,95
+Animalia,Endangered,SA,66
+Animalia,Endangered,TAS,41
+Animalia,Endangered,VIC,68
+Animalia,Endangered,WA,54
+Animalia,Endangered,ACI,9
+Animalia,Endangered,CKI,6
+Animalia,Endangered,CI,13
+Animalia,Endangered,CSI,7
+Animalia,Endangered,JBT,17
+Animalia,Endangered,NFI,10
+Animalia,Endangered,HMI,6
+Animalia,Endangered,AAT,5
+Animalia,Endangered,CMA,25
+Animalia,Extinct,ACT,0
+Animalia,Extinct,NSW,24
+Animalia,Extinct,NT,12
+Animalia,Extinct,QLD,20
+Animalia,Extinct,SA,22
+Animalia,Extinct,TAS,6
+Animalia,Extinct,VIC,10
+Animalia,Extinct,WA,22
+Animalia,Extinct,ACI,0
+Animalia,Extinct,CKI,0
+Animalia,Extinct,CI,4
+Animalia,Extinct,CSI,0
+Animalia,Extinct,JBT,0
+Animalia,Extinct,NFI,6
+Animalia,Extinct,HMI,0
+Animalia,Extinct,AAT,0
+Animalia,Extinct,CMA,0
+Animalia,Conservation Dependent,ACT,0
+Animalia,Conservation Dependent,NSW,6
+Animalia,Conservation Dependent,NT,1
+Animalia,Conservation Dependent,QLD,4
+Animalia,Conservation Dependent,SA,3
+Animalia,Conservation Dependent,TAS,5
+Animalia,Conservation Dependent,VIC,4
+Animalia,Conservation Dependent,WA,4
+Animalia,Conservation Dependent,ACI,1
+Animalia,Conservation Dependent,CKI,1
+Animalia,Conservation Dependent,CI,1
+Animalia,Conservation Dependent,CSI,2
+Animalia,Conservation Dependent,JBT,2
+Animalia,Conservation Dependent,NFI,4
+Animalia,Conservation Dependent,HMI,1
+Animalia,Conservation Dependent,AAT,0
+Animalia,Conservation Dependent,CMA,7
+Animalia,Extinct in the wild,ACT,0
+Animalia,Extinct in the wild,NSW,0
+Animalia,Extinct in the wild,NT,0
+Animalia,Extinct in the wild,QLD,0
+Animalia,Extinct in the wild,SA,0
+Animalia,Extinct in the wild,TAS,1
+Animalia,Extinct in the wild,VIC,0
+Animalia,Extinct in the wild,WA,0
+Animalia,Extinct in the wild,ACI,0
+Animalia,Extinct in the wild,CKI,0
+Animalia,Extinct in the wild,CI,0
+Animalia,Extinct in the wild,CSI,0
+Animalia,Extinct in the wild,JBT,0
+Animalia,Extinct in the wild,NFI,0
+Animalia,Extinct in the wild,HMI,0
+Animalia,Extinct in the wild,AAT,0
+Animalia,Extinct in the wild,CMA,0
