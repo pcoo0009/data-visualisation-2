@@ -1,50 +1,426 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>Document</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Project title] – FIT3179 Data Visualisation 2</title>
+  <meta name="description" content="[One-sentence summary of the story this page tells.]">
+  <meta name="author" content="[Your name]">
 
-    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css" />
+  <!-- Typography: swap Fraunces / Public Sans for a pairing that suits your topic (rubric: non-standard typeface matching the topic) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 
-    <link rel="stylesheet" href="css/layout.css">
-
-    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
-
-    <script src="js/vega_lite_vis.js"></script>
-
-
-
+  <!--
+  ===========================================================================
+  RUBRIC CHECKLIST (delete before submitting)
+  ---------------------------------------------------------------------------
+  [ ] 10+ charts (a small-multiples set counts as ONE chart). This page has img1–img10.
+  [ ] 3+ map idioms (appropriate projections). Max idiom mark halves if fewer than 3.
+  [ ] 8+ ADVANCED idioms (all maps count as advanced; bar/line/area/pie/scatter/bubble do not).
+  [ ] Everything built with Vega-Lite / Vega and its JSON is readable in this repo (json/ folder).
+  [ ] Whole page loads in a few MB or less; no horizontal scroll on a small laptop.
+  [ ] ONE scrolling page. No buttons or links that swap major sections.
+  [ ] Data from TWO different sources, most recent version, cited with URL.
+  [ ] Story in logical order; annotations on AND around charts; concise, correct grammar; no jargon.
+  [ ] Metadata: sources, author, date. Acknowledge any use of generative AI.
+  [ ] Interactivity only where it helps the story.
+  [ ] Layout in columns/rows, white space, aligned sight lines, consistent colour, clear hierarchy.
+  ===========================================================================
+  HOW TO SWAP A PLACEHOLDER FOR A REAL CHART
+  1. Save your spec as json/visN.vl.json (formatted, human-readable).
+  2. The script at the bottom of this page finds every <div class="chart" data-spec="…">,
+     loads the JSON, and replaces the placeholder image automatically.
+     If the JSON is missing, the placeholder simply stays.
+  3. Use  "width": "container"  in your specs so charts fill their card and never overflow.
+  ===========================================================================
+  -->
 </head>
 
 <body>
-    <div class="pure-g">
-        <div class="pure-u-1">
-            <img src="images/banner.png" />
-        </div>
-        <div class="pure-u-1-3">
-            <div id='text_div'>
-                <h1>The Index</h1>
-                <p>The annual European Backpacker Index, compiled by priceoftravel.com, is designed to help money-savy travellers find the cheapest European cities and plan an accurate budget for when they visit.
-                    <br> <br> Prices for most things like hostels, transportation and attractions are fixed and certain. However, prices for a 'budget lunch' or a pint of beer can vary depending on where you go. The index takes all of these factors into
-                    account to calculate the approximate price of a day in each city, including an overnight stay at a backpacker hostel.
-                    <br> <br> Here we review the top five cheapest European cities, as featured on the 2018 Index. Review the complete list of 59 cities at https://www.priceoftravel.com/1979/european- backpacker-index/.
-                </p>
-            </div>
-        </div>
-        <div class="pure-u-1-3">
-            <h1>The daily cost covers</h1>
-            <img src="images/center.png" />
-        </div>
-        <div class="pure-u-1-3">
-            <h1>The cheapest cities</h1>
-            <div id="bar_chart">
 
-            </div>
+  <!-- ================= HERO / INTRODUCTION ================= -->
+  <header class="hero">
+    <div class="page">
+      <p class="kicker">[Domain · e.g. Environment]</p>
+      <h1>[Project title that states the story]</h1>
+      <p class="lede">[Two sentences: why this matters to an average Australian reader, and what they will discover as they scroll.]</p>
+
+      <!-- Key figures: three quick numbers that hook the reader -->
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-num">[00]</div>
+          <p class="stat-label">[What this number means, in plain words]</p>
         </div>
+        <div class="stat">
+          <div class="stat-num">[00%]</div>
+          <p class="stat-label">[What this number means, in plain words]</p>
+        </div>
+        <div class="stat">
+          <div class="stat-num">[0000]</div>
+          <p class="stat-label">[What this number means, in plain words]</p>
+        </div>
+      </div>
+
+      <p class="byline">By [Your name] · [Date] · FIT3179 Data Visualisation 2, Monash University</p>
     </div>
-</body>
+  </header>
 
+  <main class="page">
+
+    <!-- ================= 1. THE BIG PICTURE ================= -->
+    <section class="story" id="big-picture" aria-labelledby="h-big-picture">
+      <div class="section-head">
+        <p class="section-num">01</p>
+        <h2 id="h-big-picture">[Section heading: the big picture]</h2>
+        <p class="lede">[One or two sentences that set up the question this section answers.]</p>
+      </div>
+
+      <div class="stack">
+        <!-- Chart 1 | MAP idiom (e.g. choropleth) – lead visual, full width -->
+        <figure class="figure">
+          <h3 class="fig-title">[Chart 1 headline: state the takeaway, not just the topic]</h3>
+          <p class="fig-sub">[What is measured, where, and when]</p>
+          <div class="chart" id="vis1" data-spec="json/vis1.vl.json">
+            <img src="img/img1.svg" width="1200" height="700" alt="[Describe chart 1 and its key finding for screen-reader users]">
+          </div>
+          <figcaption>
+            <p class="fig-how"><strong>How to read this:</strong> [One sentence on what colour/size/position means. Mention any interaction, e.g. “hover for details”.]</p>
+            <p>Source: [Dataset name], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/vis1.vl.json">Vega-Lite JSON</a></p>
+          </figcaption>
+        </figure>
+
+        <div class="text measure">
+          <p>[Narrative paragraph: explain what the reader just saw. Keep sentences short, avoid jargon, and define any specialised term the first time you use it.]</p>
+          <div class="callout">
+            <strong>[Annotation heading]</strong>
+            [A short note that points at something specific in the chart above.]
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 2. WHERE ================= -->
+    <section class="story" id="where" aria-labelledby="h-where">
+      <div class="section-head">
+        <p class="section-num">02</p>
+        <h2 id="h-where">[Section heading: where]</h2>
+        <p class="lede">[Set up the question: where is the pattern strongest?]</p>
+      </div>
+
+      <div class="pair">
+        <!-- Chart 2 | MAP idiom (e.g. proportional symbol) -->
+        <figure class="figure">
+          <h3 class="fig-title">[Chart 2 headline]</h3>
+          <p class="fig-sub">[What is measured, where, and when]</p>
+          <div class="chart" id="vis2" data-spec="json/vis2.vl.json">
+            <img src="img/img2.svg" width="1200" height="700" alt="[Describe chart 2]">
+          </div>
+          <figcaption>
+            <p class="fig-how"><strong>How to read this:</strong> [One sentence.]</p>
+            <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/vis2.vl.json">Vega-Lite JSON</a></p>
+          </figcaption>
+        </figure>
+
+        <!-- Chart 3 | advanced non-map idiom -->
+        <figure class="figure">
+          <h3 class="fig-title">[Chart 3 headline]</h3>
+          <p class="fig-sub">[What is measured, where, and when]</p>
+          <div class="chart" id="vis3" data-spec="json/vis3.vl.json">
+            <img src="img/img3.svg" width="1200" height="700" alt="[Describe chart 3]">
+          </div>
+          <figcaption>
+            <p class="fig-how"><strong>How to read this:</strong> [One sentence.]</p>
+            <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/vis3.vl.json">Vega-Lite JSON</a></p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="text measure" style="margin-top: var(--s4);">
+        <p>[Narrative that compares the two charts and draws out the insight that would be hard to see in a table.]</p>
+      </div>
+    </section>
+
+    <!-- ================= 3. WHICH / WHO ================= -->
+    <section class="story" id="which" aria-labelledby="h-which">
+      <div class="section-head">
+        <p class="section-num">03</p>
+        <h2 id="h-which">[Section heading: which / who is affected]</h2>
+      </div>
+
+      <div class="split">
+        <div class="text">
+          <p class="lede">[Lead sentence that frames the chart on the right.]</p>
+          <p>[Narrative paragraph.]</p>
+          <div class="callout">
+            <strong>[Annotation heading]</strong>
+            [A short note pointing at something specific in the chart.]
+          </div>
+        </div>
+
+        <!-- Chart 4 | MAP idiom (e.g. binned map or point map) -->
+        <figure class="figure">
+          <h3 class="fig-title">[Chart 4 headline]</h3>
+          <p class="fig-sub">[What is measured, where, and when]</p>
+          <div class="chart" id="vis4" data-spec="json/vis4.vl.json">
+            <img src="img/img4.svg" width="1200" height="700" alt="[Describe chart 4]">
+          </div>
+          <figcaption>
+            <p class="fig-how"><strong>How to read this:</strong> [One sentence.]</p>
+            <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/vis4.vl.json">Vega-Lite JSON</a></p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================= 4. WHEN ================= -->
+    <section class="story" id="when" aria-labelledby="h-when">
+      <div class="section-head">
+        <p class="section-num">04</p>
+        <h2 id="h-when">[Section heading: how things changed over time]</h2>
+        <p class="lede">[Set up the question: has it got better or worse, and when did it change?]</p>
+      </div>
+
+      <div class="pair">
+        <!-- Chart 5 | advanced idiom -->
+        <figure class="figure">
+          <h3 class="fig-title">[Chart 5 headline]</h3>
+          <p class="fig-sub">[What is measured, where, and when]</p>
+          <div class="chart" id="vis5" data-spec="json/vis5.vl.json">
+            <img src="img/img5.svg" width="1200" height="700" alt="[Describe chart 5]">
+          </div>
+          <figcaption>
+            <p class="fig-how"><strong>How to read this:</strong> [One sentence.]</p>
+            <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/vis5.vl.json">Vega-Lite JSON</a></p>
+          </figcaption>
+        </figure>
+
+        <!-- Chart 6 | advanced idiom (a small-multiples set counts as one chart) -->
+        <figure class="figure">
+          <h3 class="fig-title">[Chart 6 headline]</h3>
+          <p class="fig-sub">[What is measured, where, and when]</p>
+          <div class="chart" id="vis6" data-spec="json/vis6.vl.json">
+            <img src="img/img6.svg" width="1200" height="700" alt="[Describe chart 6]">
+          </div>
+          <figcaption>
+            <p class="fig-how"><strong>How to read this:</strong> [One sentence.]</p>
+            <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/vis6.vl.json">Vega-Lite JSON</a></p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="callout measure" style="margin-top: var(--s4);">
+        <strong>[Annotation heading]</strong>
+        [A key moment or turning point the reader should notice across both charts.]
+      </div>
+    </section>
+
+    <!-- ================= 5. WHY ================= -->
+    <section class="story" id="why" aria-labelledby="h-why">
+      <div class="section-head">
+        <p class="section-num">05</p>
+        <h2 id="h-why">[Section heading: what is driving it]</h2>
+      </div>
+
+      <div class="stack">
+        <!-- Chart 7 | advanced idiom, full width -->
+        <figure class="figure">
+          <h3 class="fig-title">[Chart 7 headline]</h3>
+          <p class="fig-sub">[What is measured, where, and when]</p>
+          <div class="chart" id="vis7" data-spec="json/vis7.vl.json">
+            <img src="img/img7.svg" width="1200" height="700" alt="[Describe chart 7]">
+          </div>
+          <figcaption>
+            <p class="fig-how"><strong>How to read this:</strong> [One sentence.]</p>
+            <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/vis7.vl.json">Vega-Lite JSON</a></p>
+          </figcaption>
+        </figure>
+
+        <div class="split reverse">
+          <!-- Chart 8 | advanced idiom -->
+          <figure class="figure">
+            <h3 class="fig-title">[Chart 8 headline]</h3>
+            <p class="fig-sub">[What is measured, where, and when]</p>
+            <div class="chart" id="vis8" data-spec="json/vis8.vl.json">
+              <img src="img/img8.svg" width="1200" height="700" alt="[Describe chart 8]">
+            </div>
+            <figcaption>
+              <p class="fig-how"><strong>How to read this:</strong> [One sentence.]</p>
+              <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/vis8.vl.json">Vega-Lite JSON</a></p>
+            </figcaption>
+          </figure>
+
+          <div class="text">
+            <p class="lede">[Lead sentence that frames chart 8.]</p>
+            <p>[Narrative paragraph explaining the cause or driver, in plain language.]</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 6. SO WHAT ================= -->
+    <section class="story" id="so-what" aria-labelledby="h-so-what">
+      <div class="section-head">
+        <p class="section-num">06</p>
+        <h2 id="h-so-what">[Section heading: what can be done / why it matters]</h2>
+        <p class="lede">[Bring the story back to the reader.]</p>
+      </div>
+
+      <div class="pair">
+        <!-- Chart 9 | advanced idiom -->
+        <figure class="figure">
+          <h3 class="fig-title">[Chart 9 headline]</h3>
+          <p class="fig-sub">[What is measured, where, and when]</p>
+          <div class="chart" id="vis9" data-spec="json/vis9.vl.json">
+            <img src="img/img9.svg" width="1200" height="700" alt="[Describe chart 9]">
+          </div>
+          <figcaption>
+            <p class="fig-how"><strong>How to read this:</strong> [One sentence.]</p>
+            <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/vis9.vl.json">Vega-Lite JSON</a></p>
+          </figcaption>
+        </figure>
+
+        <!-- Chart 10 | advanced idiom -->
+        <figure class="figure">
+          <h3 class="fig-title">[Chart 10 headline]</h3>
+          <p class="fig-sub">[What is measured, where, and when]</p>
+          <div class="chart" id="vis10" data-spec="json/vis10.vl.json">
+            <img src="img/img10.svg" width="1200" height="700" alt="[Describe chart 10]">
+          </div>
+          <figcaption>
+            <p class="fig-how"><strong>How to read this:</strong> [One sentence.]</p>
+            <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/vis10.vl.json">Vega-Lite JSON</a></p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================= CONCLUSION ================= -->
+    <section class="conclusion" id="conclusion" aria-labelledby="h-conclusion">
+      <p class="section-num">Conclusion</p>
+      <h2 id="h-conclusion">[Closing heading: the one thing to remember]</h2>
+      <p class="lede">[Two or three sentences that pull the whole story together and leave the reader with a clear takeaway or call to action.]</p>
+    </section>
+
+    <!-- ================= ABOUT THIS VISUALISATION ================= -->
+    <section class="about" id="about" aria-labelledby="h-about">
+      <h2 id="h-about">About this visualisation</h2>
+      <p class="measure muted">[Optional short intro: one sentence on how this page was made.]</p>
+      <dl class="definition-grid">
+        <div>
+          <dt>Domain</dt>
+          <dd>[The field this belongs to, e.g. environment and conservation.]</dd>
+        </div>
+        <div>
+          <dt>Who</dt>
+          <dd>[The intended audience: the average Australian, with no specialist knowledge.]</dd>
+        </div>
+        <div>
+          <dt>Why</dt>
+          <dd>[The need this visualisation addresses.]</dd>
+        </div>
+        <div>
+          <dt>What</dt>
+          <dd>[The data shown, and how it was prepared.]</dd>
+        </div>
+        <div>
+          <dt>How</dt>
+          <dd>[The idioms used, and why they suit the tasks.]</dd>
+        </div>
+        <div>
+          <dt>Tools</dt>
+          <dd>Built with Vega-Lite. [Other libraries, e.g. Pure.css.]</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- ================= DATA SOURCES (metadata) ================= -->
+    <section class="sources" id="sources" aria-labelledby="h-sources">
+      <h2 id="h-sources">Data sources</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Dataset</th>
+              <th scope="col">Publisher / author</th>
+              <th scope="col">Date or version</th>
+              <th scope="col">Licence</th>
+              <th scope="col">Used in</th>
+              <th scope="col">Link</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>[Dataset 1]</td>
+              <td>[Publisher]</td>
+              <td>[Year / version]</td>
+              <td>[e.g. CC BY 4.0]</td>
+              <td>[Charts 1, 2]</td>
+              <td><a href="[URL]">[URL]</a></td>
+            </tr>
+            <tr>
+              <td>[Dataset 2]</td>
+              <td>[Publisher]</td>
+              <td>[Year / version]</td>
+              <td>[Licence]</td>
+              <td>[Charts 3, 4]</td>
+              <td><a href="[URL]">[URL]</a></td>
+            </tr>
+            <tr>
+              <td>[Boundary file]</td>
+              <td>[e.g. Australian Bureau of Statistics]</td>
+              <td>[Year]</td>
+              <td>[Licence]</td>
+              <td>[Maps]</td>
+              <td><a href="[URL]">[URL]</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ================= CREDITS & ACKNOWLEDGEMENTS ================= -->
+    <section class="credits" id="credits" aria-labelledby="h-credits">
+      <h2 id="h-credits">Credits and acknowledgements</h2>
+      <div class="measure">
+        <p><strong>Images and icons:</strong> [Source and URL for each photo or illustration, or “none used”.]</p>
+        <p><strong>Use of generative AI:</strong> [State which tool(s) were used and for what, e.g. proofreading narrative text. Required if any AI tool was used.]</p>
+        <p><strong>Other references:</strong> [Articles or papers used for the narrative, with URLs.]</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="page">
+      <p>© [Year] [Your name]. FIT3179 Data Visualisation 2, Semester 2, 2026, Monash University. Last updated [date].</p>
+      <p><a href="[GitHub repository URL]">View the code and Vega-Lite JSON on GitHub</a></p>
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       Chart loader: replaces each placeholder with its live Vega-Lite chart.
+       Only charts whose JSON file exists are replaced; the rest keep their
+       placeholder image. Versions are pinned; update them if needed.
+       ===================================================================== -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.30.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.21.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0"></script>
+  <script>
+    document.querySelectorAll('.chart[data-spec]').forEach(function (el) {
+      fetch(el.dataset.spec)
+        .then(function (r) {
+          if (!r.ok) { throw new Error('No spec yet: ' + el.dataset.spec); }
+          return r.json();
+        })
+        .then(function (spec) {
+          el.innerHTML = '';
+          return vegaEmbed(el, spec, { actions: false, renderer: 'canvas' });
+        })
+        .catch(function () { /* keep the placeholder image */ });
+    });
+  </script>
+</body>
 </html>
