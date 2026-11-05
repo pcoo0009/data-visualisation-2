@@ -1,0 +1,65 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Map of Victoria: habitat model for the Regent Honeyeater with recorded sightings on top.",
+  "width": "container",
+  "height": 520,
+  "autosize": {"type": "fit", "contains": "padding"},
+  "title": {
+    "text": "Where Regent Honeyeaters live and where they have been seen",
+    "subtitle": [
+      "Green squares: modelled habitat. Orange dots: recorded sightings since 1970."
+    ],
+    "anchor": "start", "fontSize": 18, "subtitleFontSize": 12, "subtitleColor": "#6B7280", "offset": 16
+  },
+  "projection": {"type": "mercator"},
+  "layer": [
+    {
+      "description": "Victoria outline",
+      "data": {
+        "url": "https://pcoo0009.github.io/data-visualisation-2/data/state_map_simplified.json",
+        "format": {"type": "topojson", "feature": "STE_2021_AUST_GDA2020"}
+      },
+      "transform": [{"filter": "datum.properties.STE_NAME21 == 'Victoria'"}],
+      "mark": {"type": "geoshape", "fill": "#F1F3F5", "stroke": "#9AA3AF", "strokeWidth": 1}
+    },
+    {
+      "description": "Habitat model: one square per grid cell (about 750 m)",
+      "data": {
+        "url": "https://pcoo0009.github.io/data-visualisation-2/data/hdm-clean.csv",
+        "format": {"type": "csv", "parse": {"lon": "number", "lat": "number", "value": "number"}}
+      },
+      "transform": [
+        {"calculate": "datum.lon - 0.0044", "as": "lon0"},
+        {"calculate": "datum.lon + 0.0044", "as": "lon1"},
+        {"calculate": "datum.lat - 0.0034", "as": "lat0"},
+        {"calculate": "datum.lat + 0.0034", "as": "lat1"}
+      ],
+      "mark": {"type": "rect", "opacity": 0.9},
+      "encoding": {
+        "longitude": {"field": "lon0", "type": "quantitative"},
+        "longitude2": {"field": "lon1"},
+        "latitude": {"field": "lat0", "type": "quantitative"},
+        "latitude2": {"field": "lat1"},
+        "color": {
+          "field": "value", "type": "quantitative",
+          "title": "Habitat model value",
+          "scale": {"scheme": "greens", "domainMin": 0}
+        }
+      }
+    },
+    {
+      "description": "Recorded sightings",
+      "data": {
+        "url": "https://pcoo0009.github.io/data-visualisation-2/data/regent-honeyeater-vic.csv",
+        "format": {"type": "csv", "parse": {"lon": "number", "lat": "number", "year": "number"}}
+      },
+      "mark": {"type": "circle", "size": 28, "fill": "#E4572E", "fillOpacity": 0.85, "stroke": "white", "strokeWidth": 0.6},
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "tooltip": [{"field": "year", "type": "quantitative", "title": "Year recorded", "format": "d"}]
+      }
+    }
+  ],
+  "config": {"view": {"stroke": null}, "font": "Helvetica Neue, Arial, sans-serif"}
+}
