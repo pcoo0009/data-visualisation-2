@@ -13,14 +13,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 
-  <!-- <script src="js/vega_lite_vis.js"></script> -->
-  
 
   <!--
   ===========================================================================
   RUBRIC CHECKLIST (delete before submitting)
   ---------------------------------------------------------------------------
-  [ ] 10+ charts (a small-multiples set counts as ONE chart). This page has img1–img10.
+  [ ] 10+ charts (a small-multiples set counts as ONE chart). This page has 7 charts so far (1, 2, 5, 6, 7, 8, 9); charts 3 and 4 are not built yet.
   [ ] 3+ map idioms (appropriate projections). Max idiom mark halves if fewer than 3.
   [ ] 8+ ADVANCED idioms (all maps count as advanced; bar/line/area/pie/scatter/bubble do not).
   [ ] Everything built with Vega-Lite / Vega and its JSON is readable in this repo (json/ folder).
@@ -73,230 +71,162 @@
 
   <main class="page">
 
-    <!-- ================= 1. THE BIG PICTURE ================= -->
+    <!-- ================= 1. AUSTRALIA IN THE WORLD ================= -->
     <section class="story" id="big-picture" aria-labelledby="h-big-picture">
       <div class="section-head">
         <p class="section-num">01</p>
-        <h2 id="h-big-picture">[Section heading: the big picture]</h2>
-        <p class="lede">[One or two sentences that set up the question this section answers.]</p>
+        <h2 id="h-big-picture">Australia in the world</h2>
+        <p class="lede">Which countries have the most threatened species, and where does Australia stand?</p>
       </div>
 
       <div class="stack">
-        <!-- Chart 1 | MAP idiom (e.g. choropleth) – lead visual, full width -->
+        <!-- Chart 1 | MAP idiom: choropleth -->
         <figure class="figure">
           <h3 class="fig-title">[Chart 1 headline: state the takeaway, not just the topic]</h3>
-          <p class="fig-sub">[What is measured, where, and when]</p>
-          <div class="chart" id="vis1" data-spec="json/world_choropleth.json">
-            
-          </div>
+          <p class="fig-sub">Number of threatened species in each country, by species group</p>
+          <div class="chart" id="vis1" data-spec="json/1_world_choropleth.json"></div>
           <figcaption>
-            <p class="fig-how"><strong>How to read this:</strong> [One sentence on what colour/size/position means. Mention any interaction, e.g. “hover for details”.]</p>
-            <p>Source: [Dataset name], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/vis1.vl.json">Vega-Lite JSON</a></p>
+            <p class="fig-how"><strong>How to read this:</strong> Darker countries have more threatened species. Use the dropdown to switch between species groups; grey countries have no data.</p>
+            <p>Source: [Dataset name], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/1_world_choropleth.json">Vega-Lite JSON</a></p>
           </figcaption>
         </figure>
 
         <div class="text measure">
-          <p>[Narrative paragraph: explain what the reader just saw. Keep sentences short, avoid jargon, and define any specialised term the first time you use it.]</p>
-          <div class="callout">
-            <strong>[Annotation heading]</strong>
-            [A short note that points at something specific in the chart above.]
-          </div>
+          <p>[Narrative paragraph: explain what the reader just saw, then lead into the next chart, which compares Australia with the other megadiverse countries. Keep sentences short and avoid jargon.]</p>
+        </div>
+
+        <!-- Chart 5 | advanced idiom: bump chart -->
+        <figure class="figure">
+          <h3 class="fig-title">[Chart 5 headline]</h3>
+          <p class="fig-sub">Rank of Australia among the 17 megadiverse countries, by species group</p>
+          <div class="chart" id="vis5" data-spec="json/5_clean_bump_chart.json"></div>
+          <figcaption>
+            <p class="fig-how"><strong>How to read this:</strong> Each column is a species group. The orange line follows Australia's rank (1 = most threatened species). Hover over a column to see which country sits at each rank.</p>
+            <p>Source: [Dataset name], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/5_clean_bump_chart.json">Vega-Lite JSON</a></p>
+          </figcaption>
+        </figure>
+
+        <div class="callout measure">
+          <strong>[Annotation heading]</strong>
+          [A short note pointing at something specific in the bump chart, e.g. the group where Australia ranks highest.]
         </div>
       </div>
     </section>
 
-    <!-- ================= 2. WHERE ================= -->
+    <!-- ================= 2. ACROSS AUSTRALIA ================= -->
     <section class="story" id="where" aria-labelledby="h-where">
       <div class="section-head">
         <p class="section-num">02</p>
-        <h2 id="h-where">[Section heading: where]</h2>
-        <p class="lede">[Set up the question: where is the pattern strongest?]</p>
-      </div>
-
-      <div class="pair">
-        <!-- Chart 2 | MAP idiom (e.g. proportional symbol) -->
-        <figure class="figure">
-          <h3 class="fig-title">[Chart 2 headline]</h3>
-          <p class="fig-sub">[What is measured, where, and when]</p>
-          <div class="chart" id="state-choropleth" data-spec="json/state-choropleth.json">
-            <img src="img/img2.svg" width="1200" height="700" alt="[Describe chart 2]">
-          </div>
-          <figcaption>
-            <p class="fig-how"><strong>How to read this:</strong> [One sentence.]</p>
-            <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/vis2.vl.json">Vega-Lite JSON</a></p>
-          </figcaption>
-        </figure>
-
-        <!-- Chart 3 | advanced non-map idiom -->
-        <figure class="figure">
-          <h3 class="fig-title">[Chart 3 headline]</h3>
-          <p class="fig-sub">[What is measured, where, and when]</p>
-          <div class="chart" id="vis3" data-spec="json/vis3.vl.json">
-            <img src="img/img3.svg" width="1200" height="700" alt="[Describe chart 3]">
-          </div>
-          <figcaption>
-            <p class="fig-how"><strong>How to read this:</strong> [One sentence.]</p>
-            <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/vis3.vl.json">Vega-Lite JSON</a></p>
-          </figcaption>
-        </figure>
-      </div>
-
-      <div class="text measure" style="margin-top: var(--s4);">
-        <p>[Narrative that compares the two charts and draws out the insight that would be hard to see in a table.]</p>
-      </div>
-    </section>
-
-    <!-- ================= 3. WHICH / WHO ================= -->
-    <section class="story" id="which" aria-labelledby="h-which">
-      <div class="section-head">
-        <p class="section-num">03</p>
-        <h2 id="h-which">[Section heading: which / who is affected]</h2>
-      </div>
-
-      <div class="split">
-        <div class="text">
-          <p class="lede">[Lead sentence that frames the chart on the right.]</p>
-          <p>[Narrative paragraph.]</p>
-          <div class="callout">
-            <strong>[Annotation heading]</strong>
-            [A short note pointing at something specific in the chart.]
-          </div>
-        </div>
-
-        <!-- Chart 4 | MAP idiom (e.g. binned map or point map) -->
-        <figure class="figure">
-          <h3 class="fig-title">[Chart 4 headline]</h3>
-          <p class="fig-sub">[What is measured, where, and when]</p>
-          <div class="chart" id="vis4" data-spec="json/vis4.vl.json">
-            <img src="img/img4.svg" width="1200" height="700" alt="[Describe chart 4]">
-          </div>
-          <figcaption>
-            <p class="fig-how"><strong>How to read this:</strong> [One sentence.]</p>
-            <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/vis4.vl.json">Vega-Lite JSON</a></p>
-          </figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <!-- ================= 4. WHEN ================= -->
-    <section class="story" id="when" aria-labelledby="h-when">
-      <div class="section-head">
-        <p class="section-num">04</p>
-        <h2 id="h-when">[Section heading: how things changed over time]</h2>
-        <p class="lede">[Set up the question: has it got better or worse, and when did it change?]</p>
-      </div>
-
-      <div class="pair">
-        <!-- Chart 5 | advanced idiom -->
-        <figure class="figure">
-          <h3 class="fig-title">[Chart 5 headline]</h3>
-          <p class="fig-sub">[What is measured, where, and when]</p>
-          <div class="chart" id="vis5" data-spec="json/vis5.vl.json">
-            <img src="img/img5.svg" width="1200" height="700" alt="[Describe chart 5]">
-          </div>
-          <figcaption>
-            <p class="fig-how"><strong>How to read this:</strong> [One sentence.]</p>
-            <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/vis5.vl.json">Vega-Lite JSON</a></p>
-          </figcaption>
-        </figure>
-
-        <!-- Chart 6 | advanced idiom (a small-multiples set counts as one chart) -->
-        <figure class="figure">
-          <h3 class="fig-title">[Chart 6 headline]</h3>
-          <p class="fig-sub">[What is measured, where, and when]</p>
-          <div class="chart" id="vis6" data-spec="json/vis6.vl.json">
-            <img src="img/img6.svg" width="1200" height="700" alt="[Describe chart 6]">
-          </div>
-          <figcaption>
-            <p class="fig-how"><strong>How to read this:</strong> [One sentence.]</p>
-            <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/vis6.vl.json">Vega-Lite JSON</a></p>
-          </figcaption>
-        </figure>
-      </div>
-
-      <div class="callout measure" style="margin-top: var(--s4);">
-        <strong>[Annotation heading]</strong>
-        [A key moment or turning point the reader should notice across both charts.]
-      </div>
-    </section>
-
-    <!-- ================= 5. WHY ================= -->
-    <section class="story" id="why" aria-labelledby="h-why">
-      <div class="section-head">
-        <p class="section-num">05</p>
-        <h2 id="h-why">[Section heading: what is driving it]</h2>
+        <h2 id="h-where">Across Australia</h2>
+        <p class="lede">Where within Australia are threatened animals found, and how serious is their status?</p>
       </div>
 
       <div class="stack">
-        <!-- Chart 7 | advanced idiom, full width -->
+        <div class="split">
+          <div class="text">
+            <p class="lede">[Lead sentence that frames the map on the right.]</p>
+            <p>[Narrative paragraph comparing the states and territories.]</p>
+            <div class="callout">
+              <strong>[Annotation heading]</strong>
+              [A short note pointing at something specific on the map.]
+            </div>
+          </div>
+
+          <!-- Chart 2 | MAP idiom: proportional symbol map -->
+          <figure class="figure">
+            <h3 class="fig-title">[Chart 2 headline]</h3>
+            <p class="fig-sub">Number of threatened species by state and territory</p>
+            <div class="chart" id="vis2" data-spec="json/2_proportional_symbol_map.json"></div>
+            <figcaption>
+              <p class="fig-how"><strong>How to read this:</strong> Bigger circles mean more threatened species. Use the dropdown to show one threatened status at a time.</p>
+              <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/2_proportional_symbol_map.json">Vega-Lite JSON</a></p>
+            </figcaption>
+          </figure>
+        </div>
+
+        <!-- Chart 6 | advanced idiom: heatmap -->
+        <figure class="figure">
+          <h3 class="fig-title">[Chart 6 headline]</h3>
+          <p class="fig-sub">Number of threatened animal species in each status category, by state and territory</p>
+          <div class="chart" id="vis6" data-spec="json/6_heatmap.json"></div>
+          <figcaption>
+            <p class="fig-how"><strong>How to read this:</strong> Each square counts the animal species in one status category. Darker squares mean more species; a dash means none.</p>
+            <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/6_heatmap.json">Vega-Lite JSON</a></p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================= 3. WHICH SPECIES ================= -->
+    <section class="story" id="which" aria-labelledby="h-which">
+      <div class="section-head">
+        <p class="section-num">03</p>
+        <h2 id="h-which">Zooming in on species</h2>
+        <p class="lede">What kinds of species are at risk, and where have five critically endangered species been recorded?</p>
+      </div>
+
+      <div class="stack">
+        <!-- Chart 7 | advanced idiom: waffle chart -->
         <figure class="figure">
           <h3 class="fig-title">[Chart 7 headline]</h3>
-          <p class="fig-sub">[What is measured, where, and when]</p>
-          <div class="chart" id="vis7" data-spec="json/vis7.vl.json">
-            <img src="img/img7.svg" width="1200" height="700" alt="[Describe chart 7]">
-          </div>
+          <p class="fig-sub">Threatened species with monitoring data, by group</p>
+          <div class="chart" id="vis7" data-spec="json/7_waffle_chart.json"></div>
           <figcaption>
-            <p class="fig-how"><strong>How to read this:</strong> [One sentence.]</p>
-            <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/vis7.vl.json">Vega-Lite JSON</a></p>
+            <p class="fig-how"><strong>How to read this:</strong> Each square is 1% of the threatened species that have monitoring data. This counts species, not individual animals or plants.</p>
+            <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/7_waffle_chart.json">Vega-Lite JSON</a></p>
           </figcaption>
         </figure>
 
-        <div class="split reverse">
-          <!-- Chart 8 | advanced idiom -->
-          <figure class="figure">
-            <h3 class="fig-title">[Chart 8 headline]</h3>
-            <p class="fig-sub">[What is measured, where, and when]</p>
-            <div class="chart" id="vis8" data-spec="json/vis8.vl.json">
-              <img src="img/img8.svg" width="1200" height="700" alt="[Describe chart 8]">
-            </div>
-            <figcaption>
-              <p class="fig-how"><strong>How to read this:</strong> [One sentence.]</p>
-              <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/vis8.vl.json">Vega-Lite JSON</a></p>
-            </figcaption>
-          </figure>
+        <div class="text measure">
+          <p>[Narrative paragraph linking the groups above to the five species mapped below.]</p>
+        </div>
 
-          <div class="text">
-            <p class="lede">[Lead sentence that frames chart 8.]</p>
-            <p>[Narrative paragraph explaining the cause or driver, in plain language.]</p>
-          </div>
+        <!-- Chart 8 | MAP idiom: binned map with year filter -->
+        <figure class="figure">
+          <h3 class="fig-title">[Chart 8 headline]</h3>
+          <p class="fig-sub">Recorded sightings of five critically endangered species, since 1970</p>
+          <div class="chart" id="vis8" data-spec="json/8_bin_map.json"></div>
+          <figcaption>
+            <p class="fig-how"><strong>How to read this:</strong> Choose a species, then drag across the bottom chart to pick a range of years. Darker squares have more sighting records. Records show where people have looked and reported sightings, not how many animals there are.</p>
+            <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/8_bin_map.json">Vega-Lite JSON</a></p>
+          </figcaption>
+        </figure>
+
+        <div class="callout measure">
+          <strong>[Annotation heading]</strong>
+          [A short note pointing at something specific on the map, e.g. how tightly one species is clustered.]
         </div>
       </div>
     </section>
 
-    <!-- ================= 6. SO WHAT ================= -->
-    <section class="story" id="so-what" aria-labelledby="h-so-what">
+    <!-- ================= 4. IS IT GETTING BETTER ================= -->
+    <section class="story" id="when" aria-labelledby="h-when">
       <div class="section-head">
-        <p class="section-num">06</p>
-        <h2 id="h-so-what">[Section heading: what can be done / why it matters]</h2>
-        <p class="lede">[Bring the story back to the reader.]</p>
+        <p class="section-num">04</p>
+        <h2 id="h-when">Is it getting better?</h2>
+        <p class="lede">Are monitored threatened species recovering, or still declining?</p>
       </div>
 
-      <div class="pair">
-        <!-- Chart 9 | advanced idiom -->
+      <div class="split reverse">
+        <!-- Chart 9 | advanced idiom: slope chart -->
         <figure class="figure">
           <h3 class="fig-title">[Chart 9 headline]</h3>
-          <p class="fig-sub">[What is measured, where, and when]</p>
-          <div class="chart" id="vis9" data-spec="json/vis9.vl.json">
-            <img src="img/img9.svg" width="1200" height="700" alt="[Describe chart 9]">
-          </div>
+          <p class="fig-sub">Threatened Species Index by state and territory, 2000 and 2022</p>
+          <div class="chart" id="vis9" data-spec="json/9_slope_chart.json"></div>
           <figcaption>
-            <p class="fig-how"><strong>How to read this:</strong> [One sentence.]</p>
-            <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/vis9.vl.json">Vega-Lite JSON</a></p>
+            <p class="fig-how"><strong>How to read this:</strong> Each line is a state or territory. A line sloping down means monitored threatened species declined between 2000 and 2022. The ACT is left out because its figures are too uncertain to read.</p>
+            <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/9_slope_chart.json">Vega-Lite JSON</a></p>
           </figcaption>
         </figure>
 
-        <!-- Chart 10 | advanced idiom -->
-        <figure class="figure">
-          <h3 class="fig-title">[Chart 10 headline]</h3>
-          <p class="fig-sub">[What is measured, where, and when]</p>
-          <div class="chart" id="vis10" data-spec="json/vis10.vl.json">
-            <img src="img/img10.svg" width="1200" height="700" alt="[Describe chart 10]">
+        <div class="text">
+          <p class="lede">[Lead sentence that frames the slope chart.]</p>
+          <p>[Narrative paragraph: what the index measures, in plain language, and what the slopes show.]</p>
+          <div class="callout">
+            <strong>[Annotation heading]</strong>
+            [A short note pointing at a specific line, e.g. the state with the steepest fall.]
           </div>
-          <figcaption>
-            <p class="fig-how"><strong>How to read this:</strong> [One sentence.]</p>
-            <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/vis10.vl.json">Vega-Lite JSON</a></p>
-          </figcaption>
-        </figure>
+        </div>
       </div>
     </section>
 

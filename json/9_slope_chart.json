@@ -1,0 +1,84 @@
+{
+ "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+ "width": "container",
+ "height": 400,
+ "title": "How threatened species are doing, by state and territory",
+ "data": {
+  "url": "https://pcoo0009.github.io/data-visualisation-2/data/TSX_values_by_state.csv",
+  "format": {
+   "type": "csv",
+   "parse": {
+    "year": "number",
+    "value": "number"
+   }
+  }
+ },
+ "transform": [
+  {
+   "filter": "datum.code != 'ACT'"
+  }
+ ],
+ "mark": {
+  "type": "line",
+  "strokeWidth": 2,
+  "point": {
+   "filled": true,
+   "size": 60
+  }
+ },
+ "encoding": {
+  "x": {
+   "field": "year",
+   "type": "ordinal",
+   "title": "Year",
+   "axis": {
+    "labelAngle": 0
+   },
+   "scale": {
+    "padding": 0.1
+   }
+  },
+  "y": {
+   "field": "value",
+   "type": "quantitative",
+   "title": "Threatened Species Index",
+   "scale": {
+    "zero": false
+   }
+  },
+  "color": {
+   "field": "state",
+   "type": "nominal",
+   "title": null
+  },
+  "tooltip": [
+   {
+    "field": "state",
+    "title": "State"
+   },
+   {
+    "field": "year",
+    "title": "Year"
+   },
+   {
+    "field": "value",
+    "title": "Index",
+    "format": ".2f"
+   }
+  ]
+ },
+ "config": {
+  "view": {
+   "stroke": null
+  },
+  "axis": {
+   "domain": false,
+   "ticks": false,
+   "gridColor": "#EEF0F3"
+  }
+ },
+ "autosize": {
+  "type": "fit-x",
+  "contains": "padding"
+ }
+}

@@ -1,0 +1,258 @@
+{
+ "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+ "width": "container",
+ "height": 560,
+ "padding": {
+  "left": 125,
+  "right": 125,
+  "top": 10,
+  "bottom": 10
+ },
+ "title": {
+  "text": "How Australia ranks among the 17 megadiverse countries",
+  "subtitle": [
+   "Rank by number of threatened species in each group (1 = most). Hover over a column to see the countries.",
+   "Countries with equal counts are ordered alphabetically."
+  ],
+  "anchor": "start",
+  "fontSize": 18,
+  "subtitleFontSize": 12,
+  "subtitleColor": "#6B7280",
+  "offset": 16
+ },
+ "data": {
+  "url": "https://pcoo0009.github.io/data-visualisation-2/data/threatened-species-by-megadiverse-country-ranked.csv"
+ },
+ "transform": [
+  {
+   "filter": "datum.Group != 'Total'"
+  },
+  {
+   "calculate": "datum.Name == 'Congo, The Democratic Republic of the' ? 'DR Congo' : datum.Name == 'Venezuela, Bolivarian Republic of' ? 'Venezuela' : datum.Name",
+   "as": "Country"
+  },
+  {
+   "calculate": "datum.Name == 'Australia'",
+   "as": "isAus"
+  }
+ ],
+ "encoding": {
+  "x": {
+   "field": "Group",
+   "type": "ordinal",
+   "sort": [
+    "Birds",
+    "Plants",
+    "Amphibians",
+    "Mammals",
+    "Fishes",
+    "Reptiles",
+    "Fungi",
+    "Molluscs",
+    "Other Inverts"
+   ],
+   "scale": {
+    "type": "point",
+    "padding": 0.5
+   },
+   "axis": {
+    "orient": "top",
+    "title": null,
+    "ticks": false,
+    "domain": false,
+    "labelAngle": 0,
+    "labelPadding": 12,
+    "labelFontSize": 12,
+    "labelFontWeight": "bold",
+    "labelExpr": "datum.label == 'Other Inverts' ? ['Other','invertebrates'] : datum.label"
+   }
+  },
+  "y": {
+   "field": "Rank",
+   "type": "quantitative",
+   "scale": {
+    "reverse": true,
+    "domain": [
+     0.5,
+     17.5
+    ]
+   },
+   "axis": null
+  }
+ },
+ "layer": [
+  {
+   "transform": [
+    {
+     "filter": "datum.isAus"
+    }
+   ],
+   "mark": {
+    "type": "line",
+    "strokeWidth": 4.5,
+    "color": "#E4572E"
+   }
+  },
+  {
+   "params": [
+    {
+     "name": "hover",
+     "select": {
+      "type": "point",
+      "fields": [
+       "Group"
+      ],
+      "nearest": true,
+      "on": "mouseover",
+      "clear": "mouseout"
+     }
+    }
+   ],
+   "mark": {
+    "type": "circle",
+    "opacity": 1
+   },
+   "encoding": {
+    "size": {
+     "condition": {
+      "test": "datum.isAus",
+      "value": 560
+     },
+     "value": 230
+    },
+    "color": {
+     "condition": {
+      "test": "datum.isAus",
+      "value": "#E4572E"
+     },
+     "value": "#9AA3AF"
+    },
+    "tooltip": [
+     {
+      "field": "Country"
+     },
+     {
+      "field": "Group"
+     },
+     {
+      "field": "Count",
+      "title": "Threatened species"
+     },
+     {
+      "field": "Rank",
+      "title": "Rank (of 17)"
+     }
+    ]
+   }
+  },
+  {
+   "mark": {
+    "type": "text",
+    "fontWeight": "bold"
+   },
+   "encoding": {
+    "text": {
+     "field": "Rank"
+    },
+    "color": {
+     "value": "white"
+    },
+    "size": {
+     "condition": {
+      "test": "datum.isAus",
+      "value": 13
+     },
+     "value": 10
+    }
+   }
+  },
+  {
+   "description": "Country names with a white halo, shown for the hovered column",
+   "encoding": {
+    "text": {
+     "field": "Country"
+    },
+    "opacity": {
+     "condition": {
+      "param": "hover",
+      "empty": false,
+      "value": 1
+     },
+     "value": 0
+    }
+   },
+   "layer": [
+    {
+     "mark": {
+      "type": "text",
+      "align": "left",
+      "dx": 14,
+      "fontSize": 11,
+      "color": "white",
+      "stroke": "white",
+      "strokeWidth": 4
+     }
+    },
+    {
+     "mark": {
+      "type": "text",
+      "align": "left",
+      "dx": 14,
+      "fontSize": 11,
+      "color": "#374151"
+     }
+    }
+   ]
+  },
+  {
+   "transform": [
+    {
+     "filter": "datum.isAus && datum.Group == 'Birds'"
+    }
+   ],
+   "mark": {
+    "type": "text",
+    "align": "right",
+    "dx": -22,
+    "fontSize": 13,
+    "fontWeight": "bold",
+    "color": "#E4572E"
+   },
+   "encoding": {
+    "text": {
+     "field": "Country"
+    }
+   }
+  },
+  {
+   "transform": [
+    {
+     "filter": "datum.isAus && datum.Group == 'Other Inverts'"
+    }
+   ],
+   "mark": {
+    "type": "text",
+    "align": "left",
+    "dx": 22,
+    "fontSize": 13,
+    "fontWeight": "bold",
+    "color": "#E4572E"
+   },
+   "encoding": {
+    "text": {
+     "field": "Country"
+    }
+   }
+  }
+ ],
+ "config": {
+  "view": {
+   "stroke": null
+  },
+  "font": "Helvetica Neue, Arial, sans-serif"
+ },
+ "autosize": {
+  "type": "fit-x",
+  "contains": "padding"
+ }
+}

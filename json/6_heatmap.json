@@ -1,0 +1,125 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Heatmap: number of threatened animal species in each status category, by state and territory.",
+  "width": {"step": 100},
+  "height": {"step": 30},
+  "padding": {"left": 10, "right": 20, "top": 10, "bottom": 10},
+  "title": {
+    "text": "Threatened animals by state and territory",
+    "subtitle": [
+      "Number of animal species in each status category. A dash means none."
+    ],
+    "anchor": "start",
+    "fontSize": 18,
+    "subtitleFontSize": 12,
+    "subtitleColor": "#6B7280",
+    "offset": 16
+  },
+  "data": {"url": "https://pcoo0009.github.io/data-visualisation-2/data/threatened-species-by-state.csv"},
+  "transform": [
+    {"filter": "datum.Kingdom == 'Animalia'"},
+    {"filter": "indexof(['NSW','VIC','QLD','WA','SA','TAS','ACT','NT'], datum.State) >= 0"},
+    {"calculate": "datum['Threatened Status']", "as": "Status"},
+    {"calculate": "toNumber(datum['Number of Species'])", "as": "Count"},
+    {
+      "lookup": "State",
+      "from": {
+        "data": {
+          "values": [
+            {"code": "NSW", "name": "New South Wales"},
+            {"code": "VIC", "name": "Victoria"},
+            {"code": "QLD", "name": "Queensland"},
+            {"code": "WA", "name": "Western Australia"},
+            {"code": "SA", "name": "South Australia"},
+            {"code": "TAS", "name": "Tasmania"},
+            {"code": "ACT", "name": "Australian Capital Territory"},
+            {"code": "NT", "name": "Northern Territory"},
+            {"code": "JBT", "name": "Jervis Bay Territory"},
+            {"code": "NFI", "name": "Norfolk Island"},
+            {"code": "CI", "name": "Christmas Island"},
+            {"code": "CKI", "name": "Cocos (Keeling) Islands"},
+            {"code": "ACI", "name": "Ashmore and Cartier Islands"},
+            {"code": "CSI", "name": "Coral Sea Islands"},
+            {"code": "HMI", "name": "Heard and McDonald Islands"},
+            {"code": "AAT", "name": "Australian Antarctic Territory"},
+            {"code": "CMA", "name": "Commonwealth marine area"}
+          ]
+        },
+        "key": "code",
+        "fields": ["name"]
+      },
+      "as": ["Region"]
+    },
+    {"calculate": "datum.Count == 0 ? '–' : '' + datum.Count", "as": "Label"}
+  ],
+  "encoding": {
+    "x": {
+      "field": "Status",
+      "type": "ordinal",
+      "sort": ["Extinct", "Extinct in the wild", "Critically Endangered", "Endangered", "Vulnerable", "Conservation Dependent"],
+      "axis": {
+        "orient": "top",
+        "title": null,
+        "ticks": false,
+        "domain": false,
+        "labelAngle": 0,
+        "labelPadding": 10,
+        "labelFontSize": 12,
+        "labelFontWeight": "bold",
+        "labelColor": "#374151",
+        "labelExpr": "datum.label == 'Extinct in the wild' ? ['Extinct in','the wild'] : datum.label == 'Critically Endangered' ? ['Critically','endangered'] : datum.label == 'Conservation Dependent' ? ['Conservation','dependent'] : datum.label == 'Endangered' ? 'Endangered' : datum.label"
+      }
+    },
+    "y": {
+      "field": "Region",
+      "type": "ordinal",
+      "sort": [
+        "New South Wales", "Victoria", "Queensland", "Western Australia", "South Australia", "Tasmania",
+        "Australian Capital Territory", "Northern Territory", "Jervis Bay Territory", "Norfolk Island",
+        "Christmas Island", "Cocos (Keeling) Islands", "Ashmore and Cartier Islands", "Coral Sea Islands",
+        "Heard and McDonald Islands", "Australian Antarctic Territory", "Commonwealth marine area"
+      ],
+      "axis": {
+        "title": null,
+        "ticks": false,
+        "domain": false,
+        "labelFontSize": 12,
+        "labelColor": "#374151",
+        "labelLimit": 240,
+        "labelPadding": 8
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {"type": "rect", "stroke": "white", "strokeWidth": 2},
+      "encoding": {
+        "color": {
+          "field": "Count",
+          "type": "quantitative",
+          "scale": {"type": "sqrt", "scheme": "oranges"},
+          "legend": {"title": "Number of species", "orient": "bottom", "gradientLength": 280, "titleFontSize": 12}
+        },
+        "tooltip": [
+          {"field": "Region", "type": "nominal", "title": "State or territory"},
+          {"field": "Status", "type": "nominal", "title": "Status"},
+          {"field": "Count", "type": "quantitative", "title": "Species"}
+        ]
+      }
+    },
+    {
+      "mark": {"type": "text", "fontSize": 12},
+      "encoding": {
+        "text": {"field": "Label", "type": "nominal"},
+        "color": {
+          "condition": {"test": "datum.Count > 45", "value": "white"},
+          "value": "#374151"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {"stroke": null},
+    "font": "Helvetica Neue, Arial, sans-serif"
+  }
+}
