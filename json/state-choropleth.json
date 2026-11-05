@@ -1,0 +1,80 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Threatened species by Australian state and territory",
+  "width": 600,
+  "height": 500,
+  "params": [
+    {
+      "name": "status",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "name": "Threatened status: ",
+        "options": [
+          "All",
+          "Critically Endangered",
+          "Endangered",
+          "Vulnerable",
+          "Extinct",
+          "Extinct in the wild",
+          "Conservation Dependent"
+        ]
+      }
+    }
+  ],
+  "data": {
+    "url": "data/threatened-species-by-state.csv",
+    "format": {
+      "type": "csv",
+      "parse": { "Number of Species": "number" }
+    }
+  },
+  "transform": [
+    {
+      "filter": "status == 'All' || datum['Threatened Status'] == status"
+    },
+    {
+      "calculate": "{'ACT':'Australian Capital Territory','NSW':'New South Wales','NT':'Northern Territory','QLD':'Queensland','SA':'South Australia','TAS':'Tasmania','VIC':'Victoria','WA':'Western Australia'}[datum.State]",
+      "as": "stateName"
+    },
+    {
+      "filter": "isValid(datum.stateName)"
+    },
+    {
+      "aggregate": [
+        { "op": "sum", "field": "Number of Species", "as": "totalSpecies" }
+      ],
+      "groupby": ["State", "stateName"]
+    },
+    {
+      "lookup": "stateName",
+      "from": {
+        "data": {
+          "url": "data/australia-states-and-territories.json",
+          "format": { "type": "topojson", "feature": "states" }
+        },
+        "key": "properties.STE_NAME21"
+      },
+      "as": "geo"
+    }
+  ],
+  "projection": { "type": "mercator" },
+  "mark": {
+    "type": "geoshape",
+    "stroke": "white",
+    "strokeWidth": 0.8
+  },
+  "encoding": {
+    "shape": { "field": "geo", "type": "geojson" },
+    "color": {
+      "field": "totalSpecies",
+      "type": "quantitative",
+      "title": "Number of species",
+      "scale": { "scheme": "oranges" }
+    },
+    "tooltip": [
+      { "field": "stateName", "type": "nominal", "title": "State / territory" },
+      { "field": "totalSpecies", "type": "quantitative", "title": "Threatened species", "format": "," }
+    ]
+  }
+}

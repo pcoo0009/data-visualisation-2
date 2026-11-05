@@ -13,6 +13,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 
+  <!-- <script src="js/vega_lite_vis.js"></script> -->
+  
+
   <!--
   ===========================================================================
   RUBRIC CHECKLIST (delete before submitting)
@@ -56,7 +59,7 @@
         </div>
         <div class="stat">
           <div class="stat-num">434</div>
-          <p class="stat-label">species listed as <b>critically endangered<b> under the EPBC Act</p>
+          <p class="stat-label">species listed as <b>critically endangered</b> under the EPBC Act</p>
         </div>
         <div class="stat">
           <div class="stat-num">#1</div>
@@ -83,8 +86,8 @@
         <figure class="figure">
           <h3 class="fig-title">[Chart 1 headline: state the takeaway, not just the topic]</h3>
           <p class="fig-sub">[What is measured, where, and when]</p>
-          <div class="chart" id="vis1" data-spec="json/vis1.vl.json">
-            <img src="img/img1.svg" width="1200" height="700" alt="[Describe chart 1 and its key finding for screen-reader users]">
+          <div class="chart" id="vis1" data-spec="json/world_choropleth.json">
+            
           </div>
           <figcaption>
             <p class="fig-how"><strong>How to read this:</strong> [One sentence on what colour/size/position means. Mention any interaction, e.g. “hover for details”.]</p>
@@ -115,7 +118,7 @@
         <figure class="figure">
           <h3 class="fig-title">[Chart 2 headline]</h3>
           <p class="fig-sub">[What is measured, where, and when]</p>
-          <div class="chart" id="vis2" data-spec="json/vis2.vl.json">
+          <div class="chart" id="state-choropleth" data-spec="json/state-choropleth.json">
             <img src="img/img2.svg" width="1200" height="700" alt="[Describe chart 2]">
           </div>
           <figcaption>
@@ -419,7 +422,7 @@
           el.innerHTML = '';
           return vegaEmbed(el, spec, { actions: false, renderer: 'canvas' });
         })
-        .catch(function () { /* keep the placeholder image */ });
+        .catch(function (e) { console.error(el.dataset.spec, e); });
     });
   </script>
 </body>

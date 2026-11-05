@@ -1,0 +1,171 @@
+Name,iso3,Count,Group,Rank
+Indonesia,IDN,227,Mammals,1
+Madagascar,MDG,133,Mammals,2
+Mexico,MEX,99,Mammals,3
+India,IND,99,Mammals,4
+Brazil,BRA,98,Mammals,5
+Malaysia,MYS,81,Mammals,6
+China,CHN,80,Mammals,7
+Australia,AUS,451,Other Inverts,1
+Colombia,COL,61,Mammals,9
+Peru,PER,52,Mammals,10
+Papua New Guinea,PNG,51,Mammals,11
+Ecuador,ECU,49,Mammals,12
+"Congo, The Democratic Republic of the",COD,47,Mammals,13
+United States,USA,43,Mammals,14
+Philippines,PHL,43,Mammals,15
+"Venezuela, Bolivarian Republic of",VEN,37,Mammals,16
+South Africa,ZAF,35,Mammals,17
+Indonesia,IDN,146,Birds,1
+Brazil,BRA,137,Birds,2
+China,CHN,87,Birds,3
+United States,USA,87,Birds,4
+Colombia,COL,85,Birds,5
+India,IND,82,Birds,6
+Philippines,PHL,79,Birds,7
+Ecuador,ECU,75,Birds,8
+Peru,PER,75,Birds,9
+Mexico,MEX,74,Birds,10
+Malaysia,MYS,70,Birds,11
+Australia,AUS,187,Molluscs,2
+South Africa,ZAF,54,Birds,13
+Madagascar,MDG,43,Birds,14
+"Congo, The Democratic Republic of the",COD,40,Birds,15
+"Venezuela, Bolivarian Republic of",VEN,37,Birds,16
+Papua New Guinea,PNG,35,Birds,17
+Madagascar,MDG,138,Reptiles,1
+Mexico,MEX,112,Reptiles,2
+India,IND,105,Reptiles,3
+Brazil,BRA,93,Reptiles,4
+Ecuador,ECU,93,Reptiles,5
+Australia,AUS,15,Fungi,4
+Indonesia,IDN,76,Reptiles,7
+Malaysia,MYS,59,Reptiles,8
+China,CHN,56,Reptiles,9
+United States,USA,40,Reptiles,10
+Colombia,COL,40,Reptiles,11
+Philippines,PHL,35,Reptiles,12
+Peru,PER,32,Reptiles,13
+"Venezuela, Bolivarian Republic of",VEN,32,Reptiles,14
+South Africa,ZAF,25,Reptiles,15
+"Congo, The Democratic Republic of the",COD,18,Reptiles,16
+Papua New Guinea,PNG,12,Reptiles,17
+Colombia,COL,301,Amphibians,1
+Ecuador,ECU,293,Amphibians,2
+Mexico,MEX,232,Amphibians,3
+Brazil,BRA,190,Amphibians,4
+Madagascar,MDG,186,Amphibians,5
+China,CHN,149,Amphibians,6
+Peru,PER,141,Amphibians,7
+India,IND,139,Amphibians,8
+"Venezuela, Bolivarian Republic of",VEN,127,Amphibians,9
+United States,USA,66,Amphibians,10
+Australia,AUS,86,Reptiles,6
+Malaysia,MYS,41,Amphibians,12
+South Africa,ZAF,30,Amphibians,13
+Indonesia,IDN,29,Amphibians,14
+Papua New Guinea,PNG,27,Amphibians,15
+Philippines,PHL,27,Amphibians,16
+"Congo, The Democratic Republic of the",COD,13,Amphibians,17
+Brazil,BRA,470,Fishes,1
+China,CHN,392,Fishes,2
+Indonesia,IDN,380,Fishes,3
+India,IND,332,Fishes,4
+Mexico,MEX,309,Fishes,5
+United States,USA,288,Fishes,6
+Australia,AUS,229,Fishes,7
+Colombia,COL,202,Fishes,8
+Malaysia,MYS,190,Fishes,9
+South Africa,ZAF,156,Fishes,10
+Philippines,PHL,155,Fishes,11
+"Venezuela, Bolivarian Republic of",VEN,148,Fishes,12
+"Congo, The Democratic Republic of the",COD,142,Fishes,13
+Papua New Guinea,PNG,139,Fishes,14
+Peru,PER,119,Fishes,15
+Madagascar,MDG,117,Fishes,16
+Ecuador,ECU,84,Fishes,17
+United States,USA,320,Molluscs,1
+Australia,AUS,72,Mammals,8
+Indonesia,IDN,112,Molluscs,3
+Malaysia,MYS,56,Molluscs,4
+Ecuador,ECU,49,Molluscs,5
+"Congo, The Democratic Republic of the",COD,45,Molluscs,6
+Madagascar,MDG,35,Molluscs,7
+South Africa,ZAF,31,Molluscs,8
+Papua New Guinea,PNG,28,Molluscs,9
+Brazil,BRA,24,Molluscs,10
+China,CHN,16,Molluscs,11
+Mexico,MEX,15,Molluscs,12
+India,IND,10,Molluscs,13
+Philippines,PHL,6,Molluscs,14
+Colombia,COL,4,Molluscs,15
+Peru,PER,4,Molluscs,16
+"Venezuela, Bolivarian Republic of",VEN,0,Molluscs,17
+Australia,AUS,1960,Total,9
+Philippines,PHL,402,Other Inverts,2
+Indonesia,IDN,400,Other Inverts,3
+United States,USA,387,Other Inverts,4
+Malaysia,MYS,339,Other Inverts,5
+Madagascar,MDG,323,Other Inverts,6
+South Africa,ZAF,278,Other Inverts,7
+India,IND,254,Other Inverts,8
+Papua New Guinea,PNG,252,Other Inverts,9
+Mexico,MEX,164,Other Inverts,10
+China,CHN,145,Other Inverts,11
+Brazil,BRA,95,Other Inverts,12
+Colombia,COL,92,Other Inverts,13
+"Venezuela, Bolivarian Republic of",VEN,61,Other Inverts,14
+Ecuador,ECU,34,Other Inverts,15
+Peru,PER,9,Other Inverts,16
+"Congo, The Democratic Republic of the",COD,9,Other Inverts,17
+Madagascar,MDG,3095,Plants,1
+Ecuador,ECU,2124,Plants,2
+Brazil,BRA,1680,Plants,3
+Mexico,MEX,1656,Plants,4
+Malaysia,MYS,1563,Plants,5
+Indonesia,IDN,1552,Plants,6
+Philippines,PHL,1246,Plants,7
+Colombia,COL,1148,Plants,8
+China,CHN,852,Plants,9
+United States,USA,830,Plants,10
+Australia,AUS,46,Amphibians,11
+Peru,PER,798,Plants,12
+Papua New Guinea,PNG,752,Plants,13
+India,IND,727,Plants,14
+"Venezuela, Bolivarian Republic of",VEN,599,Plants,15
+South Africa,ZAF,506,Plants,16
+"Congo, The Democratic Republic of the",COD,468,Plants,17
+United States,USA,121,Fungi,1
+Brazil,BRA,50,Fungi,2
+Colombia,COL,23,Fungi,3
+Australia,AUS,804,Plants,11
+Malaysia,MYS,9,Fungi,5
+China,CHN,8,Fungi,6
+Mexico,MEX,8,Fungi,7
+Madagascar,MDG,8,Fungi,8
+India,IND,4,Fungi,9
+Papua New Guinea,PNG,3,Fungi,10
+Ecuador,ECU,3,Fungi,11
+Peru,PER,3,Fungi,12
+"Venezuela, Bolivarian Republic of",VEN,3,Fungi,13
+"Congo, The Democratic Republic of the",COD,3,Fungi,14
+Indonesia,IDN,2,Fungi,15
+Philippines,PHL,1,Fungi,16
+South Africa,ZAF,0,Fungi,17
+Madagascar,MDG,4078,Total,1
+Indonesia,IDN,2924,Total,2
+Brazil,BRA,2837,Total,3
+Ecuador,ECU,2810,Total,4
+Mexico,MEX,2671,Total,5
+Malaysia,MYS,2408,Total,6
+United States,USA,2184,Total,7
+Philippines,PHL,1994,Total,8
+Australia,AUS,69,Birds,12
+Colombia,COL,1956,Total,10
+China,CHN,1785,Total,11
+India,IND,1752,Total,12
+Papua New Guinea,PNG,1299,Total,13
+Peru,PER,1233,Total,14
+South Africa,ZAF,1115,Total,15
+"Venezuela, Bolivarian Republic of",VEN,1044,Total,16
+"Congo, The Democratic Republic of the",COD,785,Total,17
