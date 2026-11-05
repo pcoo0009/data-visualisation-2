@@ -1,14 +1,5 @@
 {
  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
- "title": {
-  "text": [
-   "Critically endangered species",
-   "occurrence records (binned)"
-  ],
-  "anchor": "start",
-  "fontSize": 18,
-  "offset": 12
- },
  "params": [
   {
    "name": "species",
@@ -205,7 +196,7 @@
      "Drag the handles or the shaded area",
      "to filter by year"
     ],
-    "anchor": "start",
+    "anchor": "middle",
     "fontSize": 12,
     "color": "#6B7280"
    },

@@ -264,6 +264,7 @@ th { font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; colo
 /* Paired cards: equal height, chart centred in the free space, caption at the bottom */
 .pair { align-items: stretch; }
 .pair > .figure { display: flex; flex-direction: column; }
-.pair > .figure .chart { flex: 1; display: flex; align-items: center; justify-content: center; }
+.pair > .figure .chart { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.pair > .figure .chart .vega-embed { display: block; }
 .chart .vega-embed > canvas,
 .chart .vega-embed > svg { margin-left: auto; margin-right: auto; }
