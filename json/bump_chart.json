@@ -1,0 +1,144 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Bump chart: rank of each megadiverse country by number of threatened species in each group, with Australia highlighted.",
+  "width": 880,
+  "height": 560,
+  "padding": {"left": 125, "right": 125, "top": 10, "bottom": 10},
+  "title": {
+    "text": "How Australia ranks among the 17 megadiverse countries",
+    "subtitle": [
+      "Rank by number of threatened species in each group (1 = most). Each circle shows the rank.",
+      "Countries with equal counts are ordered alphabetically."
+    ],
+    "anchor": "start",
+    "fontSize": 18,
+    "subtitleFontSize": 12,
+    "subtitleColor": "#6B7280",
+    "offset": 16
+  },
+  "data": {"url": "https://pcoo0009.github.io/data-visualisation-2/data/threatened-species-by-megadiverse-country-ranked.csv"},
+  "transform": [
+    {
+      "calculate": "datum.Name == 'Congo, The Democratic Republic of the' ? 'DR Congo' : datum.Name == 'Venezuela, Bolivarian Republic of' ? 'Venezuela' : datum.Name",
+      "as": "Country"
+    },
+    {"filter": "datum.Group != 'Total'"},
+    {"calculate": "datum.Name == 'Australia'", "as": "isAus"},
+    {
+      "calculate": "indexof(['Birds','Plants','Amphibians','Mammals','Fishes','Reptiles','Fungi','Molluscs','Other Inverts'], datum.Group)",
+      "as": "groupIdx"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "Group",
+      "type": "ordinal",
+      "sort": ["Birds", "Plants", "Amphibians", "Mammals", "Fishes", "Reptiles", "Fungi", "Molluscs", "Other Inverts"],
+      "scale": {"type": "point", "padding": 0.5},
+      "axis": {
+        "orient": "top",
+        "title": null,
+        "ticks": false,
+        "domain": false,
+        "labelAngle": 0,
+        "labelPadding": 12,
+        "labelFontSize": 12,
+        "labelFontWeight": "bold",
+        "labelColor": "#374151",
+        "labelExpr": "datum.label == 'Other Inverts' ? ['Other','invertebrates'] : datum.label"
+      }
+    },
+    "y": {
+      "field": "Rank",
+      "type": "quantitative",
+      "scale": {"reverse": true, "domain": [0.5, 17.5]},
+      "axis": null
+    }
+  },
+  "layer": [
+    {
+      "description": "Other countries: lines",
+      "transform": [{"filter": "!datum.isAus"}],
+      "mark": {"type": "line", "strokeWidth": 2, "color": "#C9CED6", "opacity": 0.9},
+      "encoding": {
+        "detail": {"field": "Name", "type": "nominal"},
+        "order": {"field": "groupIdx", "type": "quantitative"}
+      }
+    },
+    {
+      "description": "Other countries: circles",
+      "transform": [{"filter": "!datum.isAus"}],
+      "mark": {"type": "circle", "size": 230, "color": "#9AA3AF", "opacity": 1},
+      "encoding": {
+        "tooltip": [
+          {"field": "Country", "type": "nominal", "title": "Country"},
+          {"field": "Group", "type": "nominal", "title": "Group"},
+          {"field": "Count", "type": "quantitative", "title": "Threatened species"},
+          {"field": "Rank", "type": "quantitative", "title": "Rank (of 17)"}
+        ]
+      }
+    },
+    {
+      "description": "Other countries: rank numbers",
+      "transform": [{"filter": "!datum.isAus"}],
+      "mark": {"type": "text", "fontSize": 10, "fontWeight": "bold", "color": "white"},
+      "encoding": {"text": {"field": "Rank", "type": "quantitative"}}
+    },
+    {
+      "description": "Australia: line",
+      "transform": [{"filter": "datum.isAus"}],
+      "mark": {"type": "line", "strokeWidth": 4.5, "color": "#E4572E"},
+      "encoding": {
+        "detail": {"field": "Name", "type": "nominal"},
+        "order": {"field": "groupIdx", "type": "quantitative"}
+      }
+    },
+    {
+      "description": "Australia: circles",
+      "transform": [{"filter": "datum.isAus"}],
+      "mark": {"type": "circle", "size": 560, "color": "#E4572E", "opacity": 1},
+      "encoding": {
+        "tooltip": [
+          {"field": "Country", "type": "nominal", "title": "Country"},
+          {"field": "Group", "type": "nominal", "title": "Group"},
+          {"field": "Count", "type": "quantitative", "title": "Threatened species"},
+          {"field": "Rank", "type": "quantitative", "title": "Rank (of 17)"}
+        ]
+      }
+    },
+    {
+      "description": "Australia: rank numbers",
+      "transform": [{"filter": "datum.isAus"}],
+      "mark": {"type": "text", "fontSize": 13, "fontWeight": "bold", "color": "white"},
+      "encoding": {"text": {"field": "Rank", "type": "quantitative"}}
+    },
+    {
+      "description": "Other countries: labels on the left",
+      "transform": [{"filter": "!datum.isAus && datum.Group == 'Birds'"}],
+      "mark": {"type": "text", "align": "right", "dx": -16, "fontSize": 11, "color": "#6B7280"},
+      "encoding": {"text": {"field": "Country", "type": "nominal"}}
+    },
+    {
+      "description": "Other countries: labels on the right",
+      "transform": [{"filter": "!datum.isAus && datum.Group == 'Other Inverts'"}],
+      "mark": {"type": "text", "align": "left", "dx": 16, "fontSize": 11, "color": "#6B7280"},
+      "encoding": {"text": {"field": "Country", "type": "nominal"}}
+    },
+    {
+      "description": "Australia: label on the left",
+      "transform": [{"filter": "datum.isAus && datum.Group == 'Birds'"}],
+      "mark": {"type": "text", "align": "right", "dx": -22, "fontSize": 13, "fontWeight": "bold", "color": "#E4572E"},
+      "encoding": {"text": {"field": "Country", "type": "nominal"}}
+    },
+    {
+      "description": "Australia: label on the right",
+      "transform": [{"filter": "datum.isAus && datum.Group == 'Other Inverts'"}],
+      "mark": {"type": "text", "align": "left", "dx": 22, "fontSize": 13, "fontWeight": "bold", "color": "#E4572E"},
+      "encoding": {"text": {"field": "Country", "type": "nominal"}}
+    }
+  ],
+  "config": {
+    "view": {"stroke": null},
+    "font": "Helvetica Neue, Arial, sans-serif"
+  }
+}
