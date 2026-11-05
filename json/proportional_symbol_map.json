@@ -1,0 +1,103 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Threatened species by Australian state and territory",
+  "width": 600,
+  "height": 500,
+  "params": [
+    {
+      "name": "status",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "name": "Threatened status: ",
+        "options": [
+          "All",
+          "Critically Endangered",
+          "Endangered",
+          "Vulnerable",
+          "Extinct",
+          "Extinct in the wild",
+          "Conservation Dependent"
+        ]
+      }
+    }
+  ],
+  "projection": { "type": "mercator" },
+  "layer": [
+    {
+      "data": {
+        "url": "https://pcoo0009.github.io/data-visualisation-2/data/state_map_simplified.json",
+        "format": { "type": "topojson", "feature": "STE_2021_AUST_GDA2020" }
+      },
+      "transform": [
+        {
+          "filter": "indexof(['New South Wales','Victoria','Queensland','South Australia','Western Australia','Tasmania','Northern Territory','Australian Capital Territory'], datum.properties.STE_NAME21) >= 0"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e8e8e8",
+        "stroke": "white",
+        "strokeWidth": 0.8
+      }
+    },
+    {
+      "data": {
+        "url": "https://pcoo0009.github.io/data-visualisation-2/data/threatened-species-by-state.csv",
+        "format": {
+          "type": "csv",
+          "parse": { "Number of Species": "number" }
+        }
+      },
+      "transform": [
+        {
+          "filter": "status == 'All' || datum['Threatened Status'] == status"
+        },
+        {
+          "calculate": "{'ACT':'Australian Capital Territory','NSW':'New South Wales','NT':'Northern Territory','QLD':'Queensland','SA':'South Australia','TAS':'Tasmania','VIC':'Victoria','WA':'Western Australia'}[datum.State]",
+          "as": "stateName"
+        },
+        {
+          "filter": "isValid(datum.stateName)"
+        },
+        {
+          "aggregate": [
+            { "op": "sum", "field": "Number of Species", "as": "totalSpecies" }
+          ],
+          "groupby": ["State", "stateName"]
+        },
+        {
+          "calculate": "{'ACT':149.4,'NSW':146.8,'NT':133.5,'QLD':144.5,'SA':135.5,'TAS':146.6,'VIC':144.3,'WA':122.5}[datum.State]",
+          "as": "lon"
+        },
+        {
+          "calculate": "{'ACT':-35.5,'NSW':-32.2,'NT':-19.5,'QLD':-22.5,'SA':-30.0,'TAS':-42.0,'VIC':-36.9,'WA':-25.5}[datum.State]",
+          "as": "lat"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "fill": "#d95f0e",
+        "fillOpacity": 0.65,
+        "stroke": "#7f2704",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "longitude": { "field": "lon", "type": "quantitative" },
+        "latitude": { "field": "lat", "type": "quantitative" },
+        "size": {
+          "field": "totalSpecies",
+          "type": "quantitative",
+          "title": "Number of species",
+          "scale": { "type": "linear", "zero": true, "range": [0, 5000] },
+          "legend": { "symbolFillColor": "#d95f0e", "symbolOpacity": 0.65 }
+        },
+        "order": { "field": "totalSpecies", "sort": "descending" },
+        "tooltip": [
+          { "field": "stateName", "type": "nominal", "title": "State / territory" },
+          { "field": "totalSpecies", "type": "quantitative", "title": "Threatened species", "format": "," }
+        ]
+      }
+    }
+  ]
+}
