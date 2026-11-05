@@ -18,7 +18,7 @@
   ===========================================================================
   RUBRIC CHECKLIST (delete before submitting)
   ---------------------------------------------------------------------------
-  [ ] 10+ charts (a small-multiples set counts as ONE chart). This page has 7 charts so far (1, 2, 5, 6, 7, 8, 9); charts 3 and 4 are not built yet.
+  [ ] 10+ charts (a small-multiples set counts as ONE chart). This page has 10 charts (json/1 to json/10).
   [ ] 3+ map idioms (appropriate projections). Max idiom mark halves if fewer than 3.
   [ ] 8+ ADVANCED idioms (all maps count as advanced; bar/line/area/pie/scatter/bubble do not).
   [ ] Everything built with Vega-Lite / Vega and its JSON is readable in this repo (json/ folder).
@@ -122,7 +122,7 @@
       </div>
 
       <div class="stack">
-        <div class="split">
+        <div class="split wide-chart">
           <div class="text">
             <p class="lede">[Lead sentence that frames the map on the right.]</p>
             <p>[Narrative paragraph comparing the states and territories.]</p>
@@ -144,16 +144,22 @@
           </figure>
         </div>
 
-        <!-- Chart 6 | advanced idiom: heatmap -->
-        <figure class="figure">
-          <h3 class="fig-title">[Chart 6 headline]</h3>
-          <p class="fig-sub">Number of threatened animal species in each status category, by state and territory</p>
-          <div class="chart" id="vis6" data-spec="json/6_heatmap.json"></div>
-          <figcaption>
-            <p class="fig-how"><strong>How to read this:</strong> Each square counts the animal species in one status category. Darker squares mean more species; a dash means none.</p>
-            <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/6_heatmap.json">Vega-Lite JSON</a></p>
-          </figcaption>
-        </figure>
+        <div class="pair">
+          <!-- Chart 6 | advanced idiom: heatmap -->
+          <figure class="figure">
+            <h3 class="fig-title">[Chart 6 headline]</h3>
+            <p class="fig-sub">Number of threatened animal species in each status category, by state and territory</p>
+            <div class="chart" id="vis6" data-spec="json/6_heatmap.json"></div>
+            <figcaption>
+              <p class="fig-how"><strong>How to read this:</strong> Each square counts the animal species in one status category. Darker squares mean more species; a dash means none.</p>
+              <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/6_heatmap.json">Vega-Lite JSON</a></p>
+            </figcaption>
+          </figure>
+
+          <figure class="figure">
+            <div class="chart" id="vis4" data-spec="json/4_species_lost_by_state.json"></div>
+          </figure>
+        </div>
       </div>
     </section>
 
@@ -166,31 +172,26 @@
       </div>
 
       <div class="stack">
-        <!-- Chart 7 | advanced idiom: waffle chart -->
-        <figure class="figure">
-          <h3 class="fig-title">[Chart 7 headline]</h3>
-          <p class="fig-sub">Threatened species with monitoring data, by group</p>
-          <div class="chart" id="vis7" data-spec="json/7_waffle_chart.json"></div>
-          <figcaption>
-            <p class="fig-how"><strong>How to read this:</strong> Each square is 1% of the threatened species that have monitoring data. This counts species, not individual animals or plants.</p>
-            <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/7_waffle_chart.json">Vega-Lite JSON</a></p>
-          </figcaption>
-        </figure>
-
         <div class="text measure">
           <p>[Narrative paragraph linking the groups above to the five species mapped below.]</p>
         </div>
 
-        <!-- Chart 8 | MAP idiom: binned map with year filter -->
-        <figure class="figure">
-          <h3 class="fig-title">[Chart 8 headline]</h3>
-          <p class="fig-sub">Recorded sightings of five critically endangered species, since 1970</p>
-          <div class="chart" id="vis8" data-spec="json/8_bin_map.json"></div>
-          <figcaption>
-            <p class="fig-how"><strong>How to read this:</strong> Choose a species, then drag across the bottom chart to pick a range of years. Darker squares have more sighting records. Records show where people have looked and reported sightings, not how many animals there are.</p>
-            <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/8_bin_map.json">Vega-Lite JSON</a></p>
-          </figcaption>
-        </figure>
+        <div class="pair">
+          <!-- Chart 8 | MAP idiom: binned map with year filter -->
+          <figure class="figure">
+            <h3 class="fig-title">[Chart 8 headline]</h3>
+            <p class="fig-sub">Recorded sightings of five critically endangered species, since 1970</p>
+            <div class="chart" id="vis8" data-spec="json/8_bin_map.json"></div>
+            <figcaption>
+              <p class="fig-how"><strong>How to read this:</strong> Choose a species, then drag across the bottom chart to pick a range of years. Darker squares have more sighting records. Records show where people have looked and reported sightings, not how many animals there are.</p>
+              <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/8_bin_map.json">Vega-Lite JSON</a></p>
+            </figcaption>
+          </figure>
+
+          <figure class="figure">
+            <div class="chart" id="vis3" data-spec="json/3_regent_honeyeater_hdm_map.json"></div>
+          </figure>
+        </div>
 
         <div class="callout measure">
           <strong>[Annotation heading]</strong>
@@ -207,19 +208,36 @@
         <p class="lede">Are monitored threatened species recovering, or still declining?</p>
       </div>
 
-      <div class="split reverse">
-        <!-- Chart 9 | advanced idiom: slope chart -->
-        <figure class="figure">
-          <h3 class="fig-title">[Chart 9 headline]</h3>
-          <p class="fig-sub">Threatened Species Index by state and territory, 2000 and 2022</p>
-          <div class="chart" id="vis9" data-spec="json/9_slope_chart.json"></div>
-          <figcaption>
-            <p class="fig-how"><strong>How to read this:</strong> Each line is a state or territory. A line sloping down means monitored threatened species declined between 2000 and 2022. The ACT is left out because its figures are too uncertain to read.</p>
-            <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/9_slope_chart.json">Vega-Lite JSON</a></p>
-          </figcaption>
+      <div class="stack">
+        <figure class="figure narrow">
+          <div class="chart" id="vis10" data-spec="json/10_studies_by_year.json"></div>
         </figure>
 
-        <div class="text">
+        <div class="pair">
+          <!-- Chart 7 | advanced idiom: waffle chart -->
+          <figure class="figure">
+            <h3 class="fig-title">[Chart 7 headline]</h3>
+            <p class="fig-sub">Threatened species with monitoring data, by group</p>
+            <div class="chart" id="vis7" data-spec="json/7_waffle_chart.json"></div>
+            <figcaption>
+              <p class="fig-how"><strong>How to read this:</strong> Each square is 1% of the threatened species that have monitoring data. This counts species, not individual animals or plants.</p>
+              <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/7_waffle_chart.json">Vega-Lite JSON</a></p>
+            </figcaption>
+          </figure>
+
+          <!-- Chart 9 | advanced idiom: slope chart -->
+          <figure class="figure">
+            <h3 class="fig-title">[Chart 9 headline]</h3>
+            <p class="fig-sub">Threatened Species Index by state and territory, 2000 and 2022</p>
+            <div class="chart" id="vis9" data-spec="json/9_slope_chart.json"></div>
+            <figcaption>
+              <p class="fig-how"><strong>How to read this:</strong> Each line is a state or territory. A line sloping down means monitored threatened species declined between 2000 and 2022. The ACT is left out because its figures are too uncertain to read.</p>
+              <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/9_slope_chart.json">Vega-Lite JSON</a></p>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="text measure">
           <p class="lede">[Lead sentence that frames the slope chart.]</p>
           <p>[Narrative paragraph: what the index measures, in plain language, and what the slopes show.]</p>
           <div class="callout">

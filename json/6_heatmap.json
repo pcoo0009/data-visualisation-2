@@ -1,16 +1,14 @@
 {
  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
  "description": "Heatmap: number of threatened animal species in each status category, by state and territory.",
- "width": {
-  "step": 100
- },
+ "width": "container",
  "height": {
-  "step": 30
+  "step": 32
  },
  "padding": {
   "top": 10,
-  "left": 10,
-  "right": 20,
+  "left": 5,
+  "right": 15,
   "bottom": 70
  },
  "title": {
@@ -149,11 +147,13 @@
     "ticks": false,
     "domain": false,
     "labelAngle": 0,
-    "labelPadding": 10,
-    "labelFontSize": 12,
+    "labelPadding": 24,
+    "labelFontSize": 11,
     "labelFontWeight": "bold",
     "labelColor": "#374151",
-    "labelExpr": "datum.label == 'Extinct in the wild' ? ['Extinct in','the wild'] : datum.label == 'Critically Endangered' ? ['Critically','endangered'] : datum.label == 'Conservation Dependent' ? ['Conservation','dependent'] : datum.label == 'Endangered' ? 'Endangered' : datum.label"
+    "labelExpr": "datum.label == 'Extinct in the wild' ? ['Extinct in','the wild'] : datum.label == 'Critically Endangered' ? ['Critically','endangered'] : datum.label == 'Conservation Dependent' ? ['Conservation','dependent'] : datum.label == 'Endangered' ? 'Endangered' : datum.label",
+    "labelBaseline": "middle",
+    "labelLineHeight": 13
    }
   },
   "y": {
@@ -182,10 +182,11 @@
     "title": null,
     "ticks": false,
     "domain": false,
-    "labelFontSize": 12,
+    "labelFontSize": 11,
     "labelColor": "#374151",
-    "labelLimit": 240,
-    "labelPadding": 8
+    "labelLimit": 200,
+    "labelPadding": 8,
+    "labelExpr": "datum.label == 'Australian Capital Territory' ? 'ACT' : datum.label"
    }
   }
  },
@@ -276,5 +277,9 @@
    "stroke": null
   },
   "font": "Helvetica Neue, Arial, sans-serif"
+ },
+ "autosize": {
+  "type": "fit-x",
+  "contains": "padding"
  }
 }

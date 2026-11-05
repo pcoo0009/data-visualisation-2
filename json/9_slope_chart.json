@@ -54,12 +54,12 @@
     "title": null,
     "orient": "none",
     "direction": "horizontal",
-    "columns": 4,
+    "columns": 2,
     "legendX": {
-     "expr": "width/2 - 330"
+     "expr": "width/2 - 170"
     },
     "legendY": {
-     "expr": "height + 55"
+     "expr": "height + 50"
     },
     "symbolType": "stroke",
     "symbolStrokeWidth": 4,
@@ -104,6 +104,6 @@
   "top": 5,
   "left": 5,
   "right": 5,
-  "bottom": 90
+  "bottom": 125
  }
 }

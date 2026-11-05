@@ -1,77 +1,243 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Number of species listed as extinct, by state and territory, split into animals and plants.",
-  "width": "container",
-  "height": {"step": 36},
-  "autosize": {"type": "fit-x", "contains": "padding"},
-  "padding": {"top": 5, "left": 5, "right": 30, "bottom": 70},
-  "title": {
-    "text": "Species already lost, by state and territory",
-    "subtitle": ["Number of species listed as extinct under the EPBC Act."],
-    "anchor": "start", "fontSize": 18, "subtitleFontSize": 12, "subtitleColor": "#6B7280", "offset": 16
+ "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+ "description": "Number of species listed as extinct, by state and territory, split into animals and plants.",
+ "width": "container",
+ "height": {
+  "step": 32
+ },
+ "autosize": {
+  "type": "fit-x",
+  "contains": "padding"
+ },
+ "padding": {
+  "top": 5,
+  "left": 5,
+  "right": 30,
+  "bottom": 70
+ },
+ "title": {
+  "text": "Species already lost, by state and territory",
+  "subtitle": [
+   "Number of species listed as extinct under the EPBC Act."
+  ],
+  "anchor": "start",
+  "fontSize": 18,
+  "subtitleFontSize": 12,
+  "subtitleColor": "#6B7280",
+  "offset": 16
+ },
+ "data": {
+  "url": "https://pcoo0009.github.io/data-visualisation-2/data/threatened-species-by-state.csv"
+ },
+ "transform": [
+  {
+   "filter": "datum['Threatened Status'] == 'Extinct'"
   },
-  "data": {"url": "https://pcoo0009.github.io/data-visualisation-2/data/threatened-species-by-state.csv"},
-  "transform": [
-    {"filter": "datum['Threatened Status'] == 'Extinct'"},
-    {"calculate": "toNumber(datum['Number of Species'])", "as": "Count"},
-    {"calculate": "datum.Kingdom == 'Animalia' ? 'Animals' : 'Plants'", "as": "Group"},
-    {
-      "lookup": "State",
-      "from": {
-        "data": {"values": [
-          {"code": "NSW", "name": "New South Wales"}, {"code": "VIC", "name": "Victoria"},
-          {"code": "QLD", "name": "Queensland"}, {"code": "WA", "name": "Western Australia"},
-          {"code": "SA", "name": "South Australia"}, {"code": "TAS", "name": "Tasmania"},
-          {"code": "ACT", "name": "Australian Capital Territory"}, {"code": "NT", "name": "Northern Territory"}
-        ]},
-        "key": "code", "fields": ["name"]
+  {
+   "calculate": "toNumber(datum['Number of Species'])",
+   "as": "Count"
+  },
+  {
+   "calculate": "datum.Kingdom == 'Animalia' ? 'Animals' : 'Plants'",
+   "as": "Group"
+  },
+  {
+   "lookup": "State",
+   "from": {
+    "data": {
+     "values": [
+      {
+       "code": "NSW",
+       "name": "New South Wales"
       },
-      "as": ["Region"]
+      {
+       "code": "VIC",
+       "name": "Victoria"
+      },
+      {
+       "code": "QLD",
+       "name": "Queensland"
+      },
+      {
+       "code": "WA",
+       "name": "Western Australia"
+      },
+      {
+       "code": "SA",
+       "name": "South Australia"
+      },
+      {
+       "code": "TAS",
+       "name": "Tasmania"
+      },
+      {
+       "code": "ACT",
+       "name": "Australian Capital Territory"
+      },
+      {
+       "code": "NT",
+       "name": "Northern Territory"
+      }
+     ]
     },
-    {"filter": "isValid(datum.Region)"},
-    {"joinaggregate": [{"op": "sum", "field": "Count", "as": "total"}], "groupby": ["Region"]}
-  ],
-  "encoding": {
-    "y": {
-      "field": "Region", "type": "nominal", "title": null,
-      "sort": {"field": "total", "op": "max", "order": "descending"},
-      "axis": {"ticks": false, "domain": false, "labelFontSize": 12, "labelColor": "#374151", "labelLimit": 240, "labelPadding": 8}
-    }
+    "key": "code",
+    "fields": [
+     "name"
+    ]
+   },
+   "as": [
+    "Region"
+   ]
   },
-  "layer": [
+  {
+   "filter": "isValid(datum.Region)"
+  },
+  {
+   "joinaggregate": [
     {
-      "mark": {"type": "bar", "cornerRadius": 2},
-      "encoding": {
-        "x": {
-          "field": "Count", "type": "quantitative", "title": "Number of extinct species",
-          "axis": {"tickMinStep": 1, "format": "d", "labelColor": "#6B7280", "titleColor": "#6B7280", "titleFontWeight": "normal", "gridColor": "#EEF0F3", "domain": false, "ticks": false}
-        },
-        "color": {
-          "field": "Group", "type": "nominal",
-          "sort": ["Animals", "Plants"],
-          "scale": {"domain": ["Animals", "Plants"], "range": ["#eb6834", "#1baf7a"]},
-          "legend": {
-            "title": null, "orient": "none", "direction": "horizontal",
-            "legendX": {"expr": "width/2 - 70"}, "legendY": {"expr": "height + 50"},
-            "symbolType": "square", "symbolSize": 140, "labelFontSize": 12, "columnPadding": 20
-          }
-        },
-        "tooltip": [
-          {"field": "Region", "title": "State or territory"},
-          {"field": "Group", "title": "Group"},
-          {"field": "Count", "type": "quantitative", "title": "Extinct species"}
-        ]
-      }
-    },
-    {
-      "description": "Total at the end of each bar",
-      "transform": [{"aggregate": [{"op": "max", "field": "total", "as": "total"}], "groupby": ["Region"]}],
-      "mark": {"type": "text", "align": "left", "dx": 6, "fontSize": 12, "fontWeight": "bold", "color": "#374151"},
-      "encoding": {
-        "x": {"field": "total", "type": "quantitative"},
-        "text": {"field": "total", "type": "quantitative"}
-      }
+     "op": "sum",
+     "field": "Count",
+     "as": "total"
     }
-  ],
-  "config": {"view": {"stroke": null}, "font": "Helvetica Neue, Arial, sans-serif"}
+   ],
+   "groupby": [
+    "Region"
+   ]
+  }
+ ],
+ "encoding": {
+  "y": {
+   "field": "Region",
+   "type": "nominal",
+   "title": null,
+   "sort": {
+    "field": "total",
+    "op": "max",
+    "order": "descending"
+   },
+   "axis": {
+    "ticks": false,
+    "domain": false,
+    "labelFontSize": 11,
+    "labelColor": "#374151",
+    "labelLimit": 240,
+    "labelPadding": 8,
+    "labelExpr": "datum.label == 'Australian Capital Territory' ? 'ACT' : datum.label"
+   }
+  }
+ },
+ "layer": [
+  {
+   "mark": {
+    "type": "bar",
+    "cornerRadius": 2
+   },
+   "encoding": {
+    "x": {
+     "field": "Count",
+     "type": "quantitative",
+     "title": "Number of extinct species",
+     "axis": {
+      "tickMinStep": 1,
+      "format": "d",
+      "labelColor": "#6B7280",
+      "titleColor": "#6B7280",
+      "titleFontWeight": "normal",
+      "gridColor": "#EEF0F3",
+      "domain": false,
+      "ticks": false
+     }
+    },
+    "color": {
+     "field": "Group",
+     "type": "nominal",
+     "sort": [
+      "Animals",
+      "Plants"
+     ],
+     "scale": {
+      "domain": [
+       "Animals",
+       "Plants"
+      ],
+      "range": [
+       "#eb6834",
+       "#1baf7a"
+      ]
+     },
+     "legend": {
+      "title": null,
+      "orient": "none",
+      "direction": "horizontal",
+      "legendX": {
+       "expr": "width/2 - 70"
+      },
+      "legendY": {
+       "expr": "height + 50"
+      },
+      "symbolType": "square",
+      "symbolSize": 140,
+      "labelFontSize": 12,
+      "columnPadding": 20
+     }
+    },
+    "tooltip": [
+     {
+      "field": "Region",
+      "title": "State or territory"
+     },
+     {
+      "field": "Group",
+      "title": "Group"
+     },
+     {
+      "field": "Count",
+      "type": "quantitative",
+      "title": "Extinct species"
+     }
+    ]
+   }
+  },
+  {
+   "description": "Total at the end of each bar",
+   "transform": [
+    {
+     "aggregate": [
+      {
+       "op": "max",
+       "field": "total",
+       "as": "total"
+      }
+     ],
+     "groupby": [
+      "Region"
+     ]
+    }
+   ],
+   "mark": {
+    "type": "text",
+    "align": "left",
+    "dx": 6,
+    "fontSize": 12,
+    "fontWeight": "bold",
+    "color": "#374151"
+   },
+   "encoding": {
+    "x": {
+     "field": "total",
+     "type": "quantitative"
+    },
+    "text": {
+     "field": "total",
+     "type": "quantitative"
+    }
+   }
+  }
+ ],
+ "config": {
+  "view": {
+   "stroke": null
+  },
+  "font": "Helvetica Neue, Arial, sans-serif"
+ }
 }

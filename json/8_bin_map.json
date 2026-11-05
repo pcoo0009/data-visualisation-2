@@ -20,8 +20,8 @@
  ],
  "vconcat": [
   {
-   "width": 600,
-   "height": 500,
+   "width": 410,
+   "height": 400,
    "projection": {
     "type": "mercator"
    },
@@ -150,8 +150,8 @@
         "title": "Records per cell",
         "orient": "none",
         "direction": "horizontal",
-        "legendX": 150,
-        "legendY": 514,
+        "legendX": 55,
+        "legendY": 414,
         "gradientLength": 300,
         "gradientThickness": 12,
         "titleOrient": "top",
@@ -189,7 +189,7 @@
    ]
   },
   {
-   "width": 600,
+   "width": 410,
    "height": 70,
    "title": "Drag the handles or the shaded area to filter by year",
    "data": {

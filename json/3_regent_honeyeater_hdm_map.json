@@ -2,9 +2,13 @@
  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
  "description": "Map of Victoria: habitat model for the Regent Honeyeater with recorded sightings on top.",
  "title": {
-  "text": "Where Regent Honeyeaters live and where they have been seen",
+  "text": [
+   "Where Regent Honeyeaters live",
+   "and where they have been seen"
+  ],
   "subtitle": [
-   "Green squares: modelled habitat. Orange dots: recorded sightings. Drag across the bottom chart to pick a range of years."
+   "Green squares: modelled habitat. Orange dots: recorded sightings.",
+   "Drag across the bottom chart to pick a range of years."
   ],
   "anchor": "start",
   "fontSize": 18,
@@ -14,8 +18,8 @@
  },
  "vconcat": [
   {
-   "width": 850,
-   "height": 500,
+   "width": 410,
+   "height": 270,
    "projection": {
     "type": "mercator"
    },
@@ -106,8 +110,8 @@
         "title": "Habitat model value",
         "orient": "none",
         "direction": "horizontal",
-        "legendX": 275,
-        "legendY": 514,
+        "legendX": 55,
+        "legendY": 284,
         "gradientLength": 300,
         "gradientThickness": 12,
         "titleOrient": "top",
@@ -178,7 +182,7 @@
    ]
   },
   {
-   "width": 850,
+   "width": 410,
    "height": 70,
    "title": {
     "text": "Sightings recorded each year (drag to filter the map)",
