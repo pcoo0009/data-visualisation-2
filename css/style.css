@@ -53,7 +53,7 @@ a:hover { color: var(--accent); }
 /* ---------- Page container ---------- */
 .page {
   width: 100%;
-  max-width: 1120px;          /* fits a small laptop without horizontal scroll */
+  max-width: 4000px;          /* fits a small laptop without horizontal scroll */
   margin: 0 auto;
   padding: 0 clamp(1rem, 4vw, 2.5rem);
 }
@@ -179,6 +179,14 @@ mark.hl {
 .chart .vega-embed { width: 100%; }
 .chart .vega-embed > canvas,
 .chart .vega-embed > svg { max-width: 100%; height: auto !important; }
+
+/* Centre fixed-width charts and their filter dropdowns inside the card */
+.chart { text-align: center; }
+.chart .vega-embed { text-align: center; }
+.chart .vega-bindings { display: block; width: 100%; text-align: center; margin: 0.75rem 0 0.25rem; font-size: 0.92rem; }
+.chart .vega-bind { display: inline-block; margin: 0 0.75rem; }
+.chart .vega-bind label { display: inline-flex; align-items: center; gap: 0.5rem; }
+.chart .vega-bind select { font: inherit; padding: 0.25rem 0.5rem; }
 
 .figure figcaption {
   margin-top: var(--s2);

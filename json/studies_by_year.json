@@ -1,0 +1,49 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Number of monitoring studies per year in the Threatened Species Index, one small chart per group.",
+  "title": {
+    "text": "How much monitoring has been done each year",
+    "subtitle": ["Number of studies in the Threatened Species Index, by year. Each chart has its own scale."],
+    "anchor": "start", "fontSize": 18, "subtitleFontSize": 12, "subtitleColor": "#6B7280", "offset": 16
+  },
+  "data": {
+    "url": "https://pcoo0009.github.io/data-visualisation-2/data/num_studies_by_year.csv",
+    "format": {"type": "csv", "parse": {"year": "number", "number_studies": "number"}}
+  },
+  "facet": {
+    "field": "category", "type": "nominal", "title": null,
+    "sort": ["Birds", "Mammals", "Plants", "Amphibians", "Reptiles"],
+    "header": {"labelFontSize": 13, "labelFontWeight": "bold", "labelColor": "#374151", "labelOrient": "top", "labelAnchor": "start"}
+  },
+  "columns": 3,
+  "spec": {
+    "width": 260,
+    "height": 130,
+    "layer": [
+      {"mark": {"type": "area", "color": "#2a78d6", "opacity": 0.15}},
+      {"mark": {"type": "line", "color": "#2a78d6", "strokeWidth": 2}},
+      {
+        "params": [{"name": "hover", "select": {"type": "point", "on": "mouseover", "nearest": true, "fields": ["year"], "clear": "mouseout"}}],
+        "mark": {"type": "point", "filled": true, "color": "#2a78d6", "size": 50},
+        "encoding": {
+          "opacity": {"condition": {"param": "hover", "empty": false, "value": 1}, "value": 0},
+          "tooltip": [
+            {"field": "category", "title": "Group"},
+            {"field": "year", "type": "quantitative", "title": "Year", "format": "d"},
+            {"field": "number_studies", "type": "quantitative", "title": "Studies", "format": ",.0f"}
+          ]
+        }
+      }
+    ],
+    "encoding": {
+      "x": {"field": "year", "type": "quantitative", "title": null,
+            "scale": {"domain": [1950, 2022]},
+            "axis": {"format": "d", "values": [1950, 1990, 2020], "labelColor": "#6B7280", "grid": false}},
+      "y": {"field": "number_studies", "type": "quantitative", "title": null,
+            "scale": {"zero": true, "nice": true},
+            "axis": {"tickCount": 3, "format": ",.0f", "labelColor": "#6B7280", "gridColor": "#EEF0F3", "domain": false, "ticks": false}}
+    }
+  },
+  "resolve": {"scale": {"y": "independent"}},
+  "config": {"view": {"stroke": null}, "font": "Helvetica Neue, Arial, sans-serif"}
+}

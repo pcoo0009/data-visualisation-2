@@ -118,8 +118,31 @@
       ]
      },
      "legend": {
+      "title": "Number of species",
+      "orient": "none",
+      "direction": "horizontal",
+      "legendX": {
+       "expr": "width/2 - 140"
+      },
+      "legendY": {
+       "expr": "height + 10"
+      },
+      "values": [
+       100,
+       250,
+       500
+      ],
       "symbolFillColor": "#d95f0e",
-      "symbolOpacity": 0.65
+      "symbolOpacity": 0.65,
+      "symbolStrokeColor": "#7f2704",
+      "titleOrient": "top",
+      "titleAnchor": "middle",
+      "titleFontSize": 12,
+      "titleFontWeight": "bold",
+      "titlePadding": 6,
+      "labelFontSize": 11,
+      "columnPadding": 28,
+      "labelOffset": 8
      }
     },
     "order": {
@@ -145,5 +168,11 @@
  "autosize": {
   "type": "fit",
   "contains": "padding"
+ },
+ "padding": {
+  "top": 5,
+  "left": 5,
+  "right": 5,
+  "bottom": 100
  }
 }

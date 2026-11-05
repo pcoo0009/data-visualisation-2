@@ -68,44 +68,6 @@
    "as": "count"
   }
  ],
- "mark": {
-  "type": "geoshape",
-  "stroke": "white",
-  "strokeWidth": 0.4
- },
- "encoding": {
-  "color": {
-   "field": "count",
-   "type": "quantitative",
-   "scale": {
-    "type": "sqrt",
-    "scheme": "yelloworangered"
-   },
-   "legend": {
-    "title": "Threatened species",
-    "orient": "bottom"
-   },
-   "condition": {
-    "test": "datum.count == null",
-    "value": "#dfe3e0"
-   }
-  },
-  "tooltip": [
-   {
-    "field": "properties.NAME",
-    "title": "Map name"
-   },
-   {
-    "field": "Name",
-    "title": "Country"
-   },
-   {
-    "field": "count",
-    "title": "Threatened species",
-    "format": ","
-   }
-  ]
- },
  "config": {
   "view": {
    "stroke": null
@@ -114,5 +76,84 @@
  "autosize": {
   "type": "fit",
   "contains": "padding"
+ },
+ "layer": [
+  {
+   "mark": {
+    "type": "geoshape",
+    "stroke": "white",
+    "strokeWidth": 0.4
+   },
+   "encoding": {
+    "color": {
+     "field": "count",
+     "type": "quantitative",
+     "scale": {
+      "type": "sqrt",
+      "scheme": "yelloworangered"
+     },
+     "legend": {
+      "title": "Threatened species",
+      "orient": "none",
+      "direction": "horizontal",
+      "legendX": {
+       "expr": "width/2 - 150"
+      },
+      "legendY": {
+       "expr": "height + 14"
+      },
+      "gradientLength": 300,
+      "gradientThickness": 12,
+      "titleOrient": "top",
+      "titleAnchor": "middle",
+      "titleFontSize": 12,
+      "titleFontWeight": "bold",
+      "titlePadding": 6,
+      "labelFontSize": 11,
+      "labelOverlap": true,
+      "tickCount": 5,
+      "format": ",.0f"
+     },
+     "condition": {
+      "test": "datum.count == null",
+      "value": "#dfe3e0"
+     }
+    },
+    "tooltip": [
+     {
+      "field": "properties.NAME",
+      "title": "Map name"
+     },
+     {
+      "field": "Name",
+      "title": "Country"
+     },
+     {
+      "field": "count",
+      "title": "Threatened species",
+      "format": ","
+     }
+    ]
+   }
+  },
+  {
+   "transform": [
+    {
+     "filter": "indexof(['AUS', 'BRA', 'CHN', 'COL', 'COD', 'ECU', 'IND', 'IDN', 'MDG', 'MYS', 'MEX', 'PNG', 'PER', 'PHL', 'ZAF', 'USA', 'VEN'], datum.iso3) >= 0"
+    }
+   ],
+   "mark": {
+    "type": "geoshape",
+    "fill": null,
+    "stroke": "#1F2937",
+    "strokeWidth": 1.5
+   }
+  }
+ ],
+ "padding": {
+  "top": 5,
+  "left": 5,
+  "right": 5,
+  "bottom": 70
  }
 }

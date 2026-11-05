@@ -1,134 +1,262 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Critically endangered species occurrence records (binned)",
-  "params": [
+ "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+ "title": "Critically endangered species occurrence records (binned)",
+ "params": [
+  {
+   "name": "species",
+   "value": "Leadbeater's Possum",
+   "bind": {
+    "input": "select",
+    "name": "Species: ",
+    "options": [
+     "Northern Hairy-nosed Wombat",
+     "Leadbeater's Possum",
+     "Orange-bellied Parrot",
+     "Regent Honeyeater",
+     "Western Ringtail Possum"
+    ]
+   }
+  }
+ ],
+ "vconcat": [
+  {
+   "width": 600,
+   "height": 500,
+   "projection": {
+    "type": "mercator"
+   },
+   "layer": [
     {
-      "name": "species",
-      "value": "Leadbeater's Possum",
-      "bind": {
-        "input": "select",
-        "name": "Species: ",
-        "options": [
-          "Northern Hairy-nosed Wombat",
-          "Leadbeater's Possum",
-          "Orange-bellied Parrot",
-          "Regent Honeyeater",
-          "Western Ringtail Possum"
-        ]
+     "data": {
+      "url": "https://pcoo0009.github.io/data-visualisation-2/data/state_map_simplified.json",
+      "format": {
+       "type": "topojson",
+       "feature": "STE_2021_AUST_GDA2020"
       }
-    }
-  ],
-  "vconcat": [
-    {
-      "width": 600,
-      "height": 500,
-      "projection": { "type": "mercator" },
-      "layer": [
-        {
-          "data": {
-            "url": "https://pcoo0009.github.io/data-visualisation-2/data/state_map_simplified.json",
-            "format": { "type": "topojson", "feature": "STE_2021_AUST_GDA2020" }
-          },
-          "transform": [
-            {
-              "filter": "indexof(['New South Wales','Victoria','Queensland','South Australia','Western Australia','Tasmania','Northern Territory','Australian Capital Territory'], datum.properties.STE_NAME21) >= 0"
-            }
-          ],
-          "mark": {
-            "type": "geoshape",
-            "fill": "#e8e8e8",
-            "stroke": "white",
-            "strokeWidth": 0.8
-          }
-        },
-        {
-          "data": {
-            "url": "https://pcoo0009.github.io/data-visualisation-2/data/critically-endangered-species-occurrences.csv",
-            "format": {
-              "type": "csv",
-              "parse": {
-                "Decimal latitude (WGS84)": "number",
-                "Decimal longitude (WGS84)": "number",
-                "Year": "number"
-              }
-            }
-          },
-          "transform": [
-            { "calculate": "datum['Decimal latitude (WGS84)']", "as": "lat" },
-            { "calculate": "datum['Decimal longitude (WGS84)']", "as": "lon" },
-            {
-              "filter": "isValid(datum.lat) && isValid(datum.lon) && isValid(datum.Species) && datum.Species != ''"
-            },
-            { "filter": "datum.Species == species" },
-            { "filter": "!isValid(datum.Year) || datum.Year >= 1970" },
-            { "filter": { "param": "yearBrush" } },
-            { "bin": { "step": 0.25 }, "field": "lon", "as": ["lon0", "lon1"] },
-            { "bin": { "step": 0.25 }, "field": "lat", "as": ["lat0", "lat1"] },
-            {
-              "aggregate": [{ "op": "count", "as": "n" }],
-              "groupby": ["lon0", "lon1", "lat0", "lat1"]
-            }
-          ],
-          "mark": {
-            "type": "rect",
-            "opacity": 0.85,
-            "stroke": "white",
-            "strokeWidth": 0.3
-          },
-          "encoding": {
-            "longitude": { "field": "lon0", "type": "quantitative" },
-            "longitude2": { "field": "lon1" },
-            "latitude": { "field": "lat0", "type": "quantitative" },
-            "latitude2": { "field": "lat1" },
-            "color": {
-              "field": "n",
-              "type": "quantitative",
-              "title": "Records per cell",
-              "scale": { "type": "sqrt", "scheme": "oranges", "domainMin": 0 }
-            },
-            "tooltip": [
-              { "field": "n", "type": "quantitative", "title": "Records" },
-              { "field": "lat0", "type": "quantitative", "title": "Cell south edge (lat)", "format": ".2f" },
-              { "field": "lon0", "type": "quantitative", "title": "Cell west edge (lon)", "format": ".2f" }
-            ]
-          }
-        }
-      ]
+     },
+     "transform": [
+      {
+       "filter": "indexof(['New South Wales','Victoria','Queensland','South Australia','Western Australia','Tasmania','Northern Territory','Australian Capital Territory'], datum.properties.STE_NAME21) >= 0"
+      }
+     ],
+     "mark": {
+      "type": "geoshape",
+      "fill": "#e8e8e8",
+      "stroke": "white",
+      "strokeWidth": 0.8
+     }
     },
     {
-      "width": 600,
-      "height": 70,
-      "title": "Drag the handles or the shaded area to filter by year",
-      "data": {
-        "url": "https://pcoo0009.github.io/data-visualisation-2/data/critically-endangered-species-occurrences.csv",
-        "format": { "type": "csv", "parse": { "Year": "number" } }
-      },
-      "transform": [
-        { "filter": "isValid(datum.Year) && datum.Year >= 1970" },
-        { "filter": "datum.Species == species" }
-      ],
-      "params": [
-        {
-          "name": "yearBrush",
-          "select": { "type": "interval", "encodings": ["x"] }
-        }
-      ],
-      "mark": { "type": "bar", "color": "#999", "clip": true },
-      "encoding": {
-        "x": {
-          "field": "Year",
-          "type": "quantitative",
-          "title": "Year of record",
-          "axis": { "format": "d" },
-          "scale": { "domain": [1970, 2030], "nice": false }
-        },
-        "y": {
-          "aggregate": "count",
-          "type": "quantitative",
-          "title": "Records",
-          "axis": { "tickCount": 2 }
-        }
+     "data": {
+      "url": "https://pcoo0009.github.io/data-visualisation-2/data/critically-endangered-species-occurrences.csv",
+      "format": {
+       "type": "csv",
+       "parse": {
+        "Decimal latitude (WGS84)": "number",
+        "Decimal longitude (WGS84)": "number",
+        "Year": "number"
+       }
       }
+     },
+     "transform": [
+      {
+       "calculate": "datum['Decimal latitude (WGS84)']",
+       "as": "lat"
+      },
+      {
+       "calculate": "datum['Decimal longitude (WGS84)']",
+       "as": "lon"
+      },
+      {
+       "filter": "isValid(datum.lat) && isValid(datum.lon) && isValid(datum.Species) && datum.Species != ''"
+      },
+      {
+       "filter": "datum.Species == species"
+      },
+      {
+       "filter": "!isValid(datum.Year) || datum.Year >= 1970"
+      },
+      {
+       "filter": {
+        "param": "yearBrush"
+       }
+      },
+      {
+       "bin": {
+        "step": 0.25
+       },
+       "field": "lon",
+       "as": [
+        "lon0",
+        "lon1"
+       ]
+      },
+      {
+       "bin": {
+        "step": 0.25
+       },
+       "field": "lat",
+       "as": [
+        "lat0",
+        "lat1"
+       ]
+      },
+      {
+       "aggregate": [
+        {
+         "op": "count",
+         "as": "n"
+        }
+       ],
+       "groupby": [
+        "lon0",
+        "lon1",
+        "lat0",
+        "lat1"
+       ]
+      }
+     ],
+     "mark": {
+      "type": "rect",
+      "opacity": 0.85,
+      "stroke": "white",
+      "strokeWidth": 0.3
+     },
+     "encoding": {
+      "longitude": {
+       "field": "lon0",
+       "type": "quantitative"
+      },
+      "longitude2": {
+       "field": "lon1"
+      },
+      "latitude": {
+       "field": "lat0",
+       "type": "quantitative"
+      },
+      "latitude2": {
+       "field": "lat1"
+      },
+      "color": {
+       "field": "n",
+       "type": "quantitative",
+       "title": "Records per cell",
+       "scale": {
+        "type": "sqrt",
+        "scheme": "oranges",
+        "domainMin": 0
+       },
+       "legend": {
+        "title": "Records per cell",
+        "orient": "none",
+        "direction": "horizontal",
+        "legendX": 150,
+        "legendY": 514,
+        "gradientLength": 300,
+        "gradientThickness": 12,
+        "titleOrient": "top",
+        "titleAnchor": "middle",
+        "titleFontSize": 12,
+        "titleFontWeight": "bold",
+        "titlePadding": 6,
+        "labelFontSize": 11,
+        "labelOverlap": true,
+        "tickCount": 5,
+        "titleLimit": 300
+       }
+      },
+      "tooltip": [
+       {
+        "field": "n",
+        "type": "quantitative",
+        "title": "Records"
+       },
+       {
+        "field": "lat0",
+        "type": "quantitative",
+        "title": "Cell south edge (lat)",
+        "format": ".2f"
+       },
+       {
+        "field": "lon0",
+        "type": "quantitative",
+        "title": "Cell west edge (lon)",
+        "format": ".2f"
+       }
+      ]
+     }
     }
-  ]
+   ]
+  },
+  {
+   "width": 600,
+   "height": 70,
+   "title": "Drag the handles or the shaded area to filter by year",
+   "data": {
+    "url": "https://pcoo0009.github.io/data-visualisation-2/data/critically-endangered-species-occurrences.csv",
+    "format": {
+     "type": "csv",
+     "parse": {
+      "Year": "number"
+     }
+    }
+   },
+   "transform": [
+    {
+     "filter": "isValid(datum.Year) && datum.Year >= 1970"
+    },
+    {
+     "filter": "datum.Species == species"
+    }
+   ],
+   "params": [
+    {
+     "name": "yearBrush",
+     "select": {
+      "type": "interval",
+      "encodings": [
+       "x"
+      ]
+     }
+    }
+   ],
+   "mark": {
+    "type": "bar",
+    "color": "#999",
+    "clip": true
+   },
+   "encoding": {
+    "x": {
+     "field": "Year",
+     "type": "quantitative",
+     "title": "Year of record",
+     "axis": {
+      "format": "d"
+     },
+     "scale": {
+      "domain": [
+       1970,
+       2030
+      ],
+      "nice": false
+     }
+    },
+    "y": {
+     "aggregate": "count",
+     "type": "quantitative",
+     "title": "Records",
+     "axis": {
+      "tickCount": 2
+     }
+    }
+   }
+  }
+ ],
+ "spacing": 75,
+ "padding": {
+  "top": 5,
+  "left": 5,
+  "right": 5,
+  "bottom": 10
+ }
 }
