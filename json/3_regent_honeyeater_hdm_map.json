@@ -7,8 +7,9 @@
    "and where they have been seen"
   ],
   "subtitle": [
-   "Green squares: modelled habitat. Orange dots: recorded sightings.",
-   "Drag across the bottom chart to pick a range of years."
+   "Green squares: modelled habitat.",
+   "Orange dots: recorded sightings.",
+   "Drag across the bottom chart to pick years."
   ],
   "anchor": "start",
   "fontSize": 18,
@@ -185,7 +186,10 @@
    "width": 410,
    "height": 70,
    "title": {
-    "text": "Sightings recorded each year (drag to filter the map)",
+    "text": [
+     "Sightings recorded each year",
+     "(drag to filter the map)"
+    ],
     "anchor": "start",
     "fontSize": 12,
     "color": "#6B7280"

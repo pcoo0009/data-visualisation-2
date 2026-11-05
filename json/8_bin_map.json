@@ -1,6 +1,14 @@
 {
  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
- "title": "Critically endangered species occurrence records (binned)",
+ "title": {
+  "text": [
+   "Critically endangered species",
+   "occurrence records (binned)"
+  ],
+  "anchor": "start",
+  "fontSize": 18,
+  "offset": 12
+ },
  "params": [
   {
    "name": "species",
@@ -186,12 +194,21 @@
       ]
      }
     }
-   ]
+   ],
+   "title": null
   },
   {
    "width": 410,
    "height": 70,
-   "title": "Drag the handles or the shaded area to filter by year",
+   "title": {
+    "text": [
+     "Drag the handles or the shaded area",
+     "to filter by year"
+    ],
+    "anchor": "start",
+    "fontSize": 12,
+    "color": "#6B7280"
+   },
    "data": {
     "url": "https://pcoo0009.github.io/data-visualisation-2/data/critically-endangered-species-occurrences.csv",
     "format": {

@@ -14,12 +14,15 @@
   "bottom": 110
  },
  "title": {
-  "text": "Threatened species with monitoring data, by group",
+  "text": [
+   "Threatened species with",
+   "monitoring data, by group"
+  ],
   "subtitle": [
-   "Each square is 1% of the threatened species that",
-   "have monitoring data in the Threatened Species Index.",
-   "This counts how many different species, not how many",
-   "individual animals or plants are left."
+   "Each square is 1% of the threatened species",
+   "that have monitoring data in the Threatened",
+   "Species Index. This counts how many different",
+   "species, not how many individuals are left."
   ],
   "anchor": "start",
   "fontSize": 18,
@@ -104,9 +107,7 @@
     "orient": "none",
     "direction": "horizontal",
     "columns": 2,
-    "legendX": {
-     "expr": "width/2 - 140"
-    },
+    "legendX": 0,
     "legendY": {
      "expr": "height + 24"
     },
