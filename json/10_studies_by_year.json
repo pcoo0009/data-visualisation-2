@@ -1,0 +1,236 @@
+{
+ "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+ "description": "Number of monitoring studies per year in the Threatened Species Index, one line per group, from 1980.",
+ "width": "container",
+ "height": 420,
+ "autosize": {
+  "type": "fit-x",
+  "contains": "padding"
+ },
+ "padding": {
+  "top": 5,
+  "left": 5,
+  "right": 20,
+  "bottom": 70
+ },
+ "title": {
+  "text": "How much monitoring has been done each year",
+  "subtitle": [
+   "Number of studies in the Threatened Species Index, by year."
+  ],
+  "anchor": "start",
+  "fontSize": 18,
+  "subtitleFontSize": 12,
+  "subtitleColor": "#6B7280",
+  "offset": 16
+ },
+ "data": {
+  "url": "https://pcoo0009.github.io/data-visualisation-2/data/num_studies_by_year.csv",
+  "format": {
+   "type": "csv",
+   "parse": {
+    "year": "number",
+    "number_studies": "number"
+   }
+  }
+ },
+ "transform": [
+  {
+   "filter": "datum.year >= 1980"
+  },
+  {
+   "filter": "(datum.category == 'Birds' && showBirds) || (datum.category == 'Mammals' && showMammals) || (datum.category == 'Plants' && showPlants) || (datum.category == 'Amphibians' && showAmphibians) || (datum.category == 'Reptiles' && showReptiles)"
+  }
+ ],
+ "encoding": {
+  "x": {
+   "field": "year",
+   "type": "quantitative",
+   "title": null,
+   "scale": {
+    "domain": [
+     1980,
+     2022
+    ]
+   },
+   "axis": {
+    "format": "d",
+    "tickCount": 8,
+    "labelColor": "#6B7280",
+    "grid": false
+   }
+  },
+  "y": {
+   "field": "number_studies",
+   "type": "quantitative",
+   "title": "Studies per year",
+   "scale": {
+    "zero": true,
+    "nice": true
+   },
+   "axis": {
+    "tickCount": 5,
+    "format": ",.0f",
+    "labelColor": "#6B7280",
+    "gridColor": "#EEF0F3",
+    "domain": false,
+    "ticks": false,
+    "titleColor": "#6B7280",
+    "titleFontWeight": "normal"
+   }
+  },
+  "color": {
+   "field": "category",
+   "type": "nominal",
+   "sort": [
+    "Birds",
+    "Mammals",
+    "Plants",
+    "Amphibians",
+    "Reptiles"
+   ],
+   "scale": {
+    "domain": [
+     "Birds",
+     "Mammals",
+     "Plants",
+     "Amphibians",
+     "Reptiles"
+    ],
+    "range": [
+     "#2a78d6",
+     "#eb6834",
+     "#1baf7a",
+     "#eda100",
+     "#e87ba4"
+    ]
+   },
+   "legend": {
+    "title": null,
+    "orient": "none",
+    "direction": "horizontal",
+    "columns": 5,
+    "legendX": {
+     "expr": "width/2 - 220"
+    },
+    "legendY": {
+     "expr": "height + 45"
+    },
+    "symbolType": "stroke",
+    "symbolStrokeWidth": 4,
+    "labelFontSize": 12,
+    "columnPadding": 18
+   }
+  }
+ },
+ "layer": [
+  {
+   "mark": {
+    "type": "line",
+    "strokeWidth": 2.5
+   },
+   "encoding": {
+    "detail": {
+     "field": "category"
+    }
+   }
+  },
+  {
+   "params": [
+    {
+     "name": "hover",
+     "select": {
+      "type": "point",
+      "on": "mouseover",
+      "nearest": true,
+      "fields": [
+       "year"
+      ],
+      "clear": "mouseout"
+     }
+    }
+   ],
+   "mark": {
+    "type": "point",
+    "filled": true,
+    "size": 55
+   },
+   "encoding": {
+    "opacity": {
+     "condition": {
+      "param": "hover",
+      "empty": false,
+      "value": 1
+     },
+     "value": 0
+    },
+    "tooltip": [
+     {
+      "field": "category",
+      "title": "Group"
+     },
+     {
+      "field": "year",
+      "type": "quantitative",
+      "title": "Year",
+      "format": "d"
+     },
+     {
+      "field": "number_studies",
+      "type": "quantitative",
+      "title": "Studies",
+      "format": ",.0f"
+     }
+    ]
+   }
+  }
+ ],
+ "config": {
+  "view": {
+   "stroke": null
+  },
+  "font": "Helvetica Neue, Arial, sans-serif"
+ },
+ "params": [
+  {
+   "name": "showBirds",
+   "value": true,
+   "bind": {
+    "input": "checkbox",
+    "name": "Birds  "
+   }
+  },
+  {
+   "name": "showMammals",
+   "value": true,
+   "bind": {
+    "input": "checkbox",
+    "name": "Mammals  "
+   }
+  },
+  {
+   "name": "showPlants",
+   "value": true,
+   "bind": {
+    "input": "checkbox",
+    "name": "Plants  "
+   }
+  },
+  {
+   "name": "showAmphibians",
+   "value": true,
+   "bind": {
+    "input": "checkbox",
+    "name": "Amphibians  "
+   }
+  },
+  {
+   "name": "showReptiles",
+   "value": true,
+   "bind": {
+    "input": "checkbox",
+    "name": "Reptiles  "
+   }
+  }
+ ]
+}
