@@ -1,8 +1,8 @@
 Name,iso3,Count,Group,Rank
 Indonesia,IDN,227,Mammals,1
 Madagascar,MDG,133,Mammals,2
-Mexico,MEX,99,Mammals,3
-India,IND,99,Mammals,4
+Mexico,MEX,99,Mammals,4
+India,IND,99,Mammals,3
 Brazil,BRA,98,Mammals,5
 Malaysia,MYS,81,Mammals,6
 China,CHN,80,Mammals,7
@@ -12,8 +12,8 @@ Peru,PER,52,Mammals,10
 Papua New Guinea,PNG,51,Mammals,11
 Ecuador,ECU,49,Mammals,12
 "Congo, The Democratic Republic of the",COD,47,Mammals,13
-United States,USA,43,Mammals,14
-Philippines,PHL,43,Mammals,15
+United States,USA,43,Mammals,15
+Philippines,PHL,43,Mammals,14
 "Venezuela, Bolivarian Republic of",VEN,37,Mammals,16
 South Africa,ZAF,35,Mammals,17
 Indonesia,IDN,146,Birds,1
@@ -36,14 +36,14 @@ Papua New Guinea,PNG,35,Birds,17
 Madagascar,MDG,138,Reptiles,1
 Mexico,MEX,112,Reptiles,2
 India,IND,105,Reptiles,3
-Brazil,BRA,93,Reptiles,4
-Ecuador,ECU,93,Reptiles,5
+Brazil,BRA,93,Reptiles,5
+Ecuador,ECU,93,Reptiles,4
 Australia,AUS,15,Fungi,4
 Indonesia,IDN,76,Reptiles,7
 Malaysia,MYS,59,Reptiles,8
 China,CHN,56,Reptiles,9
-United States,USA,40,Reptiles,10
-Colombia,COL,40,Reptiles,11
+United States,USA,40,Reptiles,11
+Colombia,COL,40,Reptiles,10
 Philippines,PHL,35,Reptiles,12
 Peru,PER,32,Reptiles,13
 "Venezuela, Bolivarian Republic of",VEN,32,Reptiles,14
