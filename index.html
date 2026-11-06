@@ -221,15 +221,29 @@
       </div>
 
       <div class="stack">
-        <figure class="figure narrow">
-          <h3 class="fig-title">How much monitoring has been done each year</h3>
-          <p class="fig-sub">Number of studies in the Threatened Species Index, by year</p>
-          <div class="chart" id="vis10" data-spec="json/10_studies_by_year.json"></div>
-          <figcaption>
-            <p class="fig-how"><strong>How to read this:</strong> Each line is a year-by-year count of monitoring studies. Use the checkboxes to show or hide animal groups.</p>
-            <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/10_studies_by_year.json">Vega-Lite JSON</a></p>
-          </figcaption>
-        </figure>
+        <div class="pair">
+          <!-- Chart 10 | basic idiom: line chart -->
+          <figure class="figure">
+            <h3 class="fig-title">How much monitoring has been done each year</h3>
+            <p class="fig-sub">Number of studies in the Threatened Species Index, by year</p>
+            <div class="chart" id="vis10" data-spec="json/10_studies_by_year.json"></div>
+            <figcaption>
+              <p class="fig-how"><strong>How to read this:</strong> Each line is a year-by-year count of monitoring studies. Use the checkboxes to show or hide animal groups.</p>
+              <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/10_studies_by_year.json">Vega-Lite JSON</a></p>
+            </figcaption>
+          </figure>
+
+          <!-- Chart 11 | basic idiom: line chart -->
+          <figure class="figure">
+            <h3 class="fig-title">Reported Regent Honeyeater sightings, by year</h3>
+            <p class="fig-sub">Number of Regent Honeyeater sighting records per year, 1980 to 2024</p>
+            <div class="chart" id="vis11" data-spec="json/11_honeyeater_records_by_year.json"></div>
+            <figcaption>
+              <p class="fig-how"><strong>How to read this:</strong> Each dot is one year. Higher means more sightings were recorded that year, not more birds.</p>
+              <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/11_honeyeater_records_by_year.json">Vega-Lite JSON</a></p>
+            </figcaption>
+          </figure>
+        </div>
 
         <div class="pair">
           <!-- Chart 7 | advanced idiom: waffle chart -->
