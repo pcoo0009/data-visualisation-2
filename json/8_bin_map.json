@@ -3,12 +3,11 @@
  "params": [
   {
    "name": "species",
-   "value": "Leadbeater's Possum",
+   "value": "Regent Honeyeater",
    "bind": {
     "input": "select",
     "name": "Species: ",
     "options": [
-     "Northern Hairy-nosed Wombat",
      "Leadbeater's Possum",
      "Orange-bellied Parrot",
      "Regent Honeyeater",

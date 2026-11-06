@@ -23,14 +23,6 @@
    }
   }
  },
- "transform": [
-  {
-   "filter": "datum.year >= 1980"
-  },
-  {
-   "filter": "(datum.category == 'Birds' && showBirds) || (datum.category == 'Mammals' && showMammals) || (datum.category == 'Plants' && showPlants) || (datum.category == 'Amphibians' && showAmphibians) || (datum.category == 'Reptiles' && showReptiles)"
-  }
- ],
  "encoding": {
   "x": {
    "field": "year",
@@ -122,7 +114,15 @@
     "detail": {
      "field": "category"
     }
-   }
+   },
+   "transform": [
+    {
+     "filter": "datum.year >= 1980"
+    },
+    {
+     "filter": "(datum.category == 'Birds' && showBirds) || (datum.category == 'Mammals' && showMammals) || (datum.category == 'Plants' && showPlants) || (datum.category == 'Amphibians' && showAmphibians) || (datum.category == 'Reptiles' && showReptiles)"
+    }
+   ]
   },
   {
    "params": [
@@ -171,6 +171,49 @@
       "format": ",.0f"
      }
     ]
+   },
+   "transform": [
+    {
+     "filter": "datum.year >= 1980"
+    },
+    {
+     "filter": "(datum.category == 'Birds' && showBirds) || (datum.category == 'Mammals' && showMammals) || (datum.category == 'Plants' && showPlants) || (datum.category == 'Amphibians' && showAmphibians) || (datum.category == 'Reptiles' && showReptiles)"
+    }
+   ]
+  },
+  {
+   "description": "Annotation",
+   "data": {
+    "values": [
+     {
+      "year": 1981,
+      "number_studies": 0
+     }
+    ]
+   },
+   "mark": {
+    "type": "text",
+    "align": "left",
+    "baseline": "top",
+    "fontSize": 11,
+    "color": "#374151",
+    "text": [
+     "As conservation becomes more important,",
+     "the number of studies on each",
+     "taxonomic group increases drastically",
+     "over time"
+    ]
+   },
+   "encoding": {
+    "x": {
+     "datum": 1981
+    },
+    "y": {
+     "datum": 2000
+    },
+    "color": {
+     "value": "#374151"
+    }
    }
   }
  ],

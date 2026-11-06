@@ -22,81 +22,179 @@
    }
   }
  },
- "transform": [
-  {
-   "filter": "datum.Species == 'Regent Honeyeater' && isValid(datum.Year) && datum.Year >= 1980 && datum.Year <= 2024"
-  },
-  {
-   "aggregate": [
-    {
-     "op": "count",
-     "as": "records"
-    }
-   ],
-   "groupby": [
-    "Year"
-   ]
-  }
- ],
- "mark": {
-  "type": "line",
-  "color": "#E4572E",
-  "strokeWidth": 2.5,
-  "point": {
-   "filled": true,
-   "size": 50,
-   "color": "#E4572E"
-  }
- },
- "encoding": {
-  "x": {
-   "field": "Year",
-   "type": "quantitative",
-   "title": "Year",
-   "scale": {
-    "domain": [
-     1980,
-     2024
-    ]
-   },
-   "axis": {
-    "format": "d",
-    "tickMinStep": 5,
-    "labelAngle": 0,
-    "grid": false,
-    "domain": false,
-    "ticks": false
-   }
-  },
-  "y": {
-   "field": "records",
-   "type": "quantitative",
-   "title": "Sighting records per year",
-   "axis": {
-    "gridColor": "#EEF0F3",
-    "domain": false,
-    "ticks": false
-   }
-  },
-  "tooltip": [
-   {
-    "field": "Year",
-    "type": "quantitative",
-    "title": "Year",
-    "format": "d"
-   },
-   {
-    "field": "records",
-    "type": "quantitative",
-    "title": "Records"
-   }
-  ]
- },
  "config": {
   "view": {
    "stroke": null
   },
   "font": "Helvetica Neue, Arial, sans-serif"
  },
- "background": "#fffdf9"
+ "background": "#fffdf9",
+ "layer": [
+  {
+   "transform": [
+    {
+     "filter": "datum.Species == 'Regent Honeyeater' && isValid(datum.Year) && datum.Year >= 1980 && datum.Year <= 2024"
+    },
+    {
+     "aggregate": [
+      {
+       "op": "count",
+       "as": "records"
+      }
+     ],
+     "groupby": [
+      "Year"
+     ]
+    }
+   ],
+   "mark": {
+    "type": "line",
+    "color": "#E4572E",
+    "strokeWidth": 2.5,
+    "point": {
+     "filled": true,
+     "size": 50,
+     "color": "#E4572E"
+    }
+   },
+   "encoding": {
+    "x": {
+     "field": "Year",
+     "type": "quantitative",
+     "title": "Year",
+     "scale": {
+      "domain": [
+       1980,
+       2024
+      ]
+     },
+     "axis": {
+      "format": "d",
+      "tickMinStep": 5,
+      "labelAngle": 0,
+      "grid": false,
+      "domain": false,
+      "ticks": false
+     }
+    },
+    "y": {
+     "field": "records",
+     "type": "quantitative",
+     "title": "Sighting records per year",
+     "axis": {
+      "gridColor": "#EEF0F3",
+      "domain": false,
+      "ticks": false
+     }
+    },
+    "tooltip": [
+     {
+      "field": "Year",
+      "type": "quantitative",
+      "title": "Year",
+      "format": "d"
+     },
+     {
+      "field": "records",
+      "type": "quantitative",
+      "title": "Records"
+     }
+    ]
+   }
+  },
+  {
+   "data": {
+    "values": [
+     {
+      "x": 2008,
+      "y": 765
+     },
+     {
+      "x": 2016,
+      "y": 500
+     }
+    ]
+   },
+   "mark": {
+    "type": "line",
+    "color": "#6B7280",
+    "strokeWidth": 1
+   },
+   "encoding": {
+    "x": {
+     "field": "x",
+     "type": "quantitative",
+     "scale": {
+      "domain": [
+       1980,
+       2024
+      ]
+     }
+    },
+    "y": {
+     "field": "y",
+     "type": "quantitative"
+    }
+   }
+  },
+  {
+   "data": {
+    "values": [
+     {
+      "x": 2016,
+      "y": 500
+     }
+    ]
+   },
+   "mark": {
+    "type": "point",
+    "filled": true,
+    "color": "#6B7280",
+    "size": 30,
+    "opacity": 1
+   },
+   "encoding": {
+    "x": {
+     "field": "x",
+     "type": "quantitative"
+    },
+    "y": {
+     "field": "y",
+     "type": "quantitative"
+    }
+   }
+  },
+  {
+   "data": {
+    "values": [
+     {
+      "x": 2002,
+      "y": 900
+     }
+    ]
+   },
+   "mark": {
+    "type": "text",
+    "align": "center",
+    "baseline": "top",
+    "fontSize": 11,
+    "color": "#374151",
+    "text": [
+     "As the number of studies each year increase,",
+     "species observations can increase even",
+     "when we know their populations are declining"
+    ]
+   },
+   "encoding": {
+    "x": {
+     "field": "x",
+     "type": "quantitative"
+    },
+    "y": {
+     "field": "y",
+     "type": "quantitative"
+    }
+   }
+  }
+ ]
 }

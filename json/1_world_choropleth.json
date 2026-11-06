@@ -148,6 +148,100 @@
     "stroke": "#1F2937",
     "strokeWidth": 1.5
    }
+  },
+  {
+   "data": {
+    "values": [
+     {
+      "lon": -128,
+      "lat": 14,
+      "o": 0
+     },
+     {
+      "lon": -111,
+      "lat": 36,
+      "o": 1
+     }
+    ]
+   },
+   "mark": {
+    "type": "line",
+    "color": "#1F2937",
+    "strokeWidth": 1
+   },
+   "encoding": {
+    "longitude": {
+     "field": "lon",
+     "type": "quantitative"
+    },
+    "latitude": {
+     "field": "lat",
+     "type": "quantitative"
+    },
+    "order": {
+     "field": "o",
+     "type": "quantitative"
+    }
+   }
+  },
+  {
+   "data": {
+    "values": [
+     {
+      "lon": -111,
+      "lat": 36
+     }
+    ]
+   },
+   "mark": {
+    "type": "circle",
+    "color": "#1F2937",
+    "size": 30
+   },
+   "encoding": {
+    "longitude": {
+     "field": "lon",
+     "type": "quantitative"
+    },
+    "latitude": {
+     "field": "lat",
+     "type": "quantitative"
+    }
+   }
+  },
+  {
+   "data": {
+    "values": [
+     {
+      "lon": -176,
+      "lat": 13
+     }
+    ]
+   },
+   "mark": {
+    "type": "text",
+    "align": "left",
+    "baseline": "top",
+    "fontSize": 11,
+    "lineBreak": "\n",
+    "color": "#1F2937",
+    "text": [
+     "Bolded countries are the 17",
+     "countries designated",
+     "“Megadiverse” by",
+     "Conservation International"
+    ]
+   },
+   "encoding": {
+    "longitude": {
+     "field": "lon",
+     "type": "quantitative"
+    },
+    "latitude": {
+     "field": "lat",
+     "type": "quantitative"
+    }
+   }
   }
  ],
  "padding": {

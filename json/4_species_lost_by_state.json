@@ -99,11 +99,16 @@
    "field": "Region",
    "type": "nominal",
    "title": null,
-   "sort": {
-    "field": "total",
-    "op": "max",
-    "order": "descending"
-   },
+   "sort": [
+    "New South Wales",
+    "Queensland",
+    "Western Australia",
+    "South Australia",
+    "Victoria",
+    "Northern Territory",
+    "Tasmania",
+    "Australian Capital Territory"
+   ],
    "axis": {
     "ticks": false,
     "domain": false,
@@ -134,7 +139,19 @@
       "titleFontWeight": "normal",
       "gridColor": "#EEF0F3",
       "domain": false,
-      "ticks": false
+      "ticks": false,
+      "values": [
+       0,
+       10,
+       20,
+       30
+      ]
+     },
+     "scale": {
+      "domain": [
+       0,
+       36
+      ]
      }
     },
     "color": {
@@ -219,6 +236,158 @@
     "text": {
      "field": "total",
      "type": "quantitative"
+    }
+   }
+  },
+  {
+   "description": "Annotation leader lines",
+   "transform": [
+    {
+     "aggregate": [
+      {
+       "op": "max",
+       "field": "total",
+       "as": "total"
+      }
+     ],
+     "groupby": [
+      "Region"
+     ]
+    },
+    {
+     "filter": "indexof(['New South Wales','Queensland'], datum.Region) >= 0"
+    },
+    {
+     "calculate": "[{'x': (datum.Region == 'Victoria' ? datum.total + 2 : datum.total - 3), 'r': datum.Region}, {'x': 26, 'r': 'Victoria'}]",
+     "as": "pts"
+    },
+    {
+     "calculate": "datum.Region",
+     "as": "orig"
+    },
+    {
+     "flatten": [
+      "pts"
+     ]
+    },
+    {
+     "calculate": "datum.pts.x",
+     "as": "px"
+    },
+    {
+     "calculate": "datum.pts.r",
+     "as": "Region"
+    }
+   ],
+   "mark": {
+    "type": "line",
+    "color": "#6B7280",
+    "strokeWidth": 1
+   },
+   "encoding": {
+    "x": {
+     "field": "px",
+     "type": "quantitative"
+    },
+    "y": {
+     "field": "Region",
+     "type": "nominal",
+     "sort": [
+      "New South Wales",
+      "Queensland",
+      "Western Australia",
+      "South Australia",
+      "Victoria",
+      "Northern Territory",
+      "Tasmania",
+      "Australian Capital Territory"
+     ]
+    },
+    "detail": {
+     "field": "orig",
+     "type": "nominal"
+    }
+   }
+  },
+  {
+   "description": "Dots at leader line starts",
+   "transform": [
+    {
+     "aggregate": [
+      {
+       "op": "max",
+       "field": "total",
+       "as": "total"
+      }
+     ],
+     "groupby": [
+      "Region"
+     ]
+    },
+    {
+     "filter": "indexof(['New South Wales','Queensland'], datum.Region) >= 0"
+    },
+    {
+     "calculate": "(datum.Region == 'Victoria' ? datum.total + 2 : datum.total - 3)",
+     "as": "px"
+    }
+   ],
+   "mark": {
+    "type": "point",
+    "filled": true,
+    "color": "#6B7280",
+    "size": 30,
+    "opacity": 1
+   },
+   "encoding": {
+    "x": {
+     "field": "px",
+     "type": "quantitative"
+    }
+   }
+  },
+  {
+   "description": "Annotation text",
+   "data": {
+    "values": [
+     {
+      "Region": "Northern Territory"
+     }
+    ]
+   },
+   "mark": {
+    "type": "text",
+    "align": "left",
+    "baseline": "middle",
+    "dx": 0,
+    "fontSize": 11,
+    "color": "#374151",
+    "text": [
+     "Climate is a large reason for",
+     "greater extinctions: more",
+     "temperate climates with higher",
+     "biodiversity means more species",
+     "to go extinct"
+    ],
+    "dy": -22
+   },
+   "encoding": {
+    "x": {
+     "datum": 19
+    },
+    "y": {
+     "field": "Region",
+     "type": "nominal",
+     "sort": [
+      "New South Wales",
+      "Queensland",
+      "Western Australia",
+      "South Australia",
+      "Victoria",
+      "Northern Territory",
+      "Tasmania",
+      "Australian Capital Territory"
+     ]
     }
    }
   }

@@ -126,6 +126,204 @@
      }
     },
     {
+     "description": "leader",
+     "data": {
+      "values": [
+       {
+        "lon": 142.3,
+        "lat": -36.55,
+        "o": 0
+       },
+       {
+        "lon": 143.05,
+        "lat": -36.95,
+        "o": 1
+       }
+      ]
+     },
+     "mark": {
+      "type": "line",
+      "color": "#374151",
+      "strokeWidth": 1
+     },
+     "encoding": {
+      "longitude": {
+       "field": "lon",
+       "type": "quantitative"
+      },
+      "latitude": {
+       "field": "lat",
+       "type": "quantitative"
+      },
+      "order": {
+       "field": "o",
+       "type": "quantitative"
+      }
+     }
+    },
+    {
+     "description": "dot",
+     "data": {
+      "values": [
+       {
+        "lon": 143.05,
+        "lat": -36.95,
+        "o": 1
+       }
+      ]
+     },
+     "mark": {
+      "type": "circle",
+      "color": "#374151",
+      "size": 30,
+      "opacity": 1
+     },
+     "encoding": {
+      "longitude": {
+       "field": "lon",
+       "type": "quantitative"
+      },
+      "latitude": {
+       "field": "lat",
+       "type": "quantitative"
+      }
+     }
+    },
+    {
+     "description": "text",
+     "data": {
+      "values": [
+       {
+        "lon": 141.3,
+        "lat": -35.55
+       }
+      ]
+     },
+     "mark": {
+      "type": "text",
+      "align": "left",
+      "baseline": "top",
+      "fontSize": 11,
+      "color": "#374151",
+      "lineHeight": 13,
+      "text": [
+       "The green patches",
+       "represent modelled",
+       "suitable habitat for",
+       "the species"
+      ]
+     },
+     "encoding": {
+      "longitude": {
+       "field": "lon",
+       "type": "quantitative"
+      },
+      "latitude": {
+       "field": "lat",
+       "type": "quantitative"
+      }
+     }
+    },
+    {
+     "description": "leader",
+     "data": {
+      "values": [
+       {
+        "lon": 146.2,
+        "lat": -34.75,
+        "o": 0
+       },
+       {
+        "lon": 144.32,
+        "lat": -36.77,
+        "o": 1
+       }
+      ]
+     },
+     "mark": {
+      "type": "line",
+      "color": "#374151",
+      "strokeWidth": 1
+     },
+     "encoding": {
+      "longitude": {
+       "field": "lon",
+       "type": "quantitative"
+      },
+      "latitude": {
+       "field": "lat",
+       "type": "quantitative"
+      },
+      "order": {
+       "field": "o",
+       "type": "quantitative"
+      }
+     }
+    },
+    {
+     "description": "dot",
+     "data": {
+      "values": [
+       {
+        "lon": 144.32,
+        "lat": -36.77,
+        "o": 1
+       }
+      ]
+     },
+     "mark": {
+      "type": "circle",
+      "color": "#374151",
+      "size": 30,
+      "opacity": 1
+     },
+     "encoding": {
+      "longitude": {
+       "field": "lon",
+       "type": "quantitative"
+      },
+      "latitude": {
+       "field": "lat",
+       "type": "quantitative"
+      }
+     }
+    },
+    {
+     "description": "text",
+     "data": {
+      "values": [
+       {
+        "lon": 147.2,
+        "lat": -33.9
+       }
+      ]
+     },
+     "mark": {
+      "type": "text",
+      "align": "center",
+      "baseline": "top",
+      "fontSize": 11,
+      "color": "#374151",
+      "lineHeight": 13,
+      "text": [
+       "Past 2010, the Regent",
+       "Honeyeater has never been",
+       "spotted further west than",
+       "Bendigo"
+      ]
+     },
+     "encoding": {
+      "longitude": {
+       "field": "lon",
+       "type": "quantitative"
+      },
+      "latitude": {
+       "field": "lat",
+       "type": "quantitative"
+      }
+     }
+    },
+    {
      "description": "Recorded sightings",
      "data": {
       "url": "https://pcoo0009.github.io/data-visualisation-2/data/regent-honeyeater-vic.csv",
