@@ -120,15 +120,8 @@
       "field": "Country"
      },
      {
-      "field": "Group"
-     },
-     {
       "field": "Count",
       "title": "Threatened species"
-     },
-     {
-      "field": "Rank",
-      "title": "Rank (of 17)"
      }
     ]
    }

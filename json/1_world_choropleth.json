@@ -121,10 +121,6 @@
     },
     "tooltip": [
      {
-      "field": "properties.NAME",
-      "title": "Map name"
-     },
-     {
       "field": "Name",
       "title": "Country"
      },

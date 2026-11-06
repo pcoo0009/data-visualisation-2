@@ -227,9 +227,9 @@ mark.hl {
 .definition-grid dd { margin: 0; color: var(--ink); font-size: 0.97rem; }
 
 .table-wrap { overflow-x: auto; margin-top: var(--s3); }   /* scrolls inside itself only */
-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; background: var(--card); }
-th, td { text-align: left; padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
-th { font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.table-wrap table { width: 100%; border-collapse: collapse; font-size: 0.9rem; background: var(--card); }
+.table-wrap th, .table-wrap td { text-align: left; padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.table-wrap th { font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
 
 .site-footer {
   background: var(--ink);
@@ -270,3 +270,7 @@ th { font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; colo
 .chart .vega-embed > svg { margin-left: auto; margin-right: auto; }
 
 .figure.medium { max-width: 1050px; margin-left: auto; margin-right: auto; }
+
+/* Vega-Lite tooltips: left-align both columns */
+#vg-tooltip-element, #vg-tooltip-element table, #vg-tooltip-element td,
+#vg-tooltip-element td.key, #vg-tooltip-element td.value { text-align: left !important; }

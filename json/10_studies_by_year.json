@@ -35,7 +35,7 @@
   "x": {
    "field": "year",
    "type": "quantitative",
-   "title": null,
+   "title": "Year",
    "scale": {
     "domain": [
      1980,
