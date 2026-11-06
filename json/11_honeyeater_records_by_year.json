@@ -63,12 +63,12 @@
    ],
    "mark": {
     "type": "line",
-    "color": "#E4572E",
+    "color": "#0B3D91",
     "strokeWidth": 2.5,
     "point": {
      "filled": true,
      "size": 50,
-     "color": "#E4572E"
+     "color": "#0B3D91"
     }
    },
    "encoding": {

@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Threatened Species in Australia – FIT3179 Data Visualisation 2</title>
-  <meta name="description" content="Threatened Species in Australia and How We Monitor Them">
-  <meta name="author" content="Peter Cooper">
+  <meta name="description" content="[One-sentence summary of the story this page tells.]">
+  <meta name="author" content="[Your name]">
 
   <!-- Typography: swap Fraunces / Public Sans for a pairing that suits your topic (rubric: non-standard typeface matching the topic) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,11 +19,11 @@
   <!-- ================= HERO / INTRODUCTION ================= -->
   <header class="hero">
     <div class="page">
-      <p class="kicker">Endangered Species in Australia</p>
-      <h1>Critically endangered species in Australia</h1>
+      <p class="kicker">Biodiversity in Australia</p>
+      <h1>Threatened species in Australia</h1>
       <p class="lede">The world is in a biodiversity crisis. Australia has one of the worst extinction records in the world. See below to understand what has happened and what we can do.</p>
 
-      <p class="byline">By Peter Cooper · FIT3179 Data Visualisation 2, Monash University</p>
+      <p class="byline">By Peter Cooper · [Student ID] · 6 November 2026 · FIT3179 Data Visualisation 2, Monash University</p>
     </div>
   </header>
 
@@ -45,12 +45,12 @@
           <div class="chart" id="vis1" data-spec="json/1_world_choropleth.json"></div>
           <figcaption>
             <p class="fig-how"><strong>How to read this:</strong> Darker countries have more threatened species. Use the dropdown to switch between species groups; grey countries have no data.</p>
-            <p>Source: IUCN Red List, Table 5, 2020. <a href="https://www.iucnredlist.org/resources/summary-statistics">iucnredlist.org</a> Boundaries: Natural Earth, <a href="https://www.naturalearthdata.com/">naturalearthdata.com</a>. · <a href="json/1_world_choropleth.json">Vega-Lite JSON</a></p>
+            <p>Source: IUCN Red List, Table 5, 2020. <a href="https://www.iucnredlist.org/resources/summary-statistics">iucnredlist.org</a> Boundaries: Natural Earth, <a href="https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/">naturalearthdata.com</a>. · <a href="json/1_world_choropleth.json">Vega-Lite JSON</a></p>
           </figcaption>
         </figure>
 
-        <div class="text measure">
-          <p>Threatened species are present all over the globe. Conservation International recognises a set of countries as "megadiverse," highlighted in the map above. It means they meet a set of criteria that leads to much higher biodiversity compared to other countries. Of course, higher biodiversity means more species that could go extinct. Australia is a megadiverse country, so how does it size up to the others?</p>
+        <div class="text measure wide">
+          <p>Threatened species are present all over the globe. Conservation International recognises a set of countries as "megadiverse", highlighted in the map above. It means they meet a set of criteria that lead to much higher biodiversity compared to other countries. Of course, higher biodiversity means more species that could go extinct. Australia is a megadiverse country, so how does it size up to the others?</p>
         </div>
 
         <!-- Chart 5 | advanced idiom: bump chart -->
@@ -79,7 +79,7 @@
         <div class="split wide-chart">
           <div class="text">
             <p class="lede">Threatened species are present in every state and territory.</p>
-            <p>While some states manage greater numbers of threatened species, all states and territories have species listed as threatened under the EPBG Act, a federal act describing national threatened species. However, some states have greater numbers than others. New South Wales has a much higher amount of threatened species compared to regions with similar or even greater area, like South Australia or the Northern Territory.</p>
+            <p>All states and territories have species listed as threatened under the EPBC Act, the federal law that lists nationally threatened species, but the numbers vary. New South Wales has far more threatened species than South Australia or the Northern Territory, even though they cover similar or larger areas.</p>
             <p>See below for a more in-depth breakdown of threatened species by state.</p>
           </div>
 
@@ -130,7 +130,8 @@
 
       <div class="stack">
         <div class="text measure wide">
-          <p>These four species are commonly known critically endangered species. It is clear that, not only does each state face management and conservation of threatened species, but the species in question also vary, and have very different distributions.<p>On the left, you can see the variety of some critically endangered distributions throughout Australia. On the right, you can see a zoomed-in example of range contraction.</p>
+          <p>These four critically endangered species have very different distributions, so each state faces its own conservation challenge.</p>
+          <p>The map on the left shows how their distributions vary across Australia; the map on the right zooms in on one example of range contraction.</p>
         </div>
 
         <div class="pair maps">
@@ -192,13 +193,13 @@
         </div>
         <div class="text measure wide">
           <p>Notice a trend in the graphs above? Monitoring population health is very difficult, for a number of reasons. Illustrated above is a form of sampling bias, where the outcome of the experiment is biased by how the experiment was sampled. In this case, on the left you can see how the Regent Honeyeater population appears to increase over time, even though we know their population is dwindling and their range is contracting. On the right, we can see why: the number of studies measuring threatened species is increasing drastically over time. This trend is especially notable for birds.</p>
-          <p>Introducing the TSX, or Threatened Species Index, an index that aims to solve this problem and make biodiversity monitoring easier for scientists and policymakers. It aggregates studies together, and accounts for higher sampling volume in later years, as well as many other complicated statistical calculations like margin of error on each individual study.</p>
+          <p>The Threatened Species Index (TSX) was designed to solve this problem and make biodiversity monitoring easier for scientists and policymakers. It combines studies and accounts for the higher sampling volume in later years, as well as other statistical factors such as the margin of error in each study.</p>
         </div>
         <div class="pair">
           <!-- Chart 7 | advanced idiom: waffle chart -->
           <figure class="figure">
-            <h3 class="fig-title">Monitored species by group</h3>
-            <p class="fig-sub">Threatened species with monitoring data described by the Threatened Species Index, by group</p>
+            <h3 class="fig-title">Plants make up the largest share of threatened species with monitoring data</h3>
+            <p class="fig-sub">Threatened species with monitoring data described by the TSX, by group</p>
             <div class="chart" id="vis7" data-spec="json/7_waffle_chart.json"></div>
             <figcaption>
               <p class="fig-how"><strong>How to read this:</strong> Each square is 1% of the threatened species that have monitoring data. This counts species, not individual animals or plants.</p>
@@ -219,7 +220,7 @@
         </div>
 
         <div class="text measure">
-          <p class="lede">The Threatened Species Index is just one of many</p>
+          <p class="lede">The TSX is just one of many tools for tracking biodiversity.</p>
           <p>Ecologists all over Australia are innovating to find new ways to track biodiversity and help improve Australia's conservation outcomes.</p>
         </div>
       </div>
@@ -283,7 +284,7 @@
               <td>Natural Earth</td>
               <td>1:10m</td>
               <td>World map</td>
-              <td><a href="https://www.naturalearthdata.com/">naturalearthdata.com</a></td>
+              <td><a href="https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/">naturalearthdata.com</a></td>
             </tr>
             <tr>
               <td>Australian state and territory boundaries (ASGS Edition 3)</td>
@@ -301,9 +302,8 @@
     <section class="credits" id="credits" aria-labelledby="h-credits">
       <h2 id="h-credits">Credits and acknowledgements</h2>
       <div class="measure">
-        <p><strong>Images and icons:</strong> [Source and URL for each photo or illustration, or “none used”.]</p>
-        <p><strong>Use of generative AI:</strong> [State which tool(s) were used and for what, e.g. proofreading narrative text. Required if any AI tool was used.]</p>
-        <p><strong>Other references:</strong> [Articles or papers used for the narrative, with URLs.]</p>
+        <p><strong>Images and icons:</strong> none used</p>
+        <p><strong>Use of generative AI:</strong> I used Claude (Anthropic) throughout this assignment. It assisted me in writing and debugging the Vega-Lite chart specifications, build the page’s HTML and CSS layout, choose colour-blind-safe palettes, and check the data source citations. It also proofread my narrative text and tightened some of its wording. I chose the topic, the datasets, the story structure and the chart designs, and I wrote the narrative and annotation text myself. I reviewed and tested all outputs before including them</p>
       </div>
     </section>
 

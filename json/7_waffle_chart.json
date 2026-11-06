@@ -76,13 +76,19 @@
    "type": "nominal",
    "sort": null,
    "scale": {
+    "domain": [
+     "Plants (178)",
+     "Mammals (92)",
+     "Birds (73)",
+     "Amphibians (28)",
+     "Reptiles (24)"
+    ],
     "range": [
-     "#2a78d6",
-     "#eb6834",
-     "#1baf7a",
-     "#eda100",
-     "#e87ba4",
-     "#008300"
+     "#009E73",
+     "#E69F00",
+     "#0072B2",
+     "#CC79A7",
+     "#56B4E9"
     ]
    },
    "legend": {
