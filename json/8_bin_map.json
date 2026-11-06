@@ -22,7 +22,15 @@
    "width": 410,
    "height": 400,
    "projection": {
-    "type": "mercator"
+    "type": "conicEqualArea",
+    "rotate": [
+     -132,
+     0
+    ],
+    "parallels": [
+     -18,
+     -36
+    ]
    },
    "layer": [
     {
@@ -169,11 +177,24 @@
         "field": "n",
         "type": "quantitative",
         "title": "Records"
+       },
+       {
+        "field": "lat0",
+        "type": "quantitative",
+        "title": "Cell south edge (lat)",
+        "format": ".2f"
+       },
+       {
+        "field": "lon0",
+        "type": "quantitative",
+        "title": "Cell west edge (lon)",
+        "format": ".2f"
        }
       ]
      }
     }
-   ]
+   ],
+   "title": null
   },
   {
    "width": 410,
@@ -198,7 +219,7 @@
    },
    "transform": [
     {
-     "filter": "isValid(datum.Year) && datum.Year >= 1970"
+     "filter": "isValid(datum.Year) && datum.Year >= 1970 && datum.Year <= 2026"
     },
     {
      "filter": "datum.Species == species"
@@ -231,7 +252,7 @@
      "scale": {
       "domain": [
        1970,
-       2030
+       2026
       ],
       "nice": false
      }

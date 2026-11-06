@@ -6,7 +6,15 @@
    "width": 410,
    "height": 270,
    "projection": {
-    "type": "mercator"
+    "type": "conicConformal",
+    "rotate": [
+     -145,
+     0
+    ],
+    "parallels": [
+     -36,
+     -38
+    ]
    },
    "layer": [
     {

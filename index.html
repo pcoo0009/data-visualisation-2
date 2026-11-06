@@ -400,7 +400,7 @@
         })
         .then(function (spec) {
           el.innerHTML = '';
-          return vegaEmbed(el, spec, { actions: false, renderer: 'canvas' });
+          return vegaEmbed(el, spec, { actions: false, renderer: 'canvas', config: { background: 'transparent' } });
         })
         .catch(function (e) { console.error(el.dataset.spec, e); });
     });

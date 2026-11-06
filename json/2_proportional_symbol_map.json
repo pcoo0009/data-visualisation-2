@@ -1,7 +1,7 @@
 {
  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
  "width": "container",
- "height": 640,
+ "height": 700,
  "params": [
   {
    "name": "status",
@@ -22,7 +22,15 @@
   }
  ],
  "projection": {
-  "type": "mercator"
+  "type": "conicEqualArea",
+  "rotate": [
+   -132,
+   0
+  ],
+  "parallels": [
+   -18,
+   -36
+  ]
  },
  "layer": [
   {
@@ -116,33 +124,7 @@
        5000
       ]
      },
-     "legend": {
-      "title": "Number of species",
-      "orient": "none",
-      "direction": "horizontal",
-      "legendX": {
-       "expr": "width/2 - 140"
-      },
-      "legendY": {
-       "expr": "height + 10"
-      },
-      "values": [
-       100,
-       250,
-       500
-      ],
-      "symbolFillColor": "#d95f0e",
-      "symbolOpacity": 0.65,
-      "symbolStrokeColor": "#7f2704",
-      "titleOrient": "top",
-      "titleAnchor": "middle",
-      "titleFontSize": 12,
-      "titleFontWeight": "bold",
-      "titlePadding": 6,
-      "labelFontSize": 11,
-      "columnPadding": 28,
-      "labelOffset": 8
-     }
+     "legend": null
     },
     "order": {
      "field": "totalSpecies",
@@ -162,6 +144,373 @@
      }
     ]
    }
+  },
+  {
+   "data": {
+    "url": "https://pcoo0009.github.io/data-visualisation-2/data/threatened-species-by-state.csv",
+    "format": {
+     "type": "csv",
+     "parse": {
+      "Number of Species": "number"
+     }
+    }
+   },
+   "transform": [
+    {
+     "filter": "status == 'All' || datum['Threatened Status'] == status"
+    },
+    {
+     "calculate": "{'ACT':'Australian Capital Territory','NSW':'New South Wales','NT':'Northern Territory','QLD':'Queensland','SA':'South Australia','TAS':'Tasmania','VIC':'Victoria','WA':'Western Australia'}[datum.State]",
+     "as": "stateName"
+    },
+    {
+     "filter": "isValid(datum.stateName)"
+    },
+    {
+     "aggregate": [
+      {
+       "op": "sum",
+       "field": "Number of Species",
+       "as": "totalSpecies"
+      }
+     ],
+     "groupby": [
+      "State",
+      "stateName"
+     ]
+    },
+    {
+     "filter": "datum.totalSpecies > 0"
+    },
+    {
+     "aggregate": [
+      {
+       "op": "max",
+       "field": "totalSpecies",
+       "as": "vmax"
+      },
+      {
+       "op": "min",
+       "field": "totalSpecies",
+       "as": "vmin"
+      }
+     ]
+    },
+    {
+     "calculate": "floor(datum.vmax / pow(10, floor(log(datum.vmax)/LN10) - 1)) * pow(10, floor(log(datum.vmax)/LN10) - 1)",
+     "as": "a"
+    },
+    {
+     "calculate": "floor(datum.vmin / pow(10, floor(log(datum.vmin)/LN10) - 1)) * pow(10, floor(log(datum.vmin)/LN10) - 1)",
+     "as": "c"
+    },
+    {
+     "calculate": "max(datum.c, floor(sqrt(datum.a * datum.c)))",
+     "as": "b"
+    },
+    {
+     "fold": [
+      "a",
+      "b",
+      "c"
+     ],
+     "as": [
+      "k",
+      "value"
+     ]
+    },
+    {
+     "filter": "isFinite(datum.value) && datum.value > 0"
+    },
+    {
+     "aggregate": [
+      {
+       "op": "min",
+       "field": "vmax",
+       "as": "vmax"
+      }
+     ],
+     "groupby": [
+      "value"
+     ]
+    },
+    {
+     "window": [
+      {
+       "op": "row_number",
+       "as": "i"
+      }
+     ],
+     "sort": [
+      {
+       "field": "value",
+       "order": "ascending"
+      }
+     ]
+    },
+    {
+     "calculate": "2 * sqrt(5000 / PI * datum.value / datum.vmax)",
+     "as": "dia"
+    },
+    {
+     "calculate": "datum.dia + 62",
+     "as": "w"
+    },
+    {
+     "window": [
+      {
+       "op": "sum",
+       "field": "w",
+       "as": "cum"
+      }
+     ],
+     "sort": [
+      {
+       "field": "value",
+       "order": "ascending"
+      }
+     ],
+     "frame": [
+      null,
+      0
+     ]
+    },
+    {
+     "calculate": "(width/2 - 0.13*min(width, height*1.065) - 150) + datum.cum - datum.w + datum.dia/2",
+     "as": "cx"
+    },
+    {
+     "calculate": "datum.cx + datum.dia/2 + 6",
+     "as": "lx"
+    },
+    {
+     "calculate": "(height/2 + 0.2*min(width, height*1.065) - 10) + 62",
+     "as": "cy"
+    }
+   ],
+   "mark": {
+    "type": "circle",
+    "fill": "#d95f0e",
+    "fillOpacity": 0.65,
+    "stroke": "#7f2704",
+    "strokeWidth": 1
+   },
+   "encoding": {
+    "x": {
+     "field": "cx",
+     "type": "quantitative",
+     "scale": null
+    },
+    "y": {
+     "field": "cy",
+     "type": "quantitative",
+     "scale": null
+    },
+    "size": {
+     "field": "value",
+     "type": "quantitative",
+     "legend": null
+    }
+   }
+  },
+  {
+   "data": {
+    "url": "https://pcoo0009.github.io/data-visualisation-2/data/threatened-species-by-state.csv",
+    "format": {
+     "type": "csv",
+     "parse": {
+      "Number of Species": "number"
+     }
+    }
+   },
+   "transform": [
+    {
+     "filter": "status == 'All' || datum['Threatened Status'] == status"
+    },
+    {
+     "calculate": "{'ACT':'Australian Capital Territory','NSW':'New South Wales','NT':'Northern Territory','QLD':'Queensland','SA':'South Australia','TAS':'Tasmania','VIC':'Victoria','WA':'Western Australia'}[datum.State]",
+     "as": "stateName"
+    },
+    {
+     "filter": "isValid(datum.stateName)"
+    },
+    {
+     "aggregate": [
+      {
+       "op": "sum",
+       "field": "Number of Species",
+       "as": "totalSpecies"
+      }
+     ],
+     "groupby": [
+      "State",
+      "stateName"
+     ]
+    },
+    {
+     "filter": "datum.totalSpecies > 0"
+    },
+    {
+     "aggregate": [
+      {
+       "op": "max",
+       "field": "totalSpecies",
+       "as": "vmax"
+      },
+      {
+       "op": "min",
+       "field": "totalSpecies",
+       "as": "vmin"
+      }
+     ]
+    },
+    {
+     "calculate": "floor(datum.vmax / pow(10, floor(log(datum.vmax)/LN10) - 1)) * pow(10, floor(log(datum.vmax)/LN10) - 1)",
+     "as": "a"
+    },
+    {
+     "calculate": "floor(datum.vmin / pow(10, floor(log(datum.vmin)/LN10) - 1)) * pow(10, floor(log(datum.vmin)/LN10) - 1)",
+     "as": "c"
+    },
+    {
+     "calculate": "max(datum.c, floor(sqrt(datum.a * datum.c)))",
+     "as": "b"
+    },
+    {
+     "fold": [
+      "a",
+      "b",
+      "c"
+     ],
+     "as": [
+      "k",
+      "value"
+     ]
+    },
+    {
+     "filter": "isFinite(datum.value) && datum.value > 0"
+    },
+    {
+     "aggregate": [
+      {
+       "op": "min",
+       "field": "vmax",
+       "as": "vmax"
+      }
+     ],
+     "groupby": [
+      "value"
+     ]
+    },
+    {
+     "window": [
+      {
+       "op": "row_number",
+       "as": "i"
+      }
+     ],
+     "sort": [
+      {
+       "field": "value",
+       "order": "ascending"
+      }
+     ]
+    },
+    {
+     "calculate": "2 * sqrt(5000 / PI * datum.value / datum.vmax)",
+     "as": "dia"
+    },
+    {
+     "calculate": "datum.dia + 62",
+     "as": "w"
+    },
+    {
+     "window": [
+      {
+       "op": "sum",
+       "field": "w",
+       "as": "cum"
+      }
+     ],
+     "sort": [
+      {
+       "field": "value",
+       "order": "ascending"
+      }
+     ],
+     "frame": [
+      null,
+      0
+     ]
+    },
+    {
+     "calculate": "(width/2 - 0.13*min(width, height*1.065) - 150) + datum.cum - datum.w + datum.dia/2",
+     "as": "cx"
+    },
+    {
+     "calculate": "datum.cx + datum.dia/2 + 6",
+     "as": "lx"
+    },
+    {
+     "calculate": "(height/2 + 0.2*min(width, height*1.065) - 10) + 62",
+     "as": "cy"
+    }
+   ],
+   "mark": {
+    "type": "text",
+    "align": "left",
+    "baseline": "middle",
+    "fontSize": 11
+   },
+   "encoding": {
+    "x": {
+     "field": "lx",
+     "type": "quantitative",
+     "scale": null
+    },
+    "y": {
+     "field": "cy",
+     "type": "quantitative",
+     "scale": null
+    },
+    "text": {
+     "field": "value",
+     "type": "quantitative",
+     "format": "d"
+    }
+   }
+  },
+  {
+   "data": {
+    "values": [
+     {
+      "t": "Number of species"
+     }
+    ]
+   },
+   "mark": {
+    "type": "text",
+    "align": "left",
+    "baseline": "top",
+    "fontSize": 12,
+    "fontWeight": "bold"
+   },
+   "encoding": {
+    "x": {
+     "value": {
+      "expr": "(width/2 - 0.13*min(width, height*1.065) - 150)"
+     }
+    },
+    "y": {
+     "value": {
+      "expr": "(height/2 + 0.2*min(width, height*1.065) - 10)"
+     }
+    },
+    "text": {
+     "field": "t",
+     "type": "nominal"
+    }
+   }
   }
  ],
  "autosize": {
@@ -172,6 +521,6 @@
   "top": 5,
   "left": 5,
   "right": 5,
-  "bottom": 90
+  "bottom": 5
  }
 }

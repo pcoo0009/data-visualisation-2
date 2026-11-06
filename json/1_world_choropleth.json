@@ -1,7 +1,7 @@
 {
  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
  "width": "container",
- "height": 480,
+ "height": 640,
  "data": {
   "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
   "format": {
@@ -120,6 +120,10 @@
      }
     },
     "tooltip": [
+     {
+      "field": "properties.NAME",
+      "title": "Map name"
+     },
      {
       "field": "Name",
       "title": "Country"

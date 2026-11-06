@@ -10,8 +10,8 @@
   "contains": "padding"
  },
  "padding": {
-  "top": 5,
-  "left": 5,
+  "top": 12,
+  "left": 12,
   "right": 30,
   "bottom": 70
  },
@@ -228,5 +228,6 @@
    "stroke": null
   },
   "font": "Helvetica Neue, Arial, sans-serif"
- }
+ },
+ "background": "#fffdf9"
 }

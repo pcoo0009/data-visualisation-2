@@ -32,9 +32,9 @@
   "contains": "padding"
  },
  "padding": {
-  "top": 5,
-  "left": 5,
-  "right": 5,
+  "top": 12,
+  "left": 12,
+  "right": 12,
   "bottom": 125
  },
  "encoding": {
@@ -181,5 +181,6 @@
     ]
    }
   }
- ]
+ ],
+ "background": "#fffdf9"
 }

@@ -8,8 +8,8 @@
   "contains": "padding"
  },
  "padding": {
-  "top": 5,
-  "left": 5,
+  "top": 12,
+  "left": 12,
   "right": 20,
   "bottom": 70
  },
@@ -35,7 +35,7 @@
   "x": {
    "field": "year",
    "type": "quantitative",
-   "title": "Year",
+   "title": null,
    "scale": {
     "domain": [
      1980,
@@ -221,5 +221,6 @@
     "name": "Reptiles  "
    }
   }
- ]
+ ],
+ "background": "#fffdf9"
 }

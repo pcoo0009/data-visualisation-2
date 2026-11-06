@@ -104,9 +104,9 @@
     "size": {
      "condition": {
       "test": "datum.isAus",
-      "value": 560
+      "value": 700
      },
-     "value": 230
+     "value": 300
     },
     "color": {
      "condition": {
@@ -120,8 +120,15 @@
       "field": "Country"
      },
      {
+      "field": "Group"
+     },
+     {
       "field": "Count",
       "title": "Threatened species"
+     },
+     {
+      "field": "Rank",
+      "title": "Rank (of 17)"
      }
     ]
    }
@@ -169,8 +176,8 @@
       "align": "left",
       "dx": 14,
       "fontSize": 11,
-      "color": "white",
-      "stroke": "white",
+      "color": "#f6f1e9",
+      "stroke": "#f6f1e9",
       "strokeWidth": 4
      }
     },
