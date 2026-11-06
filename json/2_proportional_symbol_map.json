@@ -276,7 +276,7 @@
      ]
     },
     {
-     "calculate": "(width/2 - 0.13*min(width, height*1.065) - 150) + datum.cum - datum.w + datum.dia/2",
+     "calculate": "(width/2 - 0.13*min(width, height*1.065) - 100) + datum.cum - datum.w + datum.dia/2",
      "as": "cx"
     },
     {
@@ -284,7 +284,7 @@
      "as": "lx"
     },
     {
-     "calculate": "(height/2 + 0.2*min(width, height*1.065) - 10) + 62",
+     "calculate": "(height/2 + 0.2*min(width, height*1.065) + 25) + 62",
      "as": "cy"
     }
    ],
@@ -444,7 +444,7 @@
      ]
     },
     {
-     "calculate": "(width/2 - 0.13*min(width, height*1.065) - 150) + datum.cum - datum.w + datum.dia/2",
+     "calculate": "(width/2 - 0.13*min(width, height*1.065) - 100) + datum.cum - datum.w + datum.dia/2",
      "as": "cx"
     },
     {
@@ -452,7 +452,7 @@
      "as": "lx"
     },
     {
-     "calculate": "(height/2 + 0.2*min(width, height*1.065) - 10) + 62",
+     "calculate": "(height/2 + 0.2*min(width, height*1.065) + 25) + 62",
      "as": "cy"
     }
    ],
@@ -498,12 +498,12 @@
    "encoding": {
     "x": {
      "value": {
-      "expr": "(width/2 - 0.13*min(width, height*1.065) - 150)"
+      "expr": "(width/2 - 0.13*min(width, height*1.065) - 100)"
      }
     },
     "y": {
      "value": {
-      "expr": "(height/2 + 0.2*min(width, height*1.065) - 10)"
+      "expr": "(height/2 + 0.2*min(width, height*1.065) + 25)"
      }
     },
     "text": {

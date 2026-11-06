@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>[Project title] – FIT3179 Data Visualisation 2</title>
+  <title>Threatened Species in Australia – FIT3179 Data Visualisation 2</title>
   <meta name="description" content="[One-sentence summary of the story this page tells.]">
   <meta name="author" content="[Your name]">
 
@@ -12,31 +12,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-
-  <!--
-  ===========================================================================
-  RUBRIC CHECKLIST (delete before submitting)
-  ---------------------------------------------------------------------------
-  [ ] 10+ charts (a small-multiples set counts as ONE chart). This page has 10 charts (json/1 to json/10).
-  [ ] 3+ map idioms (appropriate projections). Max idiom mark halves if fewer than 3.
-  [ ] 8+ ADVANCED idioms (all maps count as advanced; bar/line/area/pie/scatter/bubble do not).
-  [ ] Everything built with Vega-Lite / Vega and its JSON is readable in this repo (json/ folder).
-  [ ] Whole page loads in a few MB or less; no horizontal scroll on a small laptop.
-  [ ] ONE scrolling page. No buttons or links that swap major sections.
-  [ ] Data from TWO different sources, most recent version, cited with URL.
-  [ ] Story in logical order; annotations on AND around charts; concise, correct grammar; no jargon.
-  [ ] Metadata: sources, author, date. Acknowledge any use of generative AI.
-  [ ] Interactivity only where it helps the story.
-  [ ] Layout in columns/rows, white space, aligned sight lines, consistent colour, clear hierarchy.
-  ===========================================================================
-  HOW TO SWAP A PLACEHOLDER FOR A REAL CHART
-  1. Save your spec as json/visN.vl.json (formatted, human-readable).
-  2. The script at the bottom of this page finds every <div class="chart" data-spec="…">,
-     loads the JSON, and replaces the placeholder image automatically.
-     If the JSON is missing, the placeholder simply stays.
-  3. Use  "width": "container"  in your specs so charts fill their card and never overflow.
-  ===========================================================================
-  -->
 </head>
 
 <body>
@@ -45,8 +20,8 @@
   <header class="hero">
     <div class="page">
       <p class="kicker">Endangered Species in Australia</p>
-      <h1>Critically endangered species in Australia</h1>
-      <p class="lede">The world is in a biodiversity crisis. Australia has one of worst extinction records in the world. See below to understand what has happened and what we can do.</p>
+      <h1>Endangered species in Australia</h1>
+      <p class="lede">The world is in a biodiversity crisis. Australia has one of the worst extinction records in the world. See below to understand what has happened and what we can do.</p>
 
       <p class="byline">By Peter Cooper · FIT3179 Data Visualisation 2, Monash University</p>
     </div>
@@ -65,7 +40,7 @@
       <div class="stack">
         <!-- Chart 1 | MAP idiom: choropleth -->
         <figure class="figure medium">
-          <h3 class="fig-title">[Chart 1 headline: state the takeaway, not just the topic]</h3>
+          <h3 class="fig-title">Threatened species across the world</h3>
           <p class="fig-sub">Number of threatened species in each country, by species group</p>
           <div class="chart" id="vis1" data-spec="json/1_world_choropleth.json"></div>
           <figcaption>
@@ -103,12 +78,9 @@
       <div class="stack">
         <div class="split wide-chart">
           <div class="text">
-            <p class="lede">[Lead sentence that frames the map on the right.]</p>
-            <p>[Narrative paragraph comparing the states and territories.]</p>
-            <div class="callout">
-              <strong>[Annotation heading]</strong>
-              [A short note pointing at something specific on the map.]
-            </div>
+            <p class="lede">Threatened species are present in every state and territory.</p>
+            <p>While some states manage greater numbers of threatened species, all states and territories have species listed as threatened under the Environmental Protection and Biodiversity Conservation (EPBC) Act, a federal act describing national threatened species. However, some states have greater numbers than others. New South Wales has a much higher amount of threatened species compared to regions with similar or even greater area, like South Australia or the Northern Territory.</p>
+            <p>See below for a more in-depth breakdown of threatened species by state.</p>
           </div>
 
           <!-- Chart 2 | MAP idiom: proportional symbol map -->
@@ -153,22 +125,23 @@
       <div class="section-head">
         <p class="section-num">03</p>
         <h2 id="h-which">Zooming in on species</h2>
-        <p class="lede">What kinds of species are at risk, and where have five critically endangered species been recorded?</p>
+        <p class="lede">What kinds of species are at risk, and where have four critically endangered species been recorded?</p>
       </div>
 
       <div class="stack">
         <div class="text measure">
-          <p>[Narrative paragraph linking the groups above to the five species mapped below.]</p>
+          <p>These four species are commonly known critically endangered species. It is clear that, not only does each state face management and conservation of threatened species, but the species in question also vary, and have very different distributions.</p>
+          <p>On the left, you can see the variety of some critically endangered distributions throughout Australia. On the right, you can see a zoomed-in example of range contraction.</p>
         </div>
 
         <div class="pair">
           <!-- Chart 8 | MAP idiom: binned map with year filter -->
           <figure class="figure">
             <h3 class="fig-title">Critically endangered species occurrence records (binned)</h3>
-            <p class="fig-sub">Recorded sightings of five critically endangered species, since 1970</p>
+            <p class="fig-sub">Recorded sightings of four critically endangered species, since 1970</p>
             <div class="chart" id="vis8" data-spec="json/8_bin_map.json"></div>
             <figcaption>
-              <p class="fig-how"><strong>How to read this:</strong> Choose a species, then drag across the bottom chart to pick a range of years. Darker squares have more sighting records. Records show where people have looked and reported sightings, not how many animals there are.</p>
+              <p class="fig-how"><strong>How to read this:</strong> Choose a species, then drag across the bottom chart to pick a range of years to view habitat contraction. Darker squares have more sighting records. Records show where people have looked and reported sightings, not how many animals there are.</p>
               <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/8_bin_map.json">Vega-Lite JSON</a></p>
             </figcaption>
           </figure>
@@ -178,7 +151,7 @@
             <p class="fig-sub">Modelled habitat and recorded sightings of the Regent Honeyeater in Victoria</p>
             <div class="chart" id="vis3" data-spec="json/3_regent_honeyeater_hdm_map.json"></div>
             <figcaption>
-              <p class="fig-how"><strong>How to read this:</strong> Green squares show modelled habitat; orange dots are recorded sightings. Drag across the bottom chart to choose a range of years.</p>
+              <p class="fig-how"><strong>How to read this:</strong> Green squares show modelled habitat; orange dots are recorded sightings. Drag across the bottom chart to choose a range of years to explore habitat contraction.</p>
               <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/3_regent_honeyeater_hdm_map.json">Vega-Lite JSON</a></p>
             </figcaption>
           </figure>
@@ -191,23 +164,12 @@
     <section class="story" id="when" aria-labelledby="h-when">
       <div class="section-head">
         <p class="section-num">04</p>
-        <h2 id="h-when">Is it getting better?</h2>
-        <p class="lede">Are monitored threatened species recovering, or still declining?</p>
+        <h2 id="h-when">How can we monitor effectively?</h2>
+        <p class="lede">Monitoring biodiversity is harder than you think.</p>
       </div>
 
       <div class="stack">
         <div class="pair">
-          <!-- Chart 10 | basic idiom: line chart -->
-          <figure class="figure">
-            <h3 class="fig-title">How much monitoring has been done each year</h3>
-            <p class="fig-sub">Number of studies in the Threatened Species Index, by year</p>
-            <div class="chart" id="vis10" data-spec="json/10_studies_by_year.json"></div>
-            <figcaption>
-              <p class="fig-how"><strong>How to read this:</strong> Each line is a year-by-year count of monitoring studies. Use the checkboxes to show or hide animal groups.</p>
-              <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/10_studies_by_year.json">Vega-Lite JSON</a></p>
-            </figcaption>
-          </figure>
-
           <!-- Chart 11 | basic idiom: line chart -->
           <figure class="figure">
             <h3 class="fig-title">Reported Regent Honeyeater sightings, by year</h3>
@@ -218,13 +180,26 @@
               <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/11_honeyeater_records_by_year.json">Vega-Lite JSON</a></p>
             </figcaption>
           </figure>
+          <!-- Chart 10 | basic idiom: line chart -->
+          <figure class="figure">
+            <h3 class="fig-title">How many monitoring studies have been done each year</h3>
+            <p class="fig-sub">Number of studies in the Threatened Species Index, by year</p>
+            <div class="chart" id="vis10" data-spec="json/10_studies_by_year.json"></div>
+            <figcaption>
+              <p class="fig-how"><strong>How to read this:</strong> Each line is a year-by-year count of monitoring studies. Use the checkboxes to show or hide animal groups.</p>
+              <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/10_studies_by_year.json">Vega-Lite JSON</a></p>
+            </figcaption>
+          </figure>
         </div>
-
+        <div class="text measure">
+          <p>Notice a trend in the graphs above? Monitoring population health is very difficult, for a number of reasons. Illustrated above is a form of sampling bias, where the outcome of the experiment is biased by how the experiment was sampled. In this case, on the left you can see how the Regent Honeyeater population appears to increase over time, even though we know their population is dwindling and their range is contracting. On the right, we can see why: the number of studies measuring threatened species is increasing drastically over time. This trend is especially notable for birds.</p>
+          <p>Introducing the TSX, or Threatened Species Index, an index that aims to solve this problem and make biodiversity monitoring easier for scientists and policymakers. It aggregates studies together, and accounts for higher sampling volume in later years, as well as many other complicated statistical calculations like margin of error on each individual study.</p>
+        </div>
         <div class="pair">
           <!-- Chart 7 | advanced idiom: waffle chart -->
           <figure class="figure">
-            <h3 class="fig-title">Threatened species with monitoring data, by group</h3>
-            <p class="fig-sub">Threatened species with monitoring data, by group</p>
+            <h3 class="fig-title">Threatened species with monitoring data described by the TSX, by group</h3>
+            <p class="fig-sub">Threatened species with monitoring data described by the TSX, by group</p>
             <div class="chart" id="vis7" data-spec="json/7_waffle_chart.json"></div>
             <figcaption>
               <p class="fig-how"><strong>How to read this:</strong> Each square is 1% of the threatened species that have monitoring data. This counts species, not individual animals or plants.</p>
@@ -234,7 +209,7 @@
 
           <!-- Chart 9 | advanced idiom: slope chart -->
           <figure class="figure">
-            <h3 class="fig-title">How threatened species are doing, by state and territory</h3>
+            <h3 class="fig-title">How threatened species are really doing, by state and territory</h3>
             <p class="fig-sub">Threatened Species Index by state and territory, 2000 and 2022</p>
             <div class="chart" id="vis9" data-spec="json/9_slope_chart.json"></div>
             <figcaption>
@@ -245,18 +220,13 @@
         </div>
 
         <div class="text measure">
-          <p class="lede">[Lead sentence that frames the slope chart.]</p>
-          <p>[Narrative paragraph: what the index measures, in plain language, and what the slopes show.]</p>
+          <p class="lede">The Threatened Species Index is just one of many</p>
+          <p>Ecologists all over Australia are innovating to find new ways to track biodiversity and help improve Australia's conservation outcomes.</p>
         </div>
       </div>
     </section>
 
-    <!-- ================= CONCLUSION ================= -->
-    <section class="conclusion" id="conclusion" aria-labelledby="h-conclusion">
-      <p class="section-num">Conclusion</p>
-      <h2 id="h-conclusion">[Closing heading: the one thing to remember]</h2>
-      <p class="lede">[Two or three sentences that pull the whole story together and leave the reader with a clear takeaway or call to action.]</p>
-    </section>
+
 
     <!-- ================= ABOUT THIS VISUALISATION ================= -->
     <!-- ================= DATA SOURCES (metadata) ================= -->
@@ -316,12 +286,7 @@
 
   </main>
 
-  <footer class="site-footer">
-    <div class="page">
-      <p>© [Year] [Your name]. FIT3179 Data Visualisation 2, Semester 2, 2026, Monash University. Last updated [date].</p>
-      <p><a href="[GitHub repository URL]">View the code and Vega-Lite JSON on GitHub</a></p>
-    </div>
-  </footer>
+
 
   <!-- =====================================================================
        Chart loader: replaces each placeholder with its live Vega-Lite chart.

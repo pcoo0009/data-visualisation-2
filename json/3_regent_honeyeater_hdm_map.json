@@ -100,7 +100,7 @@
         ]
        },
        "legend": {
-        "title": "Habitat model value",
+        "title": "Predicted habitat suitability",
         "orient": "none",
         "direction": "horizontal",
         "legendX": 55,
@@ -119,8 +119,7 @@
          10,
          20,
          30
-        ],
-        "titleLimit": 300
+        ]
        }
       }
      }
