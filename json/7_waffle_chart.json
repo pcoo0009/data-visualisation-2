@@ -2,16 +2,16 @@
  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
  "description": "Simple waffle chart: 100 squares, each 1% of threatened species. The CSV supplies the number of squares per group.",
  "width": {
-  "step": 34
+  "step": 52
  },
  "height": {
-  "step": 34
+  "step": 52
  },
  "padding": {
   "left": 10,
   "right": 10,
   "top": 10,
-  "bottom": 110
+  "bottom": 60
  },
  "data": {
   "url": "https://pcoo0009.github.io/data-visualisation-2/data/threatened-species-by-group.csv",
@@ -89,21 +89,23 @@
     "title": "Group (number of species)",
     "orient": "none",
     "direction": "horizontal",
-    "columns": 2,
-    "legendX": 0,
+    "columns": 5,
+    "legendX": {
+     "expr": "width/2 - 245"
+    },
     "legendY": {
-     "expr": "height + 24"
+     "expr": "height + 22"
     },
     "symbolType": "square",
-    "symbolSize": 200,
-    "labelFontSize": 12,
+    "symbolSize": 100,
+    "labelFontSize": 11,
     "titleFontSize": 12,
     "titleFontWeight": "bold",
     "titleOrient": "top",
     "titleAnchor": "middle",
     "titlePadding": 8,
-    "labelLimit": 150,
-    "columnPadding": 16,
+    "labelLimit": 100,
+    "columnPadding": 6,
     "rowPadding": 6,
     "titleLimit": 300
    }
