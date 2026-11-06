@@ -15,17 +15,6 @@
   "right": 30,
   "bottom": 70
  },
- "title": {
-  "text": "Species already lost, by state and territory",
-  "subtitle": [
-   "Number of species listed as extinct under the EPBC Act."
-  ],
-  "anchor": "start",
-  "fontSize": 18,
-  "subtitleFontSize": 12,
-  "subtitleColor": "#6B7280",
-  "offset": 16
- },
  "data": {
   "url": "https://pcoo0009.github.io/data-visualisation-2/data/threatened-species-by-state.csv"
  },

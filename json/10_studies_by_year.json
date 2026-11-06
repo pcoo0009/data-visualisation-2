@@ -13,17 +13,6 @@
   "right": 20,
   "bottom": 70
  },
- "title": {
-  "text": "How much monitoring has been done each year",
-  "subtitle": [
-   "Number of studies in the Threatened Species Index, by year."
-  ],
-  "anchor": "start",
-  "fontSize": 18,
-  "subtitleFontSize": 12,
-  "subtitleColor": "#6B7280",
-  "offset": 16
- },
  "data": {
   "url": "https://pcoo0009.github.io/data-visualisation-2/data/num_studies_by_year.csv",
   "format": {

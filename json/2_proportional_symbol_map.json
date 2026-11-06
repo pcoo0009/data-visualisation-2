@@ -1,6 +1,5 @@
 {
  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
- "title": "Threatened species by Australian state and territory",
  "width": "container",
  "height": 640,
  "params": [

@@ -8,18 +8,6 @@
   "top": 10,
   "bottom": 10
  },
- "title": {
-  "text": "How Australia ranks among the 17 megadiverse countries",
-  "subtitle": [
-   "Rank by number of threatened species in each group (1 = most). Hover over a column to see the countries.",
-   "Countries with equal counts are ordered alphabetically."
-  ],
-  "anchor": "start",
-  "fontSize": 18,
-  "subtitleFontSize": 12,
-  "subtitleColor": "#6B7280",
-  "offset": 16
- },
  "data": {
   "url": "https://pcoo0009.github.io/data-visualisation-2/data/threatened-species-by-megadiverse-country-ranked.csv"
  },

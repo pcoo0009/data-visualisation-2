@@ -2,7 +2,6 @@
  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
  "width": "container",
  "height": 400,
- "title": "How threatened species are doing, by state and territory",
  "data": {
   "url": "https://pcoo0009.github.io/data-visualisation-2/data/TSX_values_by_state.csv",
   "format": {

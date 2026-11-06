@@ -11,17 +11,6 @@
   "right": 15,
   "bottom": 70
  },
- "title": {
-  "text": "Threatened animals by state and territory",
-  "subtitle": [
-   "Number of animal species in each status category. A dash means none."
-  ],
-  "anchor": "start",
-  "fontSize": 18,
-  "subtitleFontSize": 12,
-  "subtitleColor": "#6B7280",
-  "offset": 16
- },
  "data": {
   "url": "https://pcoo0009.github.io/data-visualisation-2/data/threatened-species-by-state.csv"
  },

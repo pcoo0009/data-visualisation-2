@@ -268,3 +268,5 @@ th { font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; colo
 .pair > .figure .chart .vega-embed { display: block; }
 .chart .vega-embed > canvas,
 .chart .vega-embed > svg { margin-left: auto; margin-right: auto; }
+
+.figure.medium { max-width: 1050px; margin-left: auto; margin-right: auto; }
