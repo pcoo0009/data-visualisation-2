@@ -9,7 +9,7 @@
   "bottom": 10
  },
  "data": {
-  "url": "https://pcoo0009.github.io/data-visualisation-2/data/threatened-species-by-megadiverse-country-ranked.csv"
+  "url": "data/threatened-species-by-megadiverse-country-ranked.csv"
  },
  "transform": [
   {

@@ -142,6 +142,17 @@ mark.hl {
 
 .text > :last-child { margin-bottom: 0; }
 
+/* Narrative text: centred, and vertically centred beside a chart */
+.text { text-align: center; }
+.text.measure { margin-left: auto; margin-right: auto; }
+.text .lede { margin-left: auto; margin-right: auto; }
+.split > .text { align-self: center; }
+
+/* Section headings and the conclusion are centred too (hero, data sources and credits stay left-aligned) */
+.section-head, .conclusion { text-align: center; }
+.section-head { margin-left: auto; margin-right: auto; }
+.section-head .lede, .conclusion .lede { margin-left: auto; margin-right: auto; }
+
 /* Annotation callout: short, specific note that points at the chart */
 .callout {
   border-left: 4px solid var(--accent);
@@ -280,3 +291,26 @@ mark.hl {
 .chart { background: transparent; }
 .figure figcaption { border-top: 0; max-width: 60ch; margin-left: auto; margin-right: auto; text-align: center; }
 .figure .fig-sub { max-width: 60ch; margin-left: auto; margin-right: auto; }
+
+/* Wide narrative blocks run the full width of the charts around them */
+.text.measure.wide { max-width: none; }
+
+/* Side-by-side charts: left chart sits on the left edge, right chart on the right edge */
+@media (min-width: 1201px) {
+  .pair > .figure:first-child .chart { align-items: flex-start; }
+  .pair > .figure:last-child .chart { align-items: flex-end; }
+  .pair > .figure:first-child .chart .vega-embed > canvas,
+  .pair > .figure:first-child .chart .vega-embed > svg { margin-left: 0; margin-right: auto; }
+  .pair > .figure:last-child .chart .vega-embed > canvas,
+  .pair > .figure:last-child .chart .vega-embed > svg { margin-left: auto; margin-right: 0; }
+}
+
+/* The two species maps stay centred in their cards, close together */
+@media (min-width: 1201px) {
+  .pair.maps > .figure:first-child .chart,
+  .pair.maps > .figure:last-child .chart { align-items: center; }
+  .pair.maps > .figure:first-child .chart .vega-embed > canvas,
+  .pair.maps > .figure:first-child .chart .vega-embed > svg,
+  .pair.maps > .figure:last-child .chart .vega-embed > canvas,
+  .pair.maps > .figure:last-child .chart .vega-embed > svg { margin-left: auto; margin-right: auto; }
+}

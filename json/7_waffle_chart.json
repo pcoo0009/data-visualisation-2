@@ -14,7 +14,7 @@
   "bottom": 60
  },
  "data": {
-  "url": "https://pcoo0009.github.io/data-visualisation-2/data/threatened-species-by-group.csv",
+  "url": "data/threatened-species-by-group.csv",
   "format": {
    "type": "csv",
    "parse": {

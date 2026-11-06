@@ -20,7 +20,7 @@
     {
      "description": "Victoria outline",
      "data": {
-      "url": "https://pcoo0009.github.io/data-visualisation-2/data/state_map_simplified.json",
+      "url": "data/state_map_simplified.json",
       "format": {
        "type": "topojson",
        "feature": "STE_2021_AUST_GDA2020"
@@ -41,7 +41,7 @@
     {
      "description": "Habitat model: one square per grid cell (about 750 m)",
      "data": {
-      "url": "https://pcoo0009.github.io/data-visualisation-2/data/hdm-clean.csv",
+      "url": "data/hdm-clean.csv",
       "format": {
        "type": "csv",
        "parse": {
@@ -325,7 +325,7 @@
     {
      "description": "Recorded sightings",
      "data": {
-      "url": "https://pcoo0009.github.io/data-visualisation-2/data/regent-honeyeater-vic.csv",
+      "url": "data/regent-honeyeater-vic.csv",
       "format": {
        "type": "csv",
        "parse": {
@@ -384,7 +384,7 @@
     "color": "#6B7280"
    },
    "data": {
-    "url": "https://pcoo0009.github.io/data-visualisation-2/data/regent-honeyeater-vic.csv",
+    "url": "data/regent-honeyeater-vic.csv",
     "format": {
      "type": "csv",
      "parse": {

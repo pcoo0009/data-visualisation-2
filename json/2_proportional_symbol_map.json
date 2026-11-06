@@ -35,7 +35,7 @@
  "layer": [
   {
    "data": {
-    "url": "https://pcoo0009.github.io/data-visualisation-2/data/state_map_simplified.json",
+    "url": "data/state_map_simplified.json",
     "format": {
      "type": "topojson",
      "feature": "STE_2021_AUST_GDA2020"
@@ -55,7 +55,7 @@
   },
   {
    "data": {
-    "url": "https://pcoo0009.github.io/data-visualisation-2/data/threatened-species-by-state.csv",
+    "url": "data/threatened-species-by-state.csv",
     "format": {
      "type": "csv",
      "parse": {
@@ -147,7 +147,7 @@
   },
   {
    "data": {
-    "url": "https://pcoo0009.github.io/data-visualisation-2/data/threatened-species-by-state.csv",
+    "url": "data/threatened-species-by-state.csv",
     "format": {
      "type": "csv",
      "parse": {
@@ -315,7 +315,7 @@
   },
   {
    "data": {
-    "url": "https://pcoo0009.github.io/data-visualisation-2/data/threatened-species-by-state.csv",
+    "url": "data/threatened-species-by-state.csv",
     "format": {
      "type": "csv",
      "parse": {

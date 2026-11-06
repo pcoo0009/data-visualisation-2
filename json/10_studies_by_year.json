@@ -14,7 +14,7 @@
   "bottom": 70
  },
  "data": {
-  "url": "https://pcoo0009.github.io/data-visualisation-2/data/num_studies_by_year.csv",
+  "url": "data/num_studies_by_year.csv",
   "format": {
    "type": "csv",
    "parse": {

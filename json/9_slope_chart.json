@@ -3,7 +3,7 @@
  "width": "container",
  "height": 400,
  "data": {
-  "url": "https://pcoo0009.github.io/data-visualisation-2/data/TSX_values_by_state.csv",
+  "url": "data/TSX_values_by_state.csv",
   "format": {
    "type": "csv",
    "parse": {

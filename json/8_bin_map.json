@@ -34,7 +34,7 @@
    "layer": [
     {
      "data": {
-      "url": "https://pcoo0009.github.io/data-visualisation-2/data/state_map_simplified.json",
+      "url": "data/state_map_simplified.json",
       "format": {
        "type": "topojson",
        "feature": "STE_2021_AUST_GDA2020"
@@ -54,7 +54,7 @@
     },
     {
      "data": {
-      "url": "https://pcoo0009.github.io/data-visualisation-2/data/critically-endangered-species-occurrences.csv",
+      "url": "data/critically-endangered-species-occurrences.csv",
       "format": {
        "type": "csv",
        "parse": {
@@ -208,7 +208,7 @@
     "color": "#6B7280"
    },
    "data": {
-    "url": "https://pcoo0009.github.io/data-visualisation-2/data/critically-endangered-species-occurrences.csv",
+    "url": "data/critically-endangered-species-occurrences.csv",
     "format": {
      "type": "csv",
      "parse": {

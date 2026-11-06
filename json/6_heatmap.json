@@ -12,7 +12,7 @@
   "bottom": 70
  },
  "data": {
-  "url": "https://pcoo0009.github.io/data-visualisation-2/data/threatened-species-by-state.csv"
+  "url": "data/threatened-species-by-state.csv"
  },
  "transform": [
   {

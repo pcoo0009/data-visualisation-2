@@ -3,10 +3,10 @@
  "width": "container",
  "height": 640,
  "data": {
-  "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
+  "url": "data/world_boundaries.json",
   "format": {
    "type": "topojson",
-   "feature": "ne_110m_admin_0_countries"
+   "feature": "ne_10m_admin_0_countries"
   }
  },
  "params": [
@@ -44,7 +44,7 @@
    "lookup": "iso3",
    "from": {
     "data": {
-     "url": "https://pcoo0009.github.io/data-visualisation-2/data/threatened-species-by-country.csv"
+     "url": "data/threatened-species-by-country.csv"
     },
     "key": "iso3",
     "fields": [

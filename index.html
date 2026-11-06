@@ -20,7 +20,7 @@
   <header class="hero">
     <div class="page">
       <p class="kicker">Endangered Species in Australia</p>
-      <h1>Endangered species in Australia</h1>
+      <h1>Critically endangered species in Australia</h1>
       <p class="lede">The world is in a biodiversity crisis. Australia has one of the worst extinction records in the world. See below to understand what has happened and what we can do.</p>
 
       <p class="byline">By Peter Cooper · FIT3179 Data Visualisation 2, Monash University</p>
@@ -45,7 +45,7 @@
           <div class="chart" id="vis1" data-spec="json/1_world_choropleth.json"></div>
           <figcaption>
             <p class="fig-how"><strong>How to read this:</strong> Darker countries have more threatened species. Use the dropdown to switch between species groups; grey countries have no data.</p>
-            <p>Source: [Dataset name], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/1_world_choropleth.json">Vega-Lite JSON</a></p>
+            <p>Source: IUCN Red List, Table 5, 2020. <a href="https://www.iucnredlist.org/resources/summary-statistics">iucnredlist.org</a> Boundaries: Natural Earth, <a href="https://www.naturalearthdata.com/">naturalearthdata.com</a>. · <a href="json/1_world_choropleth.json">Vega-Lite JSON</a></p>
           </figcaption>
         </figure>
 
@@ -60,7 +60,7 @@
           <div class="chart" id="vis5" data-spec="json/5_clean_bump_chart.json"></div>
           <figcaption>
             <p class="fig-how"><strong>How to read this:</strong> Each column is a species group. The orange line follows Australia's rank (1 = most threatened species). Hover over a column to see which country sits at each rank.</p>
-            <p>Source: [Dataset name], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/5_clean_bump_chart.json">Vega-Lite JSON</a></p>
+            <p>Source: IUCN Red List, Table 5, 2020. <a href="https://www.iucnredlist.org/resources/summary-statistics">iucnredlist.org</a> · <a href="json/5_clean_bump_chart.json">Vega-Lite JSON</a></p>
           </figcaption>
         </figure>
 
@@ -79,7 +79,7 @@
         <div class="split wide-chart">
           <div class="text">
             <p class="lede">Threatened species are present in every state and territory.</p>
-            <p>While some states manage greater numbers of threatened species, all states and territories have species listed as threatened under the Environmental Protection and Biodiversity Conservation (EPBC) Act, a federal act describing national threatened species. However, some states have greater numbers than others. New South Wales has a much higher amount of threatened species compared to regions with similar or even greater area, like South Australia or the Northern Territory.</p>
+            <p>While some states manage greater numbers of threatened species, all states and territories have species listed as threatened under the EPBG Act, a federal act describing national threatened species. However, some states have greater numbers than others. New South Wales has a much higher amount of threatened species compared to regions with similar or even greater area, like South Australia or the Northern Territory.</p>
             <p>See below for a more in-depth breakdown of threatened species by state.</p>
           </div>
 
@@ -90,7 +90,7 @@
             <div class="chart" id="vis2" data-spec="json/2_proportional_symbol_map.json"></div>
             <figcaption>
               <p class="fig-how"><strong>How to read this:</strong> Bigger circles mean more threatened species. Use the dropdown to show one threatened status at a time.</p>
-              <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/2_proportional_symbol_map.json">Vega-Lite JSON</a></p>
+              <p>Source: EPBC Act threatened species list by state and territory, data.gov.au, 2026. <a href="https://data.gov.au/data/dataset/threatened-species-state-lists">data.gov.au</a> Boundaries: Australian Bureau of Statistics, ASGS Edition 3 (2021), <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files">abs.gov.au</a>. · <a href="json/2_proportional_symbol_map.json">Vega-Lite JSON</a></p>
             </figcaption>
           </figure>
         </div>
@@ -103,7 +103,7 @@
             <div class="chart" id="vis6" data-spec="json/6_heatmap.json"></div>
             <figcaption>
               <p class="fig-how"><strong>How to read this:</strong> Each square counts the animal species in one status category. Darker squares mean more species; a dash means none.</p>
-              <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/6_heatmap.json">Vega-Lite JSON</a></p>
+              <p>Source: EPBC Act threatened species list by state and territory, data.gov.au, 2026. <a href="https://data.gov.au/data/dataset/threatened-species-state-lists">data.gov.au</a> · <a href="json/6_heatmap.json">Vega-Lite JSON</a></p>
             </figcaption>
           </figure>
 
@@ -113,7 +113,7 @@
             <div class="chart" id="vis4" data-spec="json/4_species_lost_by_state.json"></div>
             <figcaption>
               <p class="fig-how"><strong>How to read this:</strong> Each bar is a state or territory; its length is the number of species listed as extinct. Colours split animals from plants, and the number at the end is the total.</p>
-              <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/4_species_lost_by_state.json">Vega-Lite JSON</a></p>
+              <p>Source: EPBC Act threatened species list by state and territory, data.gov.au, 2026. <a href="https://data.gov.au/data/dataset/threatened-species-state-lists">data.gov.au</a> · <a href="json/4_species_lost_by_state.json">Vega-Lite JSON</a></p>
             </figcaption>
           </figure>
         </div>
@@ -129,12 +129,11 @@
       </div>
 
       <div class="stack">
-        <div class="text measure">
-          <p>These four species are commonly known critically endangered species. It is clear that, not only does each state face management and conservation of threatened species, but the species in question also vary, and have very different distributions.</p>
-          <p>On the left, you can see the variety of some critically endangered distributions throughout Australia. On the right, you can see a zoomed-in example of range contraction.</p>
+        <div class="text measure wide">
+          <p>These four species are commonly known critically endangered species. It is clear that, not only does each state face management and conservation of threatened species, but the species in question also vary, and have very different distributions.<p>On the left, you can see the variety of some critically endangered distributions throughout Australia. On the right, you can see a zoomed-in example of range contraction.</p>
         </div>
 
-        <div class="pair">
+        <div class="pair maps">
           <!-- Chart 8 | MAP idiom: binned map with year filter -->
           <figure class="figure">
             <h3 class="fig-title">Critically endangered species occurrence records (binned)</h3>
@@ -142,7 +141,7 @@
             <div class="chart" id="vis8" data-spec="json/8_bin_map.json"></div>
             <figcaption>
               <p class="fig-how"><strong>How to read this:</strong> Choose a species, then drag across the bottom chart to pick a range of years to view habitat contraction. Darker squares have more sighting records. Records show where people have looked and reported sightings, not how many animals there are.</p>
-              <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/8_bin_map.json">Vega-Lite JSON</a></p>
+              <p>Source: Atlas of Living Australia (ALA), October 2026 (obtained). <a href="https://www.ala.org.au/">ala.org.au</a> Boundaries: Australian Bureau of Statistics, ASGS Edition 3 (2021), <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files">abs.gov.au</a>. · <a href="json/8_bin_map.json">Vega-Lite JSON</a></p>
             </figcaption>
           </figure>
 
@@ -152,7 +151,7 @@
             <div class="chart" id="vis3" data-spec="json/3_regent_honeyeater_hdm_map.json"></div>
             <figcaption>
               <p class="fig-how"><strong>How to read this:</strong> Green squares show modelled habitat; orange dots are recorded sightings. Drag across the bottom chart to choose a range of years to explore habitat contraction.</p>
-              <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/3_regent_honeyeater_hdm_map.json">Vega-Lite JSON</a></p>
+              <p>Sightings: Atlas of Living Australia (ALA), October 2026 (obtained). <a href="https://www.ala.org.au/">ala.org.au</a>. Habitat model: Habitat distribution models for threatened species, Victorian Government (data.vic.gov.au), 2025. <a href="https://discover.data.vic.gov.au/dataset/habitat-distribution-models-threatened-species">data.vic.gov.au</a>. Boundaries: Australian Bureau of Statistics, ASGS Edition 3 (2021), <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files">abs.gov.au</a>. · <a href="json/3_regent_honeyeater_hdm_map.json">Vega-Lite JSON</a></p>
             </figcaption>
           </figure>
         </div>
@@ -177,7 +176,7 @@
             <div class="chart" id="vis11" data-spec="json/11_honeyeater_records_by_year.json"></div>
             <figcaption>
               <p class="fig-how"><strong>How to read this:</strong> Each dot is one year. Higher means more sightings were recorded that year, not more birds.</p>
-              <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/11_honeyeater_records_by_year.json">Vega-Lite JSON</a></p>
+              <p>Source: Atlas of Living Australia (ALA), October 2026 (obtained). <a href="https://www.ala.org.au/">ala.org.au</a> · <a href="json/11_honeyeater_records_by_year.json">Vega-Lite JSON</a></p>
             </figcaption>
           </figure>
           <!-- Chart 10 | basic idiom: line chart -->
@@ -187,11 +186,11 @@
             <div class="chart" id="vis10" data-spec="json/10_studies_by_year.json"></div>
             <figcaption>
               <p class="fig-how"><strong>How to read this:</strong> Each line is a year-by-year count of monitoring studies. Use the checkboxes to show or hide animal groups.</p>
-              <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/10_studies_by_year.json">Vega-Lite JSON</a></p>
+              <p>Source: Threatened Species Index (TSX), 2025. <a href="https://tsx.org.au/tsx2025/">tsx.org.au</a> · <a href="json/10_studies_by_year.json">Vega-Lite JSON</a></p>
             </figcaption>
           </figure>
         </div>
-        <div class="text measure">
+        <div class="text measure wide">
           <p>Notice a trend in the graphs above? Monitoring population health is very difficult, for a number of reasons. Illustrated above is a form of sampling bias, where the outcome of the experiment is biased by how the experiment was sampled. In this case, on the left you can see how the Regent Honeyeater population appears to increase over time, even though we know their population is dwindling and their range is contracting. On the right, we can see why: the number of studies measuring threatened species is increasing drastically over time. This trend is especially notable for birds.</p>
           <p>Introducing the TSX, or Threatened Species Index, an index that aims to solve this problem and make biodiversity monitoring easier for scientists and policymakers. It aggregates studies together, and accounts for higher sampling volume in later years, as well as many other complicated statistical calculations like margin of error on each individual study.</p>
         </div>
@@ -203,7 +202,7 @@
             <div class="chart" id="vis7" data-spec="json/7_waffle_chart.json"></div>
             <figcaption>
               <p class="fig-how"><strong>How to read this:</strong> Each square is 1% of the threatened species that have monitoring data. This counts species, not individual animals or plants.</p>
-              <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/7_waffle_chart.json">Vega-Lite JSON</a></p>
+              <p>Source: Threatened Species Index (TSX), 2025. <a href="https://tsx.org.au/tsx2025/">tsx.org.au</a> · <a href="json/7_waffle_chart.json">Vega-Lite JSON</a></p>
             </figcaption>
           </figure>
 
@@ -214,7 +213,7 @@
             <div class="chart" id="vis9" data-spec="json/9_slope_chart.json"></div>
             <figcaption>
               <p class="fig-how"><strong>How to read this:</strong> Each line is a state or territory. A line sloping down means monitored threatened species declined between 2000 and 2022. The ACT is left out because its figures are too uncertain to read.</p>
-              <p>Source: [Dataset], [Publisher], [Year]. <a href="[URL]">[URL]</a> · <a href="json/9_slope_chart.json">Vega-Lite JSON</a></p>
+              <p>Source: Threatened Species Index (TSX), 2025. <a href="https://tsx.org.au/tsx2025/">tsx.org.au</a> · <a href="json/9_slope_chart.json">Vega-Lite JSON</a></p>
             </figcaption>
           </figure>
         </div>
@@ -239,35 +238,59 @@
               <th scope="col">Dataset</th>
               <th scope="col">Publisher / author</th>
               <th scope="col">Date or version</th>
-              <th scope="col">Licence</th>
               <th scope="col">Used in</th>
               <th scope="col">Link</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>[Dataset 1]</td>
-              <td>[Publisher]</td>
-              <td>[Year / version]</td>
-              <td>[e.g. CC BY 4.0]</td>
-              <td>[Charts 1, 2]</td>
-              <td><a href="[URL]">[URL]</a></td>
+              <td>EPBC Act threatened species list, by state and territory</td>
+              <td>data.gov.au</td>
+              <td>2026</td>
+              <td>Proportional symbol map, heatmap, extinct species bar chart</td>
+              <td><a href="https://data.gov.au/data/dataset/threatened-species-state-lists">data.gov.au</a></td>
             </tr>
             <tr>
-              <td>[Dataset 2]</td>
-              <td>[Publisher]</td>
-              <td>[Year / version]</td>
-              <td>[Licence]</td>
-              <td>[Charts 3, 4]</td>
-              <td><a href="[URL]">[URL]</a></td>
+              <td>IUCN Red List, Table 5</td>
+              <td>IUCN</td>
+              <td>2020</td>
+              <td>World map, bump chart</td>
+              <td><a href="https://www.iucnredlist.org/resources/summary-statistics">iucnredlist.org</a></td>
             </tr>
             <tr>
-              <td>[Boundary file]</td>
-              <td>[e.g. Australian Bureau of Statistics]</td>
-              <td>[Year]</td>
-              <td>[Licence]</td>
-              <td>[Maps]</td>
-              <td><a href="[URL]">[URL]</a></td>
+              <td>Occurrence records (critically endangered species)</td>
+              <td>Atlas of Living Australia (ALA)</td>
+              <td>October 2026 (obtained)</td>
+              <td>Binned map, Regent Honeyeater sightings map and line chart</td>
+              <td><a href="https://www.ala.org.au/">ala.org.au</a></td>
+            </tr>
+            <tr>
+              <td>Threatened Species Index (TSX) data</td>
+              <td>Threatened Species Index (TSX)</td>
+              <td>2025</td>
+              <td>Studies per year, TSX waffle chart, slope chart</td>
+              <td><a href="https://tsx.org.au/tsx2025/">tsx.org.au</a></td>
+            </tr>
+            <tr>
+              <td>Habitat distribution models for threatened species (Regent Honeyeater)</td>
+              <td>Victorian Government (data.vic.gov.au)</td>
+              <td>2025</td>
+              <td>Regent Honeyeater habitat map</td>
+              <td><a href="https://discover.data.vic.gov.au/dataset/habitat-distribution-models-threatened-species">data.vic.gov.au</a></td>
+            </tr>
+            <tr>
+              <td>Admin 0 – Countries boundaries</td>
+              <td>Natural Earth</td>
+              <td>1:10m</td>
+              <td>World map</td>
+              <td><a href="https://www.naturalearthdata.com/">naturalearthdata.com</a></td>
+            </tr>
+            <tr>
+              <td>Australian state and territory boundaries (ASGS Edition 3)</td>
+              <td>Australian Bureau of Statistics</td>
+              <td>2021</td>
+              <td>State proportional symbol map, binned map, Regent Honeyeater habitat map</td>
+              <td><a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files">abs.gov.au</a></td>
             </tr>
           </tbody>
         </table>
