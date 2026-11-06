@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Threatened Species in Australia – FIT3179 Data Visualisation 2</title>
-  <meta name="description" content="[One-sentence summary of the story this page tells.]">
-  <meta name="author" content="[Your name]">
+  <meta name="description" content="Threatened Species in Australia and How We Monitor Them">
+  <meta name="author" content="Peter Cooper">
 
   <!-- Typography: swap Fraunces / Public Sans for a pairing that suits your topic (rubric: non-standard typeface matching the topic) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -197,8 +197,8 @@
         <div class="pair">
           <!-- Chart 7 | advanced idiom: waffle chart -->
           <figure class="figure">
-            <h3 class="fig-title">Threatened species with monitoring data described by the TSX, by group</h3>
-            <p class="fig-sub">Threatened species with monitoring data described by the TSX, by group</p>
+            <h3 class="fig-title">Monitored species by group</h3>
+            <p class="fig-sub">Threatened species with monitoring data described by the Threatened Species Index, by group</p>
             <div class="chart" id="vis7" data-spec="json/7_waffle_chart.json"></div>
             <figcaption>
               <p class="fig-how"><strong>How to read this:</strong> Each square is 1% of the threatened species that have monitoring data. This counts species, not individual animals or plants.</p>
@@ -320,6 +320,11 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.21.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0"></script>
   <script>
+    // Wait for the web fonts so chart text is drawn in Public Sans, not a fallback
+    var fontsReady = (document.fonts && document.fonts.load)
+      ? Promise.all([document.fonts.load('11px "Public Sans"'), document.fonts.load('bold 12px "Public Sans"')]).catch(function () {})
+      : Promise.resolve();
+    fontsReady.then(function () {
     document.querySelectorAll('.chart[data-spec]').forEach(function (el) {
       fetch(el.dataset.spec)
         .then(function (r) {
@@ -331,6 +336,7 @@
           return vegaEmbed(el, spec, { actions: false, renderer: 'canvas', config: { background: 'transparent' } });
         })
         .catch(function (e) { console.error(el.dataset.spec, e); });
+    });
     });
   </script>
 </body>

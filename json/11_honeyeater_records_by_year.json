@@ -26,7 +26,21 @@
   "view": {
    "stroke": null
   },
-  "font": "Helvetica Neue, Arial, sans-serif"
+  "font": "Public Sans, Helvetica Neue, Arial, sans-serif",
+  "axis": {
+   "labelFontSize": 11,
+   "titleFontSize": 12,
+   "titleFontWeight": "normal",
+   "labelColor": "#6B7280",
+   "titleColor": "#6B7280"
+  },
+  "legend": {
+   "labelFontSize": 11,
+   "titleFontSize": 12,
+   "titleFontWeight": "bold",
+   "labelColor": "#374151",
+   "titleColor": "#374151"
+  }
  },
  "background": "#fffdf9",
  "layer": [

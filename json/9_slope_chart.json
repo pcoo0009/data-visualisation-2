@@ -22,9 +22,19 @@
    "stroke": null
   },
   "axis": {
-   "domain": false,
-   "ticks": false,
-   "gridColor": "#EEF0F3"
+   "labelFontSize": 11,
+   "titleFontSize": 12,
+   "titleFontWeight": "normal",
+   "labelColor": "#6B7280",
+   "titleColor": "#6B7280"
+  },
+  "font": "Public Sans, Helvetica Neue, Arial, sans-serif",
+  "legend": {
+   "labelFontSize": 11,
+   "titleFontSize": 12,
+   "titleFontWeight": "bold",
+   "labelColor": "#374151",
+   "titleColor": "#374151"
   }
  },
  "autosize": {
@@ -83,7 +93,7 @@
     },
     "symbolType": "stroke",
     "symbolStrokeWidth": 4,
-    "labelFontSize": 12,
+    "labelFontSize": 11,
     "columnPadding": 18,
     "rowPadding": 6,
     "labelLimit": 200,

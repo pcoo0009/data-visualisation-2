@@ -314,3 +314,6 @@ mark.hl {
   .pair.maps > .figure:last-child .chart .vega-embed > canvas,
   .pair.maps > .figure:last-child .chart .vega-embed > svg { margin-left: auto; margin-right: auto; }
 }
+
+/* Chart tooltips use the page's body font */
+#vg-tooltip-element, #vg-tooltip-element table, #vg-tooltip-element td { font-family: var(--font-body) !important; font-size: 0.8rem; }
